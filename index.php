@@ -8,16 +8,17 @@
 		$order;
 		$search;
 		$query;
+		$count;
 		$user = $_SERVER['PHP_AUTH_USER'];
-		if(isset($_POST["order"])){
-			$order = $_POST["order"];
+		if(isset($_GET["order"])){
+			$order = $_GET["order"];
 		}
 		else{
 			$order = 'name';
 		}
 		
-		if(isset($_POST["search"])){
-			$search = $_POST["search"];
+		if(isset($_GET["search"])){
+			$search = $_GET["search"];
 			$query = 'SELECT * FROM Movies WHERE name LIKE \'%'.$search.'%\' ORDER BY '.$order;
 		}
 		else{
@@ -34,19 +35,19 @@
 	<?php
 		}
 	?>
-		<form class="topMenu" id="searchForm" method="post" action="./">
+		<form class="topMenu" id="searchForm" method="get" action="./">
 			<input type="search" name="search" placeholder="Search...">
 		</form>
 	</div>
 <?php
-	if(isset($_POST["search"])){
+	if(isset($_GET["search"])){
 ?>
 	<div>
-		<p class="searchData">Displaying results for "<?php echo $search ?>"</p>
+		<p class="searchData">Displaying results for "<?php echo $search ?>" <a href="./"><img src="delete.png" width="15"></a></p>
 		<!--<a class="searchData" href="./"><button>Clear search</button></a>-->
-		<form class="searchData" method="post" action="./">
+		<!--<form class="searchData" method="get" action="./">
 			<input type="image" class="formButton" title="Clear search" src="delete.png">
-		</form>
+		</form>-->
 	</div>
 <?php
 	}
@@ -56,10 +57,10 @@
 		<tr>
 			<th></th>
 			<th>
-				<form method="post" action="./">
+				<form method="get" action="./">
 					<input type="hidden" name="order" value="name">
 			<?php
-				if(isset($_POST["search"])){
+				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
@@ -69,10 +70,10 @@
 				</form>
 			</th>
 			<th>
-				<form method="post" action="./">
+				<form method="get" action="./">
 					<input type="hidden" name="order" value="year">
 			<?php
-				if(isset($_POST["search"])){
+				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
@@ -82,10 +83,10 @@
 				</form>
 			</th>
 			<th>
-				<form method="post" action="./">
+				<form method="get" action="./">
 					<input type="hidden" name="order" value="time">
 			<?php
-				if(isset($_POST["search"])){
+				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
@@ -95,10 +96,10 @@
 				</form>
 			</th>
 			<th>
-				<form method="post" action="./">
+				<form method="get" action="./">
 					<input type="hidden" name="order" value="genre">
 			<?php
-				if(isset($_POST["search"])){
+				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
@@ -108,10 +109,10 @@
 				</form>
 			</th>
 			<th>
-				<form method="post" action="./">
+				<form method="get" action="./">
 					<input type="hidden" name="order" value="rating">
 			<?php
-				if(isset($_POST["search"])){
+				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
@@ -121,10 +122,10 @@
 				</form>
 			</th>
 			<th>
-				<form method="post" action="./">
+				<form method="get" action="./">
 					<input type="hidden" name="order" value="quality">
 			<?php
-				if(isset($_POST["search"])){
+				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
@@ -160,9 +161,24 @@
 				$rating = mysql_result($result,$i,'rating');
 				$quality = mysql_result($result,$i,'quality');
 				$link = mysql_result($result,$i,'link');
+
+				$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
+				$result_play = mysql_query($query_play,$connection) or die('Select failed!');
+				$count_play = mysql_result($result_play,0,'count(id)');
+
+				$file_loc;
+				if($count_play > 0){
 		?>
 				<tr>
+					<td><a href="play.php?id=<?php echo $id ?>"><img border="0" src="<?php echo $poster ?>" alt="Poster" width="40.5" height="60" /></a></td>
+		<?php
+				}
+				else{
+		?>
 					<td><img border="0" src="<?php echo $poster ?>" alt="Poster" width="40.5" height="60" /></td>
+		<?php
+				}
+		?>
 					<td><a href="<?php echo $link ?>"><?php echo $name ?></a></td>
 					<td><?php echo $year ?></td>
 					<td><?php echo $time ?></td>
@@ -190,11 +206,15 @@
 				</tr>
 		<?php
 			}
+			$query = 'SELECT count(id) FROM Movies';
+			$result = mysql_query($query,$connection) or die('Select failed!');
+			$count = mysql_result($result,0,'count(id)');
 			mysql_close($connection);
 		?>
 	</table>
 	</div>
-	<div>
+	<div align="center">
+		<p><?php echo $count ?> Movies</p>
 		<p id="copyright">&copy; <?php echo date('Y') ?> Viraj Chitnis</p>
 	</div>
 </body>

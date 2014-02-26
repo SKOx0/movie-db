@@ -4,6 +4,7 @@
 	<?php
 		$id;
 		$quality;
+		$file_name;
 		
 		$title;
 		$action;
@@ -19,6 +20,14 @@
 			$name = mysql_result($result,0,'name');
 			$year = mysql_result($result,0,'year');
 			$quality = mysql_result($result,0,'quality');
+
+			$result = mysql_query('SELECT count(id) FROM Files WHERE id=\''.$id.'\'',$connection) or die('Select failed!');
+			$file_count = mysql_result($result,0,'count(id)');
+
+			if($file_count > 0){
+				$result = mysql_query('SELECT file_name FROM Files WHERE id=\''.$id.'\'',$connection) or die('Select failed!');
+				$file_name = mysql_result($result,0,'file_name');
+			}
 			
 			mysql_close($connection);
 			
@@ -84,6 +93,18 @@
 				mysql_close($connection);
 			?>
 		</select>
+		<?php
+			if($file_count > 0){
+		?>
+				File name: <input type="text" name="file_name" value="<?php echo $file_name ?>">
+		<?php
+			}
+			else{
+		?>
+				File name: <input type="text" name="file_name">
+		<?php
+			}
+		?>
 		<br>
 		<input type="submit" value="Save">
 	</form>

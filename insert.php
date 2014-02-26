@@ -46,6 +46,13 @@
 		echo '<br>';
 		
 		$result = mysql_query($query,$connection) or die('Insert failed!');
+
+		if((isset($_POST["file_name"]))){
+			$file_name = $_POST["file_name"];
+
+			$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.$file_name.'\')';
+			$result = mysql_query($query,$connection) or die('Update failed!');
+		}
 		
 		mysql_close($connection);
 		
