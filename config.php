@@ -1,6 +1,6 @@
 <?php
 	$DATABASE = 'movies';
 	$HOSTNAME = 'localhost';
-	$USERNAME = 'chitnis';
-	$PASSWORD = 'chitnis_pass';
+	$USERNAME = 'movies_user';
+	$PASSWORD = 'movies_pass';
 ?>
