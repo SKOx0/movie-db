@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /var/www/html/chitnis.no-ip.org/movies/posters/
+cd /var/www/chitnis.no-ip.org/movies/posters/
 
 for f in *.jpg
 do
