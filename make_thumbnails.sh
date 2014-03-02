@@ -15,3 +15,5 @@ do
                 fi
         fi
 done
+
+echo "Created movie poster thumbnails!"
