@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /var/www/chitnis.no-ip.org/movies/posters/
+cd /var/www/chitnis.realassist.in/movies/posters/
 
 if [ ! -d backup ]; then
         mkdir backup
