@@ -2,12 +2,18 @@
 
 cd /var/www/chitnis.no-ip.org/movies/posters/
 
+if [ ! -d backup ]; then
+        mkdir backup
+fi
+
 for f in *.jpg
 do
-	if [ -f "${f}" ]; then
-		convert -strip -interlace Plane "${f}" prog_"${f}"
-		mv prog_"${f}" "${f}"
-	fi
+        if [ -f "${f}" ]; then
+                if [ ! -f backup/"${f}" ]; then
+                        mv "${f}" backup/"${f}"
+                        convert -strip -interlace Plane -thumbnail 40.5 backup/"${f}" "${f}"
+                fi
+        fi
 done
 
-echo "Posters converted to progressive."
+echo "Created thumbnails for Movie posters."
