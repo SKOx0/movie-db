@@ -15,5 +15,3 @@ do
                 fi
         fi
 done
-
-echo "Created thumbnails for Movie posters."
