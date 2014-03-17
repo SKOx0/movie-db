@@ -27,6 +27,13 @@
 		$source = file_get_contents('http://www.omdbapi.com/?i='.$id);
 		$info = json_decode($source, TRUE);
 		
+		if (file_exists("posters/".$id.".jpg")) {
+			exec("rm posters/".$id.".jpg");
+		}
+		if (file_exists("rm posters/backup/".$id.".jpg") {
+			exec("rm posters/backup/".$id.".jpg");
+		}
+		
 		$poster = 'posters/'.$id.'.jpg';
 		downloadFile($info['Poster'], $poster);
 		$name = $info['Title'];
