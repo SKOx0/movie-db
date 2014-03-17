@@ -12,6 +12,7 @@
 		unlink($poster);
 		
 		$result = mysql_query('DELETE FROM Movies WHERE id=\''.$id.'\'',$connection) or die('Delete failed!');
+		$result = mysql_query('DELETE FROM Files WHERE id=\''.$id.'\'',$connection) or die('Delete failed!');
 		mysql_close($connection);
 		
 		header('Location: ./');
