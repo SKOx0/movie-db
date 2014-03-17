@@ -44,8 +44,7 @@
 		$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 		mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 		
-		$query_unesc = 'INSERT INTO Movies VALUES(\''.$id.'\',\''.$poster.'\',\''.$name.'\',\''.$year.'\',\''.$time.'\',\''.$genre.'\',\''.$rating.'\',\''.$quality.'\',\''.$link.'\')';
-		$query = mysql_real_escape_string($query_unesc);
+		$query = 'INSERT INTO Movies VALUES(\''.$id.'\',\''.$poster.'\',\''.mysql_real_escape_string($name).'\',\''.$year.'\',\''.$time.'\',\''.$genre.'\',\''.$rating.'\',\''.$quality.'\',\''.$link.'\')';
 		
 		echo $query;
 		echo '<br>';
@@ -55,7 +54,7 @@
 		if((isset($_POST["file_name"]))){
 			$file_name = $_POST["file_name"];
 
-			$query_unesc = 'INSERT INTO Files VALUES(\''.$id.'\',\''.$file_name.'\')';
+			$query_unesc = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
 			$query = mysql_real_escape_string($query_unesc);
 			$result = mysql_query($query,$connection) or die('Update failed!');
 		}
