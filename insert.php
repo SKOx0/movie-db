@@ -61,8 +61,7 @@
 		if((isset($_POST["file_name"]))){
 			$file_name = $_POST["file_name"];
 
-			$query_unesc = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
-			$query = mysql_real_escape_string($query_unesc);
+			$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
 			$result = mysql_query($query,$connection) or die('Update failed!');
 		}
 		
