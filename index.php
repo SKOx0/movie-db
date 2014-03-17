@@ -38,6 +38,8 @@
 		<form class="topMenu" id="searchForm" method="get" action="./">
 			<input type="search" name="search" placeholder="Search...">
 		</form>
+		<a class="topMenu" href="gitupdate.php"><button>Update</button></a>
+		<p class="topMenu"><?php echo exec("git describe"); ?></p>
 	</div>
 <?php
 	if(isset($_GET["search"])){
