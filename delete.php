@@ -9,7 +9,8 @@
 		$result = mysql_query('SELECT poster FROM Movies WHERE id=\''.$id.'\'',$connection);
 		$poster = mysql_result($result,0,'poster');
 		
-		unlink($poster);
+		exec("rm posters/".$id.".jpg");
+		exec("rm posters/backup/".$id.".jpg");
 		
 		$result = mysql_query('DELETE FROM Movies WHERE id=\''.$id.'\'',$connection) or die('Delete failed!');
 		$result = mysql_query('DELETE FROM Files WHERE id=\''.$id.'\'',$connection) or die('Delete failed!');
