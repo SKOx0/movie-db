@@ -30,7 +30,7 @@
 		if (file_exists("posters/".$id.".jpg")) {
 			exec("rm posters/".$id.".jpg");
 		}
-		if (file_exists("rm posters/backup/".$id.".jpg") {
+		if (file_exists("rm posters/backup/".$id.".jpg")) {
 			exec("rm posters/backup/".$id.".jpg");
 		}
 		
