@@ -36,6 +36,10 @@
 		$rating = $info['Rated'];
 		$link = 'http://www.imdb.com/title/'.$id;
 		
+		// Convert poster to progressive JPEG
+		exec("mv posters/".$id.".jpg posters/backup/".$id.".jpg");
+		exec("convert -strip -interlace Plane -thumbnail 40.5 posters/backup/".$id.".jpg posters/".$id.".jpg");
+		
 		include 'config.php';
 		$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 		mysql_select_db($DATABASE,$connection) or die('Database select failed!');
