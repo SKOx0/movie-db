@@ -38,8 +38,6 @@
 		<form class="topMenu" id="searchForm" method="get" action="./">
 			<input type="search" name="search" placeholder="Search...">
 		</form>
-		<a class="topMenu" href="gitupdate.php"><button>Update</button></a>
-		<p class="topMenu"><?php echo exec("git describe"); ?></p>
 	</div>
 <?php
 	if(isset($_GET["search"])){
@@ -217,6 +215,7 @@
 	</div>
 	<div align="center">
 		<p><?php echo $count ?> Movies</p>
+		<p><?php echo exec("git describe"); ?> <a href="gitupdate.php"><button>Update</button></a></p>
 		<p id="copyright">&copy; <?php echo date('Y') ?> Viraj Chitnis</p>
 	</div>
 </body>
