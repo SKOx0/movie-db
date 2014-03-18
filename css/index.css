@@ -12,4 +12,6 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 
 .formButton			{ height:15px; width:15px; }
 
+#clearSearchButton	{ width:15px; background-image:url(/images/delete.png); }
+
 #copyright			{ font-size:8pt; }

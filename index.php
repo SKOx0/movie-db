@@ -93,7 +93,7 @@
 		<?php
 			}
 		?>
-			<input type="image" src="images/delete.png" width="15" alt="Clear search" />
+			<input id="clearSearchButton" type="submit" value="">
 		</form>
 		</p>
 		<!--<a class="searchData" href="./"><button>Clear search</button></a>-->
