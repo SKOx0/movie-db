@@ -80,7 +80,22 @@
 	if(isset($_GET["search"])){
 ?>
 	<div>
-		<p class="searchData">Displaying results for "<?php echo $search ?>" <a href="./"><img src="images/delete.png" width="15"></a></p>
+		<p class="searchData">Displaying results for "<?php echo $search ?>" <form class="searchData" method="get" action="./">
+		<?php
+			if(isset($_GET["order"])){
+		?>
+				<input type="hidden" name="order" value="<?php echo $order ?>">
+		<?php
+			}
+			if(isset($_GET["edit"])){
+		?>
+				<input type="hidden" name="edit" value="<?php echo $edit ?>">
+		<?php
+			}
+		?>
+			<input type="image" src="images/delete.png" width="15" alt="Clear search" />
+		</form>
+		</p>
 		<!--<a class="searchData" href="./"><button>Clear search</button></a>-->
 		<!--<form class="searchData" method="get" action="./">
 			<input type="image" class="formButton" title="Clear search" src="images/delete.png">
