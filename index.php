@@ -23,6 +23,13 @@
 		else{
 			$query = 'SELECT * FROM Movies ORDER BY '.$order;
 		}
+		
+		if(isset($_GET["edit"])){
+			$edit = true;
+		}
+		else{
+			$edit = false;
+		}
 	?>
 </head>
 <body>
