@@ -25,17 +25,41 @@
 		}
 		
 		if(isset($_GET["edit"])){
-			$edit = true;
+			$edit = $_GET["edit"];
 		}
 		else{
-			$edit = false;
+			$edit = "false";
 		}
 	?>
 </head>
 <body>
 	<div>
 		<a class="topMenu" href="edit.php"><button>Add Movie</button></a>
-		<a class="topMenu" href="."><button>Edit mode: Off</button></a>
+		<form class="topMenu" method="get" action="./">
+		<?php
+			if(isset($_GET["order"])){
+		?>
+				<input type="hidden" name="order" value="<?php echo $order ?>">
+		<?php
+			}
+			if(isset($_GET["search"])){
+		?>
+				<input type="hidden" name="search" value="<?php echo $search ?>">
+		<?php
+			}
+			if ($edit == "true") {
+		?>
+				<input type="submit" value="Edit mode: On">
+		<?php
+			}
+			else {
+		?>
+				<input type="hidden" name="edit" value="<?php echo $edit ?>">
+				<input type="submit" value="Edit mode: Off">
+		<?php
+			}
+		?>
+		</form>
 		<form class="topMenu" id="searchForm" method="get" action="./">
 			<input type="search" name="search" placeholder="Search...">
 		</form>
@@ -66,6 +90,11 @@
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
 				}
+				if(isset($_GET["edit"])){
+			?>
+					<input type="hidden" name="edit" value="<?php echo $edit ?>">
+			<?php
+				}
 			?>
 					<input type="submit" class="header" value="Name">
 				</form>
@@ -77,6 +106,11 @@
 				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
+			<?php
+				}
+				if(isset($_GET["edit"])){
+			?>
+					<input type="hidden" name="edit" value="<?php echo $edit ?>">
 			<?php
 				}
 			?>
@@ -92,6 +126,11 @@
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
 				}
+				if(isset($_GET["edit"])){
+			?>
+					<input type="hidden" name="edit" value="<?php echo $edit ?>">
+			<?php
+				}
 			?>
 					<input type="submit" class="header" value="Duration">
 				</form>
@@ -103,6 +142,11 @@
 				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
+			<?php
+				}
+				if(isset($_GET["edit"])){
+			?>
+					<input type="hidden" name="edit" value="<?php echo $edit ?>">
 			<?php
 				}
 			?>
@@ -118,6 +162,11 @@
 					<input type="hidden" name="search" value="<?php echo $search ?>">
 			<?php
 				}
+				if(isset($_GET["edit"])){
+			?>
+					<input type="hidden" name="edit" value="<?php echo $edit ?>">
+			<?php
+				}
 			?>
 					<input type="submit" class="header" value="Rating">
 				</form>
@@ -129,6 +178,11 @@
 				if(isset($_GET["search"])){
 			?>
 					<input type="hidden" name="search" value="<?php echo $search ?>">
+			<?php
+				}
+				if(isset($_GET["edit"])){
+			?>
+					<input type="hidden" name="edit" value="<?php echo $edit ?>">
 			<?php
 				}
 			?>
