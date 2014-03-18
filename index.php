@@ -215,7 +215,21 @@
 	</div>
 	<div align="center">
 		<p><?php echo $count ?> Movies</p>
-		<p><?php echo exec("git describe"); ?> <a href="gitupdate.php"><button>Update</button></a></p>
+		<?php
+        	if (file_exists(".git")) {
+        		$git_branch = exec("git branch | grep '*' | awk '{print $2}'");
+        		$branch;
+        		if ($git_branch == "master") {
+        			$branch = "stable";
+        		}
+        		else {
+        			$branch = $git_branch;
+        		}
+        ?>
+				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>)<a href="gitupdate.php"><button>Update</button></a></p>
+		<?php
+			}
+		?>
 		<p id="copyright">&copy; <?php echo date('Y') ?> Viraj Chitnis</p>
 	</div>
 </body>
