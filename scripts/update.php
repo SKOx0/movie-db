@@ -12,18 +12,20 @@
 
 		if((isset($_POST["file_name"]))){
 			$file_name = $_POST["file_name"];
-
-			$query = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
-			$result = mysql_query($query,$connection) or die('Update failed!');
-			$count_id = mysql_result($result,0,'count(id)');
-
-			if($count_id > 0){
-				$query = 'UPDATE Files SET file_name=\''.mysql_real_escape_string($file_name).'\' WHERE id=\''.$id.'\'';
+			
+			if (!empty($file_name)) {
+				$query = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
 				$result = mysql_query($query,$connection) or die('Update failed!');
-			}
-			else{
-				$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
-				$result = mysql_query($query,$connection) or die('Update failed!');
+				$count_id = mysql_result($result,0,'count(id)');
+
+				if($count_id > 0){
+					$query = 'UPDATE Files SET file_name=\''.mysql_real_escape_string($file_name).'\' WHERE id=\''.$id.'\'';
+					$result = mysql_query($query,$connection) or die('Update failed!');
+				}
+				else{
+					$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
+					$result = mysql_query($query,$connection) or die('Update failed!');
+				}
 			}
 		}
 		
