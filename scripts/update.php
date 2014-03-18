@@ -1,6 +1,6 @@
 <?php
 	if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
-		include 'config.php';
+		include '../config/config.php';
 		$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 		mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 		$id = $_POST["id"];

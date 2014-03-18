@@ -8,7 +8,7 @@
 			if(isset($_GET["id"])){
 				$id = $_GET["id"];
 
-				include 'config.php';
+				include 'config/config.php';
 				$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 				mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 
@@ -19,8 +19,6 @@
 				$query = 'SELECT file_name FROM Files WHERE id=\''.$id.'\'';
 				$result = mysql_query($query,$connection) or die('Select failed!');
 				$file_name = mysql_result($result,0,'file_name');
-
-				//echo "<script type='text/javascript'>alert('$file_name');</script>";
 
 				$link_quality;
 				if($quality == '1080p HD'){
