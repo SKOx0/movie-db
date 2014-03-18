@@ -1,6 +1,6 @@
 #!/usr/bin/php
 
 <?php
-	exec("git pull; git fetch --tags");
+	exec("./update.sh");
 	header('Location: ./');
 ?>
