@@ -47,15 +47,15 @@
 				<input type="hidden" name="search" value="<?php echo $search ?>">
 		<?php
 			}
-			if ($edit == "true") {
+			if ($edit == "false") {
 		?>
-				<input type="submit" value="Edit mode: On">
+				<input type="hidden" name="edit" value="true">
+				<input type="submit" value="Edit mode: Off">
 		<?php
 			}
 			else {
 		?>
-				<input type="hidden" name="edit" value="<?php echo $edit ?>">
-				<input type="submit" value="Edit mode: Off">
+				<input type="submit" value="Edit mode: On">
 		<?php
 			}
 		?>
