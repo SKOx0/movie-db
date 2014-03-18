@@ -9,7 +9,6 @@
 		$search;
 		$query;
 		$count;
-		$user = $_SERVER['PHP_AUTH_USER'];
 		if(isset($_GET["order"])){
 			$order = $_GET["order"];
 		}
@@ -28,13 +27,7 @@
 </head>
 <body>
 	<div>
-	<?php
-		if($user=='viraj'){
-	?>
-			<a class="topMenu" href="edit.php"><button>Add Movie</button></a>
-	<?php
-		}
-	?>
+		<a class="topMenu" href="edit.php"><button>Add Movie</button></a>
 		<form class="topMenu" id="searchForm" method="get" action="./">
 			<input type="search" name="search" placeholder="Search...">
 		</form>
@@ -133,15 +126,9 @@
 			?>
 					<input type="submit" class="header" value="Quality">
 				</form>
-			</th>
-			<?php
-				if($user=='viraj'){
-			?>		
-					<th></th>
-					<th></th>
-			<?php
-				}
-			?>
+			</th>		
+			<th></th>
+			<th></th>
 		</tr>
 		<?php
 			include 'config/config.php';
@@ -190,9 +177,6 @@
 					<td><?php echo $genre ?></td>
 					<td><?php echo $rating ?></td>
 					<td><?php echo $quality ?></td>
-			<?php
-				if($user=='viraj'){
-			?>
 					<td>
 						<form method="post" action="edit.php">
 							<input type="hidden" name="id" value="<?php echo $id ?>">
@@ -205,9 +189,6 @@
 							<input type="image" class="formButton" title="Delete" src="images/delete.png">
 						</form>
 					</td>
-			<?php
-				}
-			?>
 				</tr>
 		<?php
 			}
