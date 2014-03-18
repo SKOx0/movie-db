@@ -235,7 +235,7 @@
 		<?php
 			}
 		?>
-		<p id="copyright">&copy; <?php echo date('Y') ?> Viraj Chitnis</p>
+		<p id="copyright">Authored by Viraj Chitnis</p>
 	</div>
 </body>
 </html>
