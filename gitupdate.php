@@ -1,4 +1,4 @@
 <?php
-	exec("./update.sh");
+	exec("git pull; git fetch --tags");
 	header('Location: ./');
 ?>
