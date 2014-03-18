@@ -61,6 +61,18 @@
 		?>
 		</form>
 		<form class="topMenu" id="searchForm" method="get" action="./">
+		<?php
+			if(isset($_GET["order"])){
+		?>
+				<input type="hidden" name="order" value="<?php echo $order ?>">
+		<?php
+			}
+			if(isset($_GET["edit"])){
+		?>
+				<input type="hidden" name="edit" value="<?php echo $edit ?>">
+		<?php
+			}
+		?>
 			<input type="search" name="search" placeholder="Search...">
 		</form>
 	</div>
