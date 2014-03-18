@@ -27,6 +27,14 @@
 		$source = file_get_contents('http://www.omdbapi.com/?i='.$id);
 		$info = json_decode($source, TRUE);
 		
+		if(!file_exists("posters")) {
+			exec("mkdir posters");
+		}
+		
+		if(!file_exists("posters/backup")) {
+			exec("mkdir posters/backup");
+		}
+		
 		if (file_exists("posters/".$id.".jpg")) {
 			exec("rm posters/".$id.".jpg");
 		}
