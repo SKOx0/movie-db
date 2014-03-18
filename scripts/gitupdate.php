@@ -1,4 +1,4 @@
 <?php
-	exec("cd ..; sudo git pull; sudo git fetch --tags");
+	exec("/usr/bin/git pull; /usr/bin/git fetch --tags");
 	header('Location: ../');
 ?>
