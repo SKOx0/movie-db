@@ -18,4 +18,7 @@
 		
 		header('Location: ../');
 	}
+	else {
+		header('Location: ../');
+	}
 ?>
