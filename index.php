@@ -13,7 +13,7 @@
 			$order = $_GET["order"];
 		}
 		else{
-			$order = 'name';
+			header('Location: http://'.$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI].'&order=name');
 		}
 		
 		if(isset($_GET["search"])){
