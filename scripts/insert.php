@@ -75,7 +75,7 @@
 		
 		mysql_close($connection);
 		
-		header('Location: ./');
+		header('Location: ../');
 	}
 	else{
 		echo 'No field must be empty, please go back and fill all fields.';
