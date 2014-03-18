@@ -27,6 +27,7 @@
 	?>
 </head>
 <body>
+	<div class="wrapper">
 	<div>
 	<?php
 		if($user=='viraj'){
@@ -218,6 +219,9 @@
 		?>
 	</table>
 	</div>
+	<div class="push"></div>
+	</div>
+	<div class="footer">
 	<div align="center">
 		<p><?php echo $count ?> Movies</p>
 		<?php
@@ -235,7 +239,8 @@
 		<?php
 			}
 		?>
-		<p id="copyright">&copy; <?php echo date('Y') ?> Viraj Chitnis</p>
+		<p id="copyright">Authored by Viraj Chitnis</p>
+	</div>
 	</div>
 </body>
 </html>
