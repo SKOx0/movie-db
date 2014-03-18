@@ -68,9 +68,11 @@
 
 		if((isset($_POST["file_name"]))){
 			$file_name = $_POST["file_name"];
-
-			$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
-			$result = mysql_query($query,$connection) or die('Update failed!');
+			
+			if (!empty($file_name)) {
+				$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
+				$result = mysql_query($query,$connection) or die('Update failed!');
+			}
 		}
 		
 		mysql_close($connection);
