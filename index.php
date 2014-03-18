@@ -161,12 +161,17 @@
 				$rating = mysql_result($result,$i,'rating');
 				$quality = mysql_result($result,$i,'quality');
 				$link = mysql_result($result,$i,'link');
-
-				$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
-				$result_play = mysql_query($query_play,$connection) or die('Select failed!');
-				$count_play = mysql_result($result_play,0,'count(id)');
-
-				$file_loc;
+				
+				$count_play;
+				if (file_exists("movies")) {
+					$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
+					$result_play = mysql_query($query_play,$connection) or die('Select failed!');
+					$count_play = mysql_result($result_play,0,'count(id)');
+				}
+				else {
+					$count_play = 0;
+				}
+				
 				if($count_play > 0){
 		?>
 				<tr>
