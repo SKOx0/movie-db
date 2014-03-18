@@ -11,7 +11,7 @@
 		if(isset($_POST["id"])){
 			$id = $_POST["id"];
 			
-			include 'config.php';
+			include 'config/config.php';
 			$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 			
@@ -32,14 +32,14 @@
 			mysql_close($connection);
 			
 			$title = 'Edit '.$name.' ('.$year.')';
-			$action = 'update.php';
+			$action = 'scripts/update.php';
 		}
 		else{
 			$id = '';
 			$quality = '';
 			
 			$title = 'Add a movie';
-			$action = 'insert.php';
+			$action = 'scripts/insert.php';
 		}
 	?>
 	<meta charset="UTF-8">
@@ -68,7 +68,7 @@
 			<?php
 				}
 				
-				include 'config.php';
+				include 'config/config.php';
 				$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 				mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 				

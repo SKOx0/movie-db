@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
-	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="css/index.css">
 	<?php
 		$order;
 		$search;
@@ -43,10 +43,10 @@
 	if(isset($_GET["search"])){
 ?>
 	<div>
-		<p class="searchData">Displaying results for "<?php echo $search ?>" <a href="./"><img src="delete.png" width="15"></a></p>
+		<p class="searchData">Displaying results for "<?php echo $search ?>" <a href="./"><img src="images/delete.png" width="15"></a></p>
 		<!--<a class="searchData" href="./"><button>Clear search</button></a>-->
 		<!--<form class="searchData" method="get" action="./">
-			<input type="image" class="formButton" title="Clear search" src="delete.png">
+			<input type="image" class="formButton" title="Clear search" src="images/delete.png">
 		</form>-->
 	</div>
 <?php
@@ -144,7 +144,7 @@
 			?>
 		</tr>
 		<?php
-			include 'config.php';
+			include 'config/config.php';
 			$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 			
@@ -191,13 +191,13 @@
 					<td>
 						<form method="post" action="edit.php">
 							<input type="hidden" name="id" value="<?php echo $id ?>">
-							<input type="image" class="formButton" title="Edit" src="edit.png">
+							<input type="image" class="formButton" title="Edit" src="images/edit.png">
 						</form>
 					</td>
 					<td>
-						<form method="post" action="delete.php">
+						<form method="post" action="scripts/delete.php">
 							<input type="hidden" name="id" value="<?php echo $id ?>">
-							<input type="image" class="formButton" title="Delete" src="delete.png">
+							<input type="image" class="formButton" title="Delete" src="images/delete.png">
 						</form>
 					</td>
 			<?php
@@ -226,7 +226,7 @@
         			$branch = $git_branch;
         		}
         ?>
-				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) <a href="gitupdate.php"><button>Update</button></a></p>
+				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) <a href="scripts/gitupdate.php"><button>Update</button></a></p>
 		<?php
 			}
 		?>
