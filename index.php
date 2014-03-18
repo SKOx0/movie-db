@@ -28,6 +28,7 @@
 <body>
 	<div>
 		<a class="topMenu" href="edit.php"><button>Add Movie</button></a>
+		<a class="topMenu" href="."><button>Edit mode: Off</button></a>
 		<form class="topMenu" id="searchForm" method="get" action="./">
 			<input type="search" name="search" placeholder="Search...">
 		</form>
