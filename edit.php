@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="js/edit.js"></script>
 	<?php
 		$id;
 		$quality;
@@ -47,7 +48,7 @@
 	<link rel="stylesheet" href="index.css">
 </head>
 <body>
-	<form style="display: inline" action="<?php echo $action ?>" method="post">
+	<form style="display: inline" action="<?php echo $action ?>" method="post" name="movie_form" onsubmit="return validateForm()">
 	<?php
 		if(isset($_POST["id"])){
 	?>
