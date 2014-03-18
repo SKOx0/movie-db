@@ -24,6 +24,7 @@
 		$id = $_POST["id"];
 		$quality = $_POST["quality"];
 		
+		include '../config/config.php';
 		$query = 'SELECT count(id) FROM Movies WHERE id=\''.$id.'\'';
 		$result = mysql_query($query,$connection) or die('Update failed!');
 		$count_id = mysql_result($result,0,'count(id)');
@@ -60,7 +61,6 @@
 			exec("mv ../posters/".$id.".jpg ../posters/backup/".$id.".jpg");
 			exec("convert -strip -interlace Plane -thumbnail 40.5 ../posters/backup/".$id.".jpg ../posters/".$id.".jpg");
 			
-			include '../config/config.php';
 			$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 		
