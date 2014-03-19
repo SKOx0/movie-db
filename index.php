@@ -319,7 +319,15 @@
         			$branch = $git_branch;
         		}
         ?>
-				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) <a href="scripts/gitupdate.php"><button>Update</button></a></p>
+				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) <a href="scripts/gitupdate.php">
+				<?php
+					if ($edit == "true") {
+				?>
+						<button>Update</button></a>
+				<?php
+					}
+				?>
+				</p>
 		<?php
 			}
 		?>
