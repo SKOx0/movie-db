@@ -31,7 +31,7 @@
 		$result = mysql_query($query,$connection) or die('Update failed!');
 		$count_id = mysql_result($result,0,'count(id)');
 		
-		if($count_id < 0){
+		if($count_id == 0){
 			$source = file_get_contents('http://www.omdbapi.com/?i='.$id);
 			$info = json_decode($source, TRUE);
 		
