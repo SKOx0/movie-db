@@ -34,7 +34,13 @@
 </head>
 <body>
 	<div>
-		<a class="topMenu" href="edit.php"><button>Add Movie</button></a>
+		<?php
+			if ($edit == "true") {
+		?>
+				<a class="topMenu" href="edit.php"><button>Add Movie</button></a>
+		<?php
+			}
+		?>
 		<form class="topMenu" method="get" action="./">
 		<?php
 			if(isset($_GET["order"])){
@@ -215,9 +221,15 @@
 			?>
 					<input type="submit" class="header" value="Quality">
 				</form>
-			</th>		
-			<th></th>
-			<th></th>
+			</th>
+			<?php
+				if ($edit == "true") {
+			?>
+					<th></th>
+					<th></th>
+			<?php
+				}
+			?>
 		</tr>
 		<?php
 			include 'config/config.php';
@@ -266,18 +278,24 @@
 					<td><?php echo $genre ?></td>
 					<td><?php echo $rating ?></td>
 					<td><?php echo $quality ?></td>
-					<td>
-						<form method="post" action="edit.php">
-							<input type="hidden" name="id" value="<?php echo $id ?>">
-							<input type="image" class="formButton" title="Edit" src="images/edit.png">
-						</form>
-					</td>
-					<td>
-						<form method="post" action="scripts/delete.php">
-							<input type="hidden" name="id" value="<?php echo $id ?>">
-							<input type="image" class="formButton" title="Delete" src="images/delete.png">
-						</form>
-					</td>
+					<?php
+						if ($edit == "true") {
+					?>
+							<td>
+								<form method="post" action="edit.php">
+									<input type="hidden" name="id" value="<?php echo $id ?>">
+									<input type="image" class="formButton" title="Edit" src="images/edit.png">
+								</form>
+							</td>
+							<td>
+								<form method="post" action="scripts/delete.php">
+									<input type="hidden" name="id" value="<?php echo $id ?>">
+									<input type="image" class="formButton" title="Delete" src="images/delete.png">
+								</form>
+							</td>
+					<?php
+						}
+					?>
 				</tr>
 		<?php
 			}
