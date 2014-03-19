@@ -323,10 +323,11 @@
 				<?php
 					if ($edit == "true") {
 				?>
-						<button>Update</button></a>
+						<button>Update</button>
 				<?php
 					}
 				?>
+				</a>
 				</p>
 		<?php
 			}
