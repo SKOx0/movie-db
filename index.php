@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
 	<link rel="stylesheet" href="css/index.css">
+	<script src="js/openlink.js"></script>
 	<?php
 		$order;
 		$search;
@@ -319,15 +320,14 @@
         			$branch = $git_branch;
         		}
         ?>
-				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) <a href="scripts/gitupdate.php">
+				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) 
 				<?php
 					if ($edit == "true") {
 				?>
-						<button>Update</button>
+						<button onclick="openLink('scripts/gitupdate.php')">Update</button>
 				<?php
 					}
 				?>
-				</a>
 				</p>
 		<?php
 			}
