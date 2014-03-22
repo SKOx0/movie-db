@@ -326,7 +326,8 @@
 						if (file_exists('movies.sql.gz')) {
 							exec("rm movies.sql.gz");
 						}
-						exec("/usr/bin/mysqldump -u root -pnfscarbon movies > movies.sql; gzip movies.sql");
+						include('config/config.php');
+						exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies > movies.sql; gzip movies.sql");
 				?>
 						<button onclick="openLink('scripts/gitupdate.php')">Update</button> 
 						<button onclick="openLink('movies.sql.gz')">Backup</button>
