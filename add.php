@@ -8,8 +8,8 @@
 		?>
 	</head>
 	<body>
-		<div id="movies_list">
-			<form>
+		<div>
+			<form id="movies_list">
 				<input type="text" name="id" placeholder="IMDB ID">
 				<select name="quality">
 					<?php
