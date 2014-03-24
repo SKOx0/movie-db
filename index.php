@@ -336,6 +336,7 @@
 				?>
 						<button onclick="openLink('scripts/gitupdate.php')">Update</button> 
 						<button onclick="openLink('moviedb.mbk')">Backup</button>
+						<button onclick="openLink('restore.php')">Restore</button>
 				<?php
 					}
 				?>
