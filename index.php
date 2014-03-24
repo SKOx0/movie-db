@@ -38,7 +38,7 @@
 		<?php
 			if ($edit == "true") {
 		?>
-				<a class="topMenu" onclick="openLink('edit.php')"><button>Add Movie</button></a>
+				<a class="topMenu" onclick="openLink('add.php')"><button>Add Movie</button></a>
 		<?php
 			}
 		?>
