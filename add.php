@@ -2,7 +2,7 @@
 	<head>
 		<title>Add a movie</title>
 		<?php
-			$result;
+			$qualities = array();
 		?>
 	</head>
 	<body>
@@ -19,6 +19,7 @@
 					$numrows = mysql_numrows($result);
 					for($i = 0; $i < $numrows; $i++){
 						$value = mysql_result($result,$i,'quality');
+						array_push($qualities, $value);
 				?>
 						<option value="<?php echo $value ?>"><?php echo $value ?></option>
 				<?php
@@ -28,7 +29,7 @@
 			</select>
 			<input type="text" name="file_name" placeholder="File name">
 		</form>
-		<p><?php echo json_encode($result); ?></p>
-		<p><?php echo var_dump($result); ?></p>
+		<p><?php echo json_encode($qualities); ?></p>
+		<p><?php echo var_dump($qualities); ?></p>
 	</body>
 </html>
