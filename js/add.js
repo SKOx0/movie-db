@@ -1,5 +1,6 @@
 function addMovie () {
 	var qualities = JSON.parse(document.getElementById('json_holder').innerHTML);
+	alert(qualities.join('\n'));
 	var parent = document.getElementById('movies_list');
 	
 	var breakLine = document.createElement('br');
