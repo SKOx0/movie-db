@@ -1,6 +1,6 @@
 <?php
-	$extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
-	if ($extension === ".mbk") {
+	//$extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+	//if ($extension === ".mbk") {
 		if ($_FILES["file"]["error"] > 0) {
 			echo "Error: ".$_FILES["file"]["error"]."<br>";
 		}
@@ -20,8 +20,8 @@
 				echo "Stored in: restore.mbk";
 			}
 		}
-	}
-	else {
-		echo "Invalid file";
-	}
+		//}
+	//else {
+	//	echo "Invalid file";
+	//}
 ?>
