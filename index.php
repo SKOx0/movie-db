@@ -323,14 +323,19 @@
 				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) 
 				<?php
 					if ($edit == "true") {
-						if (file_exists('movies.sql.gz')) {
-							exec("rm movies.sql.gz");
+						if (file_exists('movies.sql')) {
+							exec("rm movies.sql");
+						}
+						if (file_exists('moviedb.mbk')) {
+							exec("rm moviedb.mbk");
 						}
 						include('config/config.php');
-						exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies > movies.sql; gzip movies.sql");
+						exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies > movies.sql");
+						exec("tar -cf moviedb posters movies.sql");
+						exec("gzip -S .mbk moviedb");
 				?>
 						<button onclick="openLink('scripts/gitupdate.php')">Update</button> 
-						<button onclick="openLink('movies.sql.gz')">Backup</button>
+						<button onclick="openLink('moviedb.mbk')">Backup</button>
 				<?php
 					}
 				?>
