@@ -1,6 +1,9 @@
 <html>
 	<head>
 		<title>Add a movie</title>
+		<?php
+			$result;
+		?>
 	</head>
 	<body>
 		<form>
@@ -25,6 +28,7 @@
 			</select>
 			<input type="text" name="file_name" placeholder="File name">
 		</form>
-		<p><?php echo json_encode($result);?></p>
+		<p><?php echo json_encode($result); ?></p>
+		<p><?php echo var_dump($result); ?></p>
 	</body>
 </html>
