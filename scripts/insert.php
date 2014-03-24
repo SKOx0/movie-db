@@ -86,19 +86,6 @@
 		
 		header('Location: ../');
 	}
-	else if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
-		$id = $_POST["id"];
-		$quality = $_POST["quality"];
-		$filename;
-		
-		if (isset($_POST['file_name'])) {
-			$filename = $_POST['file_name'];
-		}
-		
-		addMovie($id, $quality, $filename);
-		
-		header('Location: ../');
-	}
 	else{
 		header('Location: ../');
 	}

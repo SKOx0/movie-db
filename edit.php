@@ -36,6 +36,7 @@
 			$action = 'scripts/update.php';
 		}
 		else{
+			header('Location: .');
 			$id = '';
 			$quality = '';
 			
