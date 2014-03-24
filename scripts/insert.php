@@ -75,32 +75,16 @@
 
 	if (isset($_POST['json'])) {
 		$movies = json_decode($_POST['json'], true);
-		print_r($movies);
-		
-		echo "<br>";
-		echo $movies[0]['id'];
-		echo "<br>";
-		echo $movies[0]['quality'];
-		echo "<br>";
-		echo $movies[0]['filename'];
-		echo "<br>";
 		
 		for ($i = 0; $i < count($movies); $i++) {
 			$id = $movies[$i]['id'];
 			$quality = $movies[$i]['quality'];
 			$filename = $movies[$i]['filename'];
 			
-			print_r($id);
-			echo "<br>";
-			print_r($quality);
-			echo "<br>";
-			print_r($filename);
-			echo "<br>";
-			
-			//addMovie($id, $quality, $filename);
+			addMovie($id, $quality, $filename);
 		}
 		
-		//header('Location: ../');
+		header('Location: ../');
 	}
 	else if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
 		$id = $_POST["id"];
