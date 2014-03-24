@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<script src="js/openlink.js"></script>
+		<script src="js/add.js"></script>
 		<title>Add a movie</title>
 		<?php
 			$qualities = array();
