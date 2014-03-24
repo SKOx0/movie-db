@@ -51,4 +51,5 @@ function createJSON () {
 	var jsonified = JSON.stringify(movies);
 	alert(jsonified);
 	document.getElementById('save_button').elements[0].value = jsonified;
+	return false;
 }
