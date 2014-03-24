@@ -20,7 +20,12 @@
 		}
 	}
 
-	if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
+	if (isset($_POST['json'])) {
+		$movies = json_decode($_POST['json']);
+		var_dump($movies);
+		print_r($movies);
+	}
+	else if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
 		$id = $_POST["id"];
 		$quality = $_POST["quality"];
 		
