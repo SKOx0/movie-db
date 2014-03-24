@@ -10,9 +10,9 @@ function addMovie () {
 	space2.innerHTML = " ";
 	
 	var idText = document.createElement('input');
-	categoryText.setAttribute('type', 'text');
-	categoryText.setAttribute('name', 'id');
-	categoryText.setAttribute('placeholder', 'IMDB ID');
+	idText.setAttribute('type', 'text');
+	idText.setAttribute('name', 'id');
+	idText.setAttribute('placeholder', 'IMDB ID');
 	
 	var qualitySelect = document.createElement('select');
 	qualitySelect.setAttribute('name', 'quality');
