@@ -20,7 +20,6 @@ Proceedure -
   - Clone this repository into your Apache root directory.
   - Create a MySQL database to store your movie info in.
   - Create a MySQL user and password with privileges for this database only.
-  - Use the database.mysql file in the config directory to create tables in your database.
   - Copy the 'config.sample.php' file in the config directory to config.php and edit the variables within it to suit your needs.
   - Navigate to ${yourlampip}/movie-db to use it.
   - To install future updates, simply click on the 'Update' button at the bottom of the main page.
