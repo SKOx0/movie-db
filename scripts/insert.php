@@ -70,6 +70,7 @@
 			}
 			
 			mysql_close($connection);
+		}
 	}
 
 	if (isset($_POST['json'])) {
