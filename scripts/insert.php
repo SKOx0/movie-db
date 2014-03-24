@@ -78,7 +78,7 @@
 		print_r($movies);
 		
 		echo "<br>";
-		echo $movies[0]['id'];
+		echo $movies->['0']->['id'];
 		echo "<br>";
 		echo $movies[0]['quality'];
 		echo "<br>";
