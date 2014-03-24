@@ -5,7 +5,7 @@
 	<body>
 		<div>
 			<form action="scripts/restore.php" method="post" enctype="multipart/form-data">
-				<input type="file" name="file" id="file"><br>
+				<input type="file" name="file">
 				<input type="submit" name="submit" value="Restore">
 			</form>
 		</div>

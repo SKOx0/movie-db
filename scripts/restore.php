@@ -1,6 +1,7 @@
 <?php
 	//$extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
 	//if ($extension === ".mbk") {
+		print_r($_FILES);
 		if ($_FILES["file"]["error"] > 0) {
 			echo "Error: ".$_FILES["file"]["error"]."<br>";
 		}
