@@ -79,7 +79,7 @@
 		
 		echo "<br>";
 		
-		for ($i = 0; i < count($movies); $i++) {
+		for ($i = 0; $i < count($movies); $i++) {
 			$id = $movies[$i]['id'];
 			$quality = $movies[$i]['quality'];
 			$filename = $movies[$i]['filename'];
