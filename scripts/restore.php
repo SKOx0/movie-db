@@ -1,8 +1,6 @@
 <?php
-	$allowedExts = array(".mbk");
-	$temp = explode(".", $_FILES["file"]["name"]);
-	$extension = end($temp);
-	if (in_array($extension, $allowedExts)) {
+	$extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+	if ($extension === ".mbk") {
 		if ($_FILES["file"]["error"] > 0) {
 			echo "Error: ".$_FILES["file"]["error"]."<br>";
 		}
