@@ -82,6 +82,8 @@
 			
 			addMovie($id, $quality, $filename);
 		}
+		
+		header('Location: ../');
 	}
 	else if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
 		$id = $_POST["id"];
