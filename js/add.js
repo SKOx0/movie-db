@@ -17,12 +17,12 @@ function addMovie () {
 	var qualitySelect = document.createElement('select');
 	qualitySelect.setAttribute('name', 'quality');
 	
-	for (var i = 0; i < qualities.length; i++) {
-		var qualOption = document.createElement('option');
-		qualOption.value = qualities[i];
-		qualOption.innerHTML = qualities[i];
-		qualitySelect.appendChild(qualOption);
-	}
+//	for (var i = 0; i < qualities.length; i++) {
+//		var qualOption = document.createElement('option');
+//		qualOption.value = qualities[i];
+//		qualOption.innerHTML = qualities[i];
+//		qualitySelect.appendChild(qualOption);
+//	}
 	
 	var filenameText = document.createElement('input');
 	filenameText.setAttribute('type', 'text');
