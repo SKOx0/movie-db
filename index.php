@@ -6,6 +6,14 @@
 	<link rel="stylesheet" href="css/index.css">
 	<script src="js/openlink.js"></script>
 	<?php
+		function table_exists ($conn, $tablename) {
+			$res = mysqli_query($conn,"SHOW TABLES LIKE '".$tablename."'");
+			if($res) {
+				return true;
+			}
+			return false;
+		}
+	
 		$order;
 		$search;
 		$query;
@@ -236,6 +244,10 @@
 			include 'config/config.php';
 			$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
 			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
+			
+			if (!table_exists($connection, "Movies")) {
+				exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies < config/database.sql");
+			}
 			
 			$result = mysql_query($query,$connection) or die('Select failed!');
 			

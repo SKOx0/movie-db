@@ -1,6 +1,19 @@
-/* SQL for creating database tables. */
+--
+-- Create table `Files`
+--
 
-/* Create the Movies table. */
+DROP TABLE IF EXISTS `Files`;
+CREATE TABLE `Files` (
+  `id` varchar(9) NOT NULL,
+  `file_name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Create table `Movies`
+--
+
+DROP TABLE IF EXISTS `Movies`;
 CREATE TABLE `Movies` (
   `id` varchar(9) NOT NULL,
   `poster` varchar(500) NOT NULL,
@@ -12,20 +25,22 @@ CREATE TABLE `Movies` (
   `quality` varchar(45) NOT NULL,
   `link` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/* Create the Files table. */
-CREATE TABLE `Files` (
-  `id` varchar(9) NOT NULL,
-  `file_name` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1
+--
+-- Create table `Quality`
+--
 
-/* Create the Quality table. */
+DROP TABLE IF EXISTS `Quality`;
 CREATE TABLE `Quality` (
   `quality` varchar(20) NOT NULL,
   PRIMARY KEY (`quality`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/* Insert quality entries into the Quality table. */
+--
+-- Insert data into table `Quality`
+--
+
+LOCK TABLES `Quality` WRITE;
 INSERT INTO `Quality` VALUES ('1080p HD'),('720p HD'),('HD MKV'),('SD'),('SD AVI');
+UNLOCK TABLES;
