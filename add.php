@@ -25,5 +25,6 @@
 			</select>
 			<input type="text" name="file_name" placeholder="File name">
 		</form>
+		<p><?php echo json_encode($result);?></p>
 	</body>
 </html>
