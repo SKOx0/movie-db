@@ -74,11 +74,11 @@
 	}
 
 	if (isset($_POST['json'])) {
-		$movies = json_decode($_POST['json']);
+		$movies = json_decode($_POST['json'], true);
 		print_r($movies);
 		
 		echo "<br>";
-		echo $movies->['0']->['id'];
+		echo $movies[0]['id'];
 		echo "<br>";
 		echo $movies[0]['quality'];
 		echo "<br>";
