@@ -1,6 +1,5 @@
 function addMovie () {
 	var qualities = JSON.parse(document.getElementById('json_holder').innerHTML);
-	alert(qualities.join('\n'));
 	var parent = document.getElementById('movies_list');
 	
 	var breakLine = document.createElement('br');
@@ -35,4 +34,21 @@ function addMovie () {
 	parent.appendChild(qualitySelect);
 	parent.appendChild(space2);
 	parent.appendChild(filenameText);
+}
+
+function createJSON () {
+	var dataForm = document.getElementById('movies_list');
+	var movies = new Array();
+	
+	for (var i = 0; i < dataForm.length; i += 3) {
+		var currMovie = new Movie();
+		currMovie.id = dataForm.elements[i].value;
+		currMovie.quality = dataForm.elements[i+1].value;
+		currMovie.filename = dataForm.elements[i+2].value;
+		movies.push(currMovie);
+	}
+	
+	var jsonified = JSON.stringify(movies);
+	alert(jsonified);
+	document.getElementById('save_button').elements[0].value = jsonified;
 }
