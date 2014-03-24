@@ -29,7 +29,15 @@
 			</select>
 			<input type="text" name="file_name" placeholder="File name">
 		</form>
-		<p><?php echo json_encode($qualities); ?></p>
-		<p><?php echo var_dump($qualities); ?></p>
+		<p>&nbsp;</p>
+		<div>
+			<form style="display:inline" id="save_button" method="post" action="scripts/insert.php" onsubmit="createJSON()">
+				<input type="hidden" name="json" value="">
+				<input type="submit" value="Save">
+			</form>
+			<button style="display:inline">Add more</button>
+			<button style="display:inline">Cancel</button>
+		</div>
+		<p style="display:none"><?php echo json_encode($qualities); ?></p>
 	</body>
 </html>
