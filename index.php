@@ -356,7 +356,7 @@
 		<?php
 			}
 		?>
-		<p id="copyright">&copy; <?php echo date('Y'); ?> Viraj Chitnis</p>
+		<p id="copyright">&copy; 2013-<script>document.write(new Date().getFullYear());</script> Viraj Chitnis</p>
 	</div>
 </body>
 </html>
