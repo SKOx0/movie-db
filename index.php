@@ -320,7 +320,7 @@
 	</table>
 	</div>
 	<div align="center">
-		<p><?php echo $count ?> Movies</p>
+		<p class="footerInfo"><?php echo $count ?> Movies</p>
 		<?php
         	if (file_exists(".git")) {
         		$git_branch = exec("git branch | grep '*' | awk '{print $2}'");
@@ -332,7 +332,7 @@
         			$branch = $git_branch;
         		}
         ?>
-				<p><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) 
+				<p class="footerInfo"><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) 
 				<?php
 					if ($edit == "true") {
 						if (file_exists('movies.sql')) {
