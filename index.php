@@ -299,7 +299,7 @@
 				if($count_play > 0){
 		?>
 				<tr>
-					<td><a href="<?php echo $mod_link ?>"><img border="0" src="<?php echo $poster ?>" alt="Poster" width="40.5" height="60" /></a></td>
+					<td><a href="<?php echo $mod_link ?>" download><img border="0" src="<?php echo $poster ?>" alt="Poster" width="40.5" height="60" /></a></td>
 		<?php
 				}
 				else{
