@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<code><script src="build/jquery.js"></script>
-		<script src="build/mediaelement-and-player.min.js"></script>
-		<link rel="stylesheet" href="build/mediaelementplayer.css" /></code>
+		<code><script src="mediaelement/jquery.js"></script>
+		<script src="mediaelement/mediaelement-and-player.min.js"></script>
+		<link rel="stylesheet" href="mediaelement/mediaelementplayer.css" /></code>
 		<title>Watch Movies</title>
 		<?php
 			$link;
