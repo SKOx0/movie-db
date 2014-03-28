@@ -45,8 +45,8 @@
 		?>
 	</head>
 	<body>
-		<div style="height:100%;width:100%;">
-			<video src="<?php echo $mod_link ?>"></video>
+		<div>
+			<video src="<?php echo $mod_link ?>" width="320" height="240"></video>
 		</div>
 		
 		<script>
