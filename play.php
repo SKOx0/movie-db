@@ -43,10 +43,7 @@
 	</head>
 	<body>
 		<div style="height:100%;width:100%;">
-			<video controls>
-				<source src="<?php echo $mod_link ?>" type="video/mp4">
-				<!--<source src="movies/iTunes%20Movies%20%281080p%20HD%29/Big%20Buck%20Bunny.m4v" type="video/mp4">-->
-			</video>
+			<video src="<?php echo $mod_link ?>" type="video/mp4"></video>
 		</div>
 	</body>
 </html>
