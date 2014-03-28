@@ -264,10 +264,33 @@
 				$link = mysql_result($result,$i,'link');
 				
 				$count_play;
+				$mod_link;
 				if (file_exists("movies")) {
 					$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
 					$result_play = mysql_query($query_play,$connection) or die('Select failed!');
 					$count_play = mysql_result($result_play,0,'count(id)');
+					
+					$query_quality = 'SELECT quality FROM Movies WHERE id=\''.$id.'\'';
+					$result_quality = mysql_query($query_quality,$connection) or die('Select failed!');
+					$quality_quality = mysql_result($result_quality,0,'quality');
+
+					$query_name = 'SELECT file_name FROM Files WHERE id=\''.$id.'\'';
+					$result_name = mysql_query($query_name,$connection) or die('Select failed!');
+					$file_name = mysql_result($result_name,0,'file_name');
+					
+					$link_quality;
+					if($quality == '1080p HD'){
+						$link_quality = 'iTunes Movies (1080p HD)';
+					}
+					if($quality == '720p HD'){
+						$link_quality =	'iTunes	Movies (720p HD)';
+					}
+					if($quality == 'SD'){
+						$link_quality =	'iTunes	Movies (SD)';
+					}
+
+					$link = 'movies/'.urlencode($link_quality).'/'.urlencode($file_name);
+					$mod_link = str_replace("+", "%20", $link);
 				}
 				else {
 					$count_play = 0;
@@ -276,7 +299,7 @@
 				if($count_play > 0){
 		?>
 				<tr>
-					<td><a href="play.php?id=<?php echo $id ?>"><img border="0" src="<?php echo $poster ?>" alt="Poster" width="40.5" height="60" /></a></td>
+					<td><a href="<?php echo $mod_link ?>"><img border="0" src="<?php echo $poster ?>" alt="Poster" width="40.5" height="60" /></a></td>
 		<?php
 				}
 				else{
