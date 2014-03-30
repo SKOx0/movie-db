@@ -332,7 +332,7 @@
 					<?php
 						if($count_play > 0){
 					?>
-							<td><button onclick="openLink('<?php echo $mod_link ?>')">Download</button></td>
+							<td><a href="<?php echo $mod_link ?>" download><button>Download</button></a></td>
 					<?php
 						}
 					?>
