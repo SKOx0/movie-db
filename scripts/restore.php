@@ -23,10 +23,10 @@
 			}
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "../restore.mbk");
-			exec("cd ..; gunzip -S .mbk restore.mbk");
-			exec("cd ..; tar -xf restore");
+			exec("cd ..; /bin/gunzip -S .mbk restore.mbk");
+			exec("cd ..; /bin/tar -xf restore");
 			include('../config/config.php');
-			exec("cd ..; mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." movies.sql");
+			exec("cd ..; /usr/bin/mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." movies.sql");
 			
 			header("Location: ../");
 		}
