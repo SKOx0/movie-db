@@ -365,7 +365,7 @@
 							exec("rm moviedb.mbk");
 						}
 						include('config/config.php');
-						exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies > movies.sql");
+						exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." > movies.sql");
 						exec("tar -cf moviedb posters movies.sql");
 						exec("gzip -S .mbk moviedb");
 				?>
