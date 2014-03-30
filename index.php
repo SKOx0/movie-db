@@ -246,7 +246,7 @@
 			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 			
 			if (!table_exists($connection, "Movies")) {
-				exec("/usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies < scripts/database.sql");
+				exec("mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." scripts/database.sql");
 			}
 			
 			$result = mysql_query($query,$connection) or die('Select failed!');
