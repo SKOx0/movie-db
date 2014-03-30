@@ -26,7 +26,7 @@
 			exec("cd ..; gunzip -S .mbk restore.mbk");
 			exec("cd ..; tar -xf restore");
 			include('../config/config.php');
-			exec("cd ..; /usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." movies < movies.sql");
+			exec("cd ..; /usr/bin/mysqldump -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." < movies.sql");
 		}
 	}
 	else {
