@@ -329,13 +329,15 @@
 					<?php
 						}
 					?>
+					<td>
 					<?php
 						if($count_play > 0){
 					?>
-							<td><a href="<?php echo $mod_link ?>" download><button>Download</button></a></td>
+							<a href="<?php echo $mod_link ?>" download><button>Download</button></a>
 					<?php
 						}
 					?>
+					</td>
 				</tr>
 		<?php
 			}
