@@ -111,10 +111,6 @@
 			<input type="image" src="images/delete.png" width="15" alt="Clear search" />
 		</form>
 		</p>
-		<!--<a class="searchData" href="./"><button>Clear search</button></a>-->
-		<!--<form class="searchData" method="get" action="./">
-			<input type="image" class="formButton" title="Clear search" src="images/delete.png">
-		</form>-->
 	</div>
 <?php
 	}
@@ -239,6 +235,7 @@
 			<?php
 				}
 			?>
+			<th></th>
 		</tr>
 		<?php
 			include 'config/config.php';
@@ -329,6 +326,13 @@
 									<input type="image" class="formButton" title="Delete" src="images/delete.png">
 								</form>
 							</td>
+					<?php
+						}
+					?>
+					<?php
+						if($count_play > 0){
+					?>
+							<button onclick="openLink('<?php echo $mod_link ?>')">Download</button>
 					<?php
 						}
 					?>
