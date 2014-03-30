@@ -7,7 +7,7 @@
 	<script src="js/openlink.js"></script>
 	<?php
 		function table_exists ($conn, $tablename) {
-			$res = mysqli_query($conn,"SHOW TABLES LIKE '".$tablename."'");
+			$res = mysql_query("SHOW TABLES LIKE '".$tablename."'", $conn) or die('DB test failed!');
 			if($res) {
 				return true;
 			}
