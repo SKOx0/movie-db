@@ -311,6 +311,15 @@
 					<td><?php echo $genre ?></td>
 					<td><?php echo $rating ?></td>
 					<td><?php echo $quality ?></td>
+					<td>
+					<?php
+						if($count_play > 0){
+					?>
+							<a href="<?php echo $mod_link ?>" download><button>Download</button></a>
+					<?php
+						}
+					?>
+					</td>
 					<?php
 						if ($edit == "true") {
 					?>
@@ -329,15 +338,6 @@
 					<?php
 						}
 					?>
-					<td>
-					<?php
-						if($count_play > 0){
-					?>
-							<a href="<?php echo $mod_link ?>" download><button>Download</button></a>
-					<?php
-						}
-					?>
-					</td>
 				</tr>
 		<?php
 			}
