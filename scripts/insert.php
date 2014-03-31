@@ -31,45 +31,48 @@
 		if($count_id == 0){
 			$source = file_get_contents('http://www.omdbapi.com/?i='.$id);
 			$info = json_decode($source, TRUE);
-		
-			if(!file_exists("../posters")) {
-				exec("mkdir ../posters");
-			}
-		
-			if(!file_exists("../posters/backup")) {
-				exec("mkdir ../posters/backup");
-			}
-		
-			if (file_exists("../posters/".$id.".jpg")) {
-				exec("rm ../posters/".$id.".jpg");
-			}
-			if (file_exists("rm ../posters/backup/".$id.".jpg")) {
-				exec("rm ../posters/backup/".$id.".jpg");
-			}
-		
-			$poster = 'posters/'.$id.'.jpg';
-			downloadFile($info['Poster'], "../".$poster);
-			$name = $info['Title'];
-			$year = $info['Year'];
-			$time = $info['Runtime'];
-			$genre = $info['Genre'];
-			$rating = $info['Rated'];
-			$link = 'http://www.imdb.com/title/'.$id;
-		
-			// Convert poster to progressive JPEG
-			exec("mv ../posters/".$id.".jpg ../posters/backup/".$id.".jpg");
-			exec("convert -strip -interlace Plane -thumbnail 40.5 ../posters/backup/".$id.".jpg ../posters/".$id.".jpg");
-		
-			$query = 'INSERT INTO Movies VALUES(\''.$id.'\',\''.$poster.'\',\''.mysql_real_escape_string($name).'\',\''.$year.'\',\''.$time.'\',\''.$genre.'\',\''.$rating.'\',\''.$quality.'\',\''.$link.'\')';
-		
-			$result = mysql_query($query,$connection) or die('Insert failed!');
+			$response = $info['Response'];
 			
-			if (!empty($file_name)) {
-				$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
-				$result = mysql_query($query,$connection) or die('Update failed!');
-			}
+			if ($response == "True") {
+				if(!file_exists("../posters")) {
+					exec("mkdir ../posters");
+				}
+		
+				if(!file_exists("../posters/backup")) {
+					exec("mkdir ../posters/backup");
+				}
+		
+				if (file_exists("../posters/".$id.".jpg")) {
+					exec("rm ../posters/".$id.".jpg");
+				}
+				if (file_exists("rm ../posters/backup/".$id.".jpg")) {
+					exec("rm ../posters/backup/".$id.".jpg");
+				}
+		
+				$poster = 'posters/'.$id.'.jpg';
+				downloadFile($info['Poster'], "../".$poster);
+				$name = $info['Title'];
+				$year = $info['Year'];
+				$time = $info['Runtime'];
+				$genre = $info['Genre'];
+				$rating = $info['Rated'];
+				$link = 'http://www.imdb.com/title/'.$id;
+		
+				// Convert poster to progressive JPEG
+				exec("mv ../posters/".$id.".jpg ../posters/backup/".$id.".jpg");
+				exec("convert -strip -interlace Plane -thumbnail 40.5 ../posters/backup/".$id.".jpg ../posters/".$id.".jpg");
+		
+				$query = 'INSERT INTO Movies VALUES(\''.$id.'\',\''.$poster.'\',\''.mysql_real_escape_string($name).'\',\''.$year.'\',\''.$time.'\',\''.$genre.'\',\''.$rating.'\',\''.$quality.'\',\''.$link.'\')';
+		
+				$result = mysql_query($query,$connection) or die('Insert failed!');
 			
-			mysql_close($connection);
+				if (!empty($file_name)) {
+					$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
+					$result = mysql_query($query,$connection) or die('Update failed!');
+				}
+			
+				mysql_close($connection);
+			}
 		}
 	}
 
