@@ -43,7 +43,15 @@ function createJSON () {
 	for (var i = 0; i < dataForm.length; i += 3) {
 		var currMovie = new Movie();
 		currMovie.id = dataForm.elements[i].value;
+		if (currMovie.id == null || currMovie.id == ""){
+			alert("IMDB ID cannot be blank");
+			return false;
+		}
 		currMovie.quality = dataForm.elements[i+1].value;
+		if (currMovie.quality == null || currMovie.quality == ""){
+			alert("Please select a quality");
+			return false;
+		}
 		currMovie.filename = dataForm.elements[i+2].value;
 		movies.push(currMovie);
 	}
