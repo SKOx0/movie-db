@@ -386,7 +386,11 @@
 		<?php
 			}
 		?>
-		<p id="copyright">&copy; 2013-<script>document.write(new Date().getFullYear());</script> Viraj Chitnis</p>
+		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
+	<script>
+		//call after page loaded
+		window.onload = afterPageLoad; 
+	</script>
 </body>
 </html>
