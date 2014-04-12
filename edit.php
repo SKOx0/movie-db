@@ -45,7 +45,7 @@
 			$db->close();
 			
 			$title = 'Edit '.$name.' ('.$year.')';
-			$action = 'scripts/update.php';
+			$action = 'scripts/update';
 		}
 		else{
 			header('Location: .');
@@ -53,7 +53,7 @@
 			$quality = '';
 			
 			$title = 'Add a movie';
-			$action = 'scripts/insert.php';
+			$action = 'scripts/insert';
 		}
 	?>
 	<meta charset="UTF-8">

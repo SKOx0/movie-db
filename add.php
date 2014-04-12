@@ -39,7 +39,7 @@
 			</form>
 		</div>
 		<div>
-			<form style="display:inline" id="save_button" method="post" action="scripts/insert.php" onsubmit="return createJSON()">
+			<form style="display:inline" id="save_button" method="post" action="scripts/insert" onsubmit="return createJSON()">
 				<input type="hidden" name="json" value="">
 				<input type="submit" value="Save">
 			</form>
