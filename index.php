@@ -260,11 +260,14 @@
 				exec("mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." scripts/database.sql");
 			}*/
 			
+			echo $query;
+			
 			$movies_table = $db->prepare($query);
 			$movies_table->execute();
 			$movies_table->bind_result($id, $poster, $name, $year, $time, $genre, $rating, $quality, $link);
 			
 			while($movies_table->fetch()){
+				echo $id + " " + $poster + " " + $name + " " + $year + " " + $time + " " + $genre + " " + $rating + " " + $quality + " " + $link;
 				$count_play;
 				$mod_link;
 				if (file_exists("movies")) {
