@@ -7,6 +7,9 @@
 	<script src="js/openlink.js"></script>
 	<script src="js/index.js"></script>
 	<?php
+		require_once 'mobile_detect/Mobile_Detect.php';
+		$detect = new Mobile_Detect;
+	
 		function table_exists ($conn, $tablename) {
 			$res = mysql_query("SHOW TABLES LIKE '".$tablename."'", $conn) or die('DB test failed!');
 			if($res) {
@@ -44,6 +47,13 @@
 </head>
 <body>
 	<div>
+		<?php
+			if ($detect->isMobile()) {
+		?>
+				<a class="topMenu" onclick="afterPageLoad()"><button>Load Images</button></a>
+		<?php
+			}
+		?>
 		<?php
 			if ($edit == "true") {
 		?>
@@ -388,9 +398,15 @@
 		?>
 		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
-	<script>
-		//call after page loaded
-		window.onload = afterPageLoad; 
-	</script>
+	<?php
+		if (!($detect->isMobile())) {
+	?>
+			<script>
+				//call after page loaded
+				window.onload = afterPageLoad; 
+			</script>
+	<?php
+		}
+	?>
 </body>
 </html>
