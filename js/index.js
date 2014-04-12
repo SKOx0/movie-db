@@ -18,6 +18,12 @@ function loadPosters () {
 			docElements[i].src = "posters/" + docElements[i].id + ".jpg";
 		}
 	}
+	
+	var posters = document.getElementsByClassName('posters');
+	for (var i = 0; i < posters.length; i++) {
+	  posters[i].style.display = 'block';
+	}
+	
 	removeLoadPostersButton();
 }
 

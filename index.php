@@ -121,7 +121,7 @@
 	<div>
 	<table cellpadding="0" cellspacing="0" class="db-table">
 		<tr>
-			<th></th>
+			<th class="posters"></th>
 			<th>
 				<form method="get" action="./">
 					<input type="hidden" name="order" value="name">
@@ -293,12 +293,12 @@
 				if($count_play > 0){
 		?>
 				<tr>
-					<td><a href="<?php echo $mod_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
+					<td class="posters"><a href="<?php echo $mod_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
 		<?php
 				}
 				else{
 		?>
-					<td><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></td>
+					<td class="posters"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></td>
 		<?php
 				}
 		?>
