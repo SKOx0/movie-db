@@ -2,22 +2,15 @@
 	<head>
 		<?php
 			if ((substr($_SERVER['REQUEST_URI'], -1)) == "/") {
-				$action = "../scripts/insert";
-		?>
-				<script src="../js/openlink.js"></script>
-				<script src="../js/add.js"></script>
-				<script src="../js/types.js"></script>
-		<?php
+				$pre_link = "../";
 			}
 			else {
-				$action = "scripts/insert";
-		?>
-				<script src="js/openlink.js"></script>
-				<script src="js/add.js"></script>
-				<script src="js/types.js"></script>
-		<?php
+				$pre_link = "";
 			}
 		?>
+		<script src="<?php echo $pre_link; ?>js/openlink.js"></script>
+		<script src="<?php echo $pre_link; ?>js/add.js"></script>
+		<script src="<?php echo $pre_link; ?>js/types.js"></script>
 		<title>Add a movie</title>
 		<?php
 			$qualities = array();
@@ -54,7 +47,7 @@
 			</form>
 		</div>
 		<div>
-			<form style="display:inline" id="save_button" method="post" action="<?php echo $action; ?>" onsubmit="return createJSON()">
+			<form style="display:inline" id="save_button" method="post" action="<?php echo $pre_link; ?>scripts/insert" onsubmit="return createJSON()">
 				<input type="hidden" name="json" value="">
 				<input type="submit" value="Save">
 			</form>

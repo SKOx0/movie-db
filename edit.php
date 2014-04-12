@@ -3,16 +3,10 @@
 <head>
 	<?php
 		if ((substr($_SERVER['REQUEST_URI'], -1)) == "/") {
-			$action_pre = "../";
-	?>
-			<script src="../js/edit.js"></script>
-	<?php
+			$pre_link = "../";
 		}
 		else {
-			$action_pre = "";
-	?>
-			<script src="js/edit.js"></script>
-	<?php
+			$pre_link = "";
 		}
 		
 		$id;
@@ -57,7 +51,7 @@
 			$db->close();
 			
 			$title = 'Edit '.$name.' ('.$year.')';
-			$action = $action_pre.'scripts/update';
+			$action = $pre_link.'scripts/update';
 		}
 		else{
 			header('Location: .');
@@ -65,10 +59,11 @@
 			$quality = '';
 			
 			$title = 'Add a movie';
-			$action = $action_pre.'scripts/insert';
+			$action = $pre_link.'scripts/insert';
 		}
 	?>
 	<meta charset="UTF-8">
+	<script src="<?php echo $pre_link; ?>js/edit.js"></script>
 	<title><?php echo $title ?></title>
 </head>
 <body>
