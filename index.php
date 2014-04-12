@@ -50,7 +50,7 @@
 		<?php
 			if ($detect->isMobile()) {
 		?>
-				<a class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
+				<a id="load_posters" class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
 		<?php
 			}
 		?>
@@ -399,19 +399,17 @@
 		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
 	<?php
-		if (!($detect->isMobile())) {
+		if ($detect->isMobile()) {
 	?>
 			<script>
-				//call after page loaded
-				window.onload = afterPageLoadDesktop; 
+				window.onload = afterPageLoadMobile; 
 			</script>
 	<?php
 		}
 		else {
 	?>
 			<script>
-				//call after page loaded
-				window.onload = afterPageLoadMobile;
+				window.onload = afterPageLoadDesktop;
 			</script>
 	<?php
 		}
