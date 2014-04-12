@@ -280,7 +280,9 @@
 				$mod_link;
 				if (file_exists("movies")) {
 					$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
-					$files_table = $db->prepare($query_play);
+					if (!($files_table = $db->prepare($query_play))) {
+					    echo "Prepare failed: (" . $db->errno . ") " . $db->error;
+					}
 					$files_table->execute();
 					$files_table->bind_result($count_play);
 					$files_table->fetch();
