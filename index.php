@@ -307,12 +307,12 @@
 				if($count_play > 0){
 		?>
 				<tr>
-					<td><a href="<?php echo $mod_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/blank.gif" alt="Poster" width="40.5" height="60" /></a></td>
+					<td><a href="<?php echo $mod_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
 		<?php
 				}
 				else{
 		?>
-					<td><img id="<?php echo $id; ?>" border="0" src="images/blank.gif" alt="Poster" width="40.5" height="60" /></td>
+					<td><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></td>
 		<?php
 				}
 		?>
