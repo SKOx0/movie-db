@@ -45,12 +45,12 @@
 		}
 	?>
 </head>
-<body>
+<body onload="writeCopyrightYear()">
 	<div>
 		<?php
 			if ($detect->isMobile()) {
 		?>
-				<a class="topMenu" onclick="afterPageLoad()"><button>Load Images</button></a>
+				<a class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
 		<?php
 			}
 		?>
@@ -402,8 +402,7 @@
 		if (!($detect->isMobile())) {
 	?>
 			<script>
-				//call after page loaded
-				window.onload = afterPageLoad; 
+				window.onload = loadPosters;
 			</script>
 	<?php
 		}

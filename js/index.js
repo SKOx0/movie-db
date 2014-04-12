@@ -1,8 +1,3 @@
-function afterPageLoad () {
-	writeCopyrightYear();
-	loadPosters();
-}
-
 function writeCopyrightYear () {
 	document.getElementById('copy_year').innerHTML = new Date().getFullYear();
 }
