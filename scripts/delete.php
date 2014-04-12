@@ -3,18 +3,26 @@
 		$id = $_POST["id"];
 		
 		include '../config/config.php';
-		$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-		mysql_select_db($DATABASE,$connection) or die('Database select failed!');
+		$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 		
-		$result = mysql_query('SELECT poster FROM Movies WHERE id=\''.$id.'\'',$connection);
-		$poster = mysql_result($result,0,'poster');
+		if($db->connect_errno > 0){
+		    die('Unable to connect to database [' . $db->connect_error . ']');
+		}
 		
 		exec("rm ../posters/".$id.".jpg");
 		exec("rm ../posters/backup/".$id.".jpg");
 		
-		$result = mysql_query('DELETE FROM Movies WHERE id=\''.$id.'\'',$connection) or die('Delete failed!');
-		$result = mysql_query('DELETE FROM Files WHERE id=\''.$id.'\'',$connection) or die('Delete failed!');
-		mysql_close($connection);
+		$db_movies = $db->prepare("DELETE FROM Movies WHERE id = ?;");
+		$db_movies->bind_param('s', $id);
+		$db_movies->execute();
+		$db_movies->free_result();
+		
+		$db_files = $db->prepare("DELETE FROM Files WHERE id = ?;");
+		$db_files->bind_param('s', $id);
+		$db_files->execute();
+		$db_files->free_result();
+		
+		$db->close();
 		
 		header('Location: ../');
 	}
