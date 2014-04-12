@@ -22,11 +22,18 @@
 	
 	function addMovie ($id, $quality, $file_name) {
 		include '../config/config.php';
-		$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-		mysql_select_db($DATABASE,$connection) or die('Database select failed!');
-		$query = 'SELECT count(id) FROM Movies WHERE id=\''.$id.'\'';
-		$result = mysql_query($query,$connection) or die('Update failed!');
-		$count_id = mysql_result($result,0,'count(id)');
+		$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
+		
+		if($db->connect_errno > 0){
+		    die('Unable to connect to database [' . $db->connect_error . ']');
+		}
+		
+		$db_files = $db->prepare("SELECT count(id) FROM Movies WHERE id = ?;");
+		$db_files->bind_param('s', $id);
+		$db_files->execute();
+		$db_files->bind_result($count_id);
+		$db_files->fetch();
+		$db_files->free_result();
 		
 		if($count_id == 0){
 			$source = file_get_contents('http://www.omdbapi.com/?i='.$id);
@@ -61,19 +68,21 @@
 				// Convert poster to progressive JPEG
 				exec("mv ../posters/".$id.".jpg ../posters/backup/".$id.".jpg");
 				exec("convert -strip -interlace Plane -thumbnail 40.5 ../posters/backup/".$id.".jpg ../posters/".$id.".jpg");
-		
-				$query = 'INSERT INTO Movies VALUES(\''.$id.'\',\''.$poster.'\',\''.mysql_real_escape_string($name).'\',\''.$year.'\',\''.$time.'\',\''.$genre.'\',\''.$rating.'\',\''.$quality.'\',\''.$link.'\')';
-		
-				$result = mysql_query($query,$connection) or die('Insert failed!');
+				
+				$db_movies = $db->prepare("INSERT INTO Movies VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
+				$db_movies->bind_param('sssssssss', $id, $poster, $name, $year, $time, $genre, $rating, $quality, $link);
+				$db_movies->execute();
+				$db_movies->free_result();
 			
 				if (!empty($file_name)) {
-					$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
-					$result = mysql_query($query,$connection) or die('Update failed!');
+					$db_files = $db->prepare("INSERT INTO Files VALUES(?, ?);");
+					$db_files->bind_param('ss', $id, $file_name);
+					$db_files->execute();
+					$db_files->free_result();
 				}
-			
-				mysql_close($connection);
 			}
 		}
+		$db->close();
 	}
 
 	if (isset($_POST['json'])) {
