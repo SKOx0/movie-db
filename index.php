@@ -50,7 +50,7 @@
 		<?php
 			if ($detect->isMobile()) {
 		?>
-				<a class="topMenu" onclick="loadPosters()"><button>Load Images</button></a>
+				<a class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
 		<?php
 			}
 		?>
