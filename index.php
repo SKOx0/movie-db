@@ -136,7 +136,7 @@
 			<?php
 				}
 			?>
-					<input type="submit" class="header" value="Name">
+					<input id="name_button" type="submit" class="header" value="Name">
 				</form>
 			</th>
 			<th>
