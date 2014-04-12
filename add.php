@@ -2,6 +2,7 @@
 	<head>
 		<?php
 			if ((substr($_SERVER['REQUEST_URI'], -1)) == "/") {
+				$action = "../scripts/insert";
 		?>
 				<script src="../js/openlink.js"></script>
 				<script src="../js/add.js"></script>
@@ -9,6 +10,7 @@
 		<?php
 			}
 			else {
+				$action = "scripts/insert";
 		?>
 				<script src="js/openlink.js"></script>
 				<script src="js/add.js"></script>
@@ -52,7 +54,7 @@
 			</form>
 		</div>
 		<div>
-			<form style="display:inline" id="save_button" method="post" action="scripts/insert" onsubmit="return createJSON()">
+			<form style="display:inline" id="save_button" method="post" action="<?php echo $action; ?>" onsubmit="return createJSON()">
 				<input type="hidden" name="json" value="">
 				<input type="submit" value="Save">
 			</form>
