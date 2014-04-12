@@ -49,7 +49,7 @@
 		<?php
 			if ($edit == "true") {
 		?>
-				<a class="topMenu" onclick="openLink('add.php')"><button>Add Movie</button></a>
+				<a class="topMenu" onclick="openLink('add')"><button>Add Movie</button></a>
 		<?php
 			}
 		?>
@@ -321,13 +321,13 @@
 						if ($edit == "true") {
 					?>
 							<td>
-								<form method="post" action="edit.php">
+								<form method="post" action="edit">
 									<input type="hidden" name="id" value="<?php echo $id ?>">
 									<input type="image" class="formButton" title="Edit" src="images/edit.png">
 								</form>
 							</td>
 							<td>
-								<form method="post" action="scripts/delete.php">
+								<form method="post" action="scripts/delete">
 									<input type="hidden" name="id" value="<?php echo $id ?>">
 									<input type="image" class="formButton" title="Delete" src="images/delete.png">
 								</form>
@@ -376,9 +376,9 @@
 						exec("tar -cf moviedb posters movies.sql");
 						exec("gzip -S .mbk moviedb");
 				?>
-						<button onclick="openLink('scripts/gitupdate.php')">Update</button> 
+						<button onclick="openLink('scripts/gitupdate')">Update</button> 
 						<button onclick="openLink('moviedb.mbk')">Backup</button>
-						<button onclick="openLink('restore.php')" disabled>Restore</button>
+						<button onclick="openLink('restore')" disabled>Restore</button>
 				<?php
 					}
 				?>
