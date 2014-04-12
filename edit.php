@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="js/edit.js"></script>
 	<?php
+		if ((substr($_SERVER['REQUEST_URI'], -1)) == "/") {
+	?>
+			<script src="../js/edit.js"></script>
+	<?php
+		}
+		else {
+	?>
+			<script src="js/edit.js"></script>
+	<?php
+		}
+		
 		$id;
 		$quality;
 		$file_name;
@@ -58,7 +68,6 @@
 	?>
 	<meta charset="UTF-8">
 	<title><?php echo $title ?></title>
-	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	<form style="display: inline" action="<?php echo $action ?>" method="post" name="movie_form" onsubmit="return validateForm()">

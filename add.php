@@ -1,8 +1,21 @@
 <html>
 	<head>
-		<script src="js/openlink.js"></script>
-		<script src="js/add.js"></script>
-		<script src="js/types.js"></script>
+		<?php
+			if ((substr($_SERVER['REQUEST_URI'], -1)) == "/") {
+		?>
+				<script src="../js/openlink.js"></script>
+				<script src="../js/add.js"></script>
+				<script src="../js/types.js"></script>
+		<?php
+			}
+			else {
+		?>
+				<script src="js/openlink.js"></script>
+				<script src="js/add.js"></script>
+				<script src="js/types.js"></script>
+		<?php
+			}
+		?>
 		<title>Add a movie</title>
 		<?php
 			$qualities = array();
