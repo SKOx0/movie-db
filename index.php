@@ -42,7 +42,7 @@
 		}
 	?>
 </head>
-<body onload="loadPosters()">
+<body>
 	<div>
 		<?php
 			if ($edit == "true") {
