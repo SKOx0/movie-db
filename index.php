@@ -5,6 +5,7 @@
 	<title>Movie Collection</title>
 	<link rel="stylesheet" href="css/index.css">
 	<script src="js/openlink.js"></script>
+	<script src="js/index.js"></script>
 	<?php
 		function table_exists ($conn, $tablename) {
 			$res = mysql_query("SHOW TABLES LIKE '".$tablename."'", $conn) or die('DB test failed!');
@@ -41,7 +42,7 @@
 		}
 	?>
 </head>
-<body>
+<body onload="loadPosters()">
 	<div>
 		<?php
 			if ($edit == "true") {
