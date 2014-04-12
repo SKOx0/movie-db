@@ -1,35 +1,47 @@
 <?php
 	if((isset($_POST["id"]))&&(isset($_POST["quality"]))){
-		include '../config/config.php';
-		$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-		mysql_select_db($DATABASE,$connection) or die('Database select failed!');
 		$id = $_POST["id"];
 		$quality = $_POST["quality"];
 		
-		$query = 'UPDATE Movies SET quality=\''.$quality.'\' WHERE id=\''.$id.'\'';
+		include '../config/config.php';
+		$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 		
-		$result = mysql_query($query,$connection) or die('Update failed!');
+		if($db->connect_errno > 0){
+		    die('Unable to connect to database [' . $db->connect_error . ']');
+		}
+		
+		$db_movies = $db->prepare("UPDATE Movies SET quality = ? WHERE id = ?;");
+		$db_movies->bind_param('ss', $quality, $id);
+		$db_movies->execute();
+		$db_movies->free_result();
 
 		if((isset($_POST["file_name"]))){
 			$file_name = $_POST["file_name"];
 			
 			if (!empty($file_name)) {
-				$query = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
-				$result = mysql_query($query,$connection) or die('Update failed!');
-				$count_id = mysql_result($result,0,'count(id)');
+				$db_count = $db->prepare("SELECT count(id) FROM Files WHERE id = ?;");
+				$db_count->bind_param('s', $id);
+				$db_count->execute();
+				$db_count->bind_result($count_id);
+				$db_count->fetch();
+				$db_count->free_result();
 
 				if($count_id > 0){
-					$query = 'UPDATE Files SET file_name=\''.mysql_real_escape_string($file_name).'\' WHERE id=\''.$id.'\'';
-					$result = mysql_query($query,$connection) or die('Update failed!');
+					$db_files = $db->prepare("UPDATE Files SET file_name = ? WHERE id = ?;");
+					$db_files->bind_param('ss', $file_name, $id);
+					$db_files->execute();
+					$db_files->free_result();
 				}
 				else{
-					$query = 'INSERT INTO Files VALUES(\''.$id.'\',\''.mysql_real_escape_string($file_name).'\')';
-					$result = mysql_query($query,$connection) or die('Update failed!');
+					$db_files = $db->prepare("INSERT INTO Files VALUES(?, ?);");
+					$db_files->bind_param('ss', $id, $file_name);
+					$db_files->execute();
+					$db_files->free_result();
 				}
 			}
 		}
 		
-		mysql_close($connection);
+		$db->close();
 		
 		header('Location: ../');
 	}
