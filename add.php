@@ -15,20 +15,24 @@
 				<select name="quality">
 					<?php
 						include 'config/config.php';
-						$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-						mysql_select_db($DATABASE,$connection) or die('Database select failed!');
-				
-						$result = mysql_query('SELECT * FROM Quality',$connection);
-				
-						$numrows = mysql_numrows($result);
-						for($i = 0; $i < $numrows; $i++){
-							$value = mysql_result($result,$i,'quality');
+						$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
+			
+						if($db->connect_errno > 0){
+						    die('Unable to connect to database [' . $db->connect_error . ']');
+						}
+						
+						$quality_table = $db->prepare('SELECT * FROM Quality');
+						$quality_table->execute();
+						$quality_table->bind_result($value);
+						
+						while($quality_table->fetch()){
 							array_push($qualities, $value);
 							?>
 							<option value="<?php echo $value ?>"><?php echo $value ?></option>
 							<?php
 						}
-						mysql_close($connection);
+						$quality_table->free_result();
+						$db->close();
 					?>
 				</select>
 				<input type="text" name="file_name" placeholder="File name">
