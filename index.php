@@ -10,14 +10,6 @@
 		require_once 'mobile_detect/Mobile_Detect.php';
 		$detect = new Mobile_Detect;
 	
-		function table_exists ($conn, $tablename) {
-			$res = mysql_query("SHOW TABLES LIKE '".$tablename."'", $conn) or die('DB test failed!');
-			if($res) {
-				return true;
-			}
-			return false;
-		}
-	
 		$order;
 		$search;
 		$query;
@@ -255,10 +247,6 @@
 			if($db->connect_errno > 0){
 			    die('Unable to connect to database [' . $db->connect_error . ']');
 			}
-			
-			/*if (!table_exists($connection, "Movies")) {
-				exec("mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." scripts/database.sql");
-			}*/
 			
 			$movies_table = $db->prepare($query);
 			$movies_table->execute();
