@@ -13,24 +13,36 @@
 			$id = $_POST["id"];
 			
 			include 'config/config.php';
-			$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
+			$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 			
-			$result = mysql_query('SELECT * FROM Movies WHERE id=\''.$id.'\'',$connection) or die('Select failed!');
-			
-			$name = mysql_result($result,0,'name');
-			$year = mysql_result($result,0,'year');
-			$quality = mysql_result($result,0,'quality');
-
-			$result = mysql_query('SELECT count(id) FROM Files WHERE id=\''.$id.'\'',$connection) or die('Select failed!');
-			$file_count = mysql_result($result,0,'count(id)');
-
-			if($file_count > 0){
-				$result = mysql_query('SELECT file_name FROM Files WHERE id=\''.$id.'\'',$connection) or die('Select failed!');
-				$file_name = mysql_result($result,0,'file_name');
+			if($db->connect_errno > 0){
+			    die('Unable to connect to database [' . $db->connect_error . ']');
 			}
 			
-			mysql_close($connection);
+			$db_movie = $db->prepare("SELECT name, year, quality FROM Movies WHERE id = ?;");
+			$db_movie->bind_param('s', $id);
+			$db_movie->execute();
+			$db_movie->bind_result($name, $year, $quality);
+			$db_movie->fetch();
+			$db_movie->free_result();
+			
+			$db_files = $db->prepare("SELECT count(id) FROM Files WHERE id = ?;");
+			$db_files->bind_param('s', $id);
+			$db_files->execute();
+			$db_files->bind_result($file_count);
+			$db_files->fetch();
+			$db_files->free_result();
+
+			if($file_count > 0){
+				$db_filename = $db->prepare("SELECT file_name FROM Files WHERE id = ?;");
+				$db_filename->bind_param('s', $id);
+				$db_filename->execute();
+				$db_filename->bind_result($file_name);
+				$db_filename->fetch();
+				$db_filename->free_result();
+			}
+			
+			$db->close();
 			
 			$title = 'Edit '.$name.' ('.$year.')';
 			$action = 'scripts/update.php';
@@ -71,15 +83,17 @@
 				}
 				
 				include 'config/config.php';
-				$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-				mysql_select_db($DATABASE,$connection) or die('Database select failed!');
+				$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
+			
+				if($db->connect_errno > 0){
+				    die('Unable to connect to database [' . $db->connect_error . ']');
+				}
 				
-				$result = mysql_query('SELECT * FROM Quality',$connection);
+				$db_quality = $db->prepare('SELECT * FROM Quality');
+				$db_quality->execute();
+				$db_quality->bind_result($value);
 				
-				$numrows = mysql_numrows($result);
-				for($i = 0; $i < $numrows; $i++){
-					$value = mysql_result($result,$i,'quality');
-					
+				while($db_quality->fetch()){
 					if($quality==$value){
 			?>
 						<option selected value="<?php echo $value ?>"><?php echo $value ?></option>
@@ -91,8 +105,8 @@
 			<?php
 					}
 				}
-				
-				mysql_close($connection);
+				$db_quality->free_result();
+				$db->close();
 			?>
 		</select>
 		<?php
