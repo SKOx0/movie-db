@@ -1,3 +1,12 @@
+function afterPageLoadDesktop () {
+	writeCopyrightYear();
+	loadPosters();
+}
+
+function afterPageLoadMobile () {
+	writeCopyrightYear();
+}
+
 function writeCopyrightYear () {
 	document.getElementById('copy_year').innerHTML = new Date().getFullYear();
 }
