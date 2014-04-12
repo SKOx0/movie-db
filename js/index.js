@@ -19,6 +19,8 @@ function loadPosters () {
 		}
 	}
 	
+	document.getElementById('name_header').colSpan = "2";
+	
 	var posters = document.getElementsByClassName('posters');
 	for (var i = 0; i < posters.length; i++) {
 	  posters[i].style.display = 'block';

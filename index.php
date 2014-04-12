@@ -121,8 +121,7 @@
 	<div>
 	<table cellpadding="0" cellspacing="0" class="db-table">
 		<tr>
-			<th class="posters">&nbsp;</th>
-			<th>
+			<th id="name_header">
 				<form method="get" action="./">
 					<input type="hidden" name="order" value="name">
 			<?php
