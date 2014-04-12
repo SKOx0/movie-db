@@ -279,21 +279,21 @@
 				$count_play;
 				$mod_link;
 				if (file_exists("movies")) {
+					$db2 = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 					$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
-					if (!($files_table = $db->prepare($query_play))) {
-					    echo "Prepare failed: (" . $db->errno . ") " . $db->error;
-					}
+					$files_table = $db2->prepare($query_play);
 					$files_table->execute();
 					$files_table->bind_result($count_play);
 					$files_table->fetch();
 					$files_table->free_result();
 
 					$query_name = 'SELECT file_name FROM Files WHERE id=\''.$id.'\'';
-					$files_table = $db->prepare($query_name);
+					$files_table = $db2->prepare($query_name);
 					$files_table->execute();
 					$files_table->bind_result($file_name);
 					$files_table->fetch();
 					$files_table->free_result();
+					$db2->close();
 					
 					$link_quality;
 					if($quality == '1080p HD'){
