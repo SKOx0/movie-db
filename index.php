@@ -260,7 +260,7 @@
 				exec("mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." scripts/database.sql");
 			}*/
 			
-			echo $query;
+			echo $query + "<br>";
 			
 			if (!($movies_table = $db->prepare($query))) {
 			    echo "Prepare failed: (" . $db->errno . ") " . $db->error;
@@ -271,8 +271,10 @@
 			if (!$movies_table->bind_result($id, $poster, $name, $year, $time, $genre, $rating, $quality, $link)) {
 			    echo "Binding results failed: (" . $movies_table->errno . ") " . $movies_table->error;
 			}
+			echo "Reached here" + "<br>";
 			
 			while($movies_table->fetch()){
+				echo "Reached inside while loop" + "<br>";
 				echo $id + " " + $poster + " " + $name + " " + $year + " " + $time + " " + $genre + " " + $rating + " " + $quality + " " + $link;
 				$count_play;
 				$mod_link;
