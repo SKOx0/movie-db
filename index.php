@@ -250,41 +250,37 @@
 		</tr>
 		<?php
 			include 'config/config.php';
-			$connection = mysql_connect($HOSTNAME,$USERNAME,$PASSWORD) or die('Connection failed!');
-			mysql_select_db($DATABASE,$connection) or die('Database select failed!');
+			$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 			
-			if (!table_exists($connection, "Movies")) {
-				exec("mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." scripts/database.sql");
+			if($db->connect_errno > 0){
+			    die('Unable to connect to database [' . $db->connect_error . ']');
 			}
 			
-			$result = mysql_query($query,$connection) or die('Select failed!');
+			/*if (!table_exists($connection, "Movies")) {
+				exec("mysqlimport -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." scripts/database.sql");
+			}*/
 			
-			$numrows = mysql_numrows($result);
-			for($i = 0; $i < $numrows; $i++){
-				$id = mysql_result($result,$i,'id');
-				$poster = mysql_result($result,$i,'poster');
-				$name = mysql_result($result,$i,'name');
-				$year = mysql_result($result,$i,'year');
-				$time = mysql_result($result,$i,'time');
-				$genre = mysql_result($result,$i,'genre');
-				$rating = mysql_result($result,$i,'rating');
-				$quality = mysql_result($result,$i,'quality');
-				$link = mysql_result($result,$i,'link');
-				
+			$movies_table = $db->prepare($query);
+			$movies_table->execute();
+			$movies_table->bind_result($id, $poster, $name, $year, $time, $genre, $rating, $quality, $link);
+			
+			while($movies_table->fetch()){
 				$count_play;
 				$mod_link;
 				if (file_exists("movies")) {
 					$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
-					$result_play = mysql_query($query_play,$connection) or die('Select failed!');
-					$count_play = mysql_result($result_play,0,'count(id)');
-					
-					$query_quality = 'SELECT quality FROM Movies WHERE id=\''.$id.'\'';
-					$result_quality = mysql_query($query_quality,$connection) or die('Select failed!');
-					$quality_quality = mysql_result($result_quality,0,'quality');
+					$files_table = $db->prepare($query_play);
+					$files_table->execute();
+					$files_table->bind_result($count_play);
+					$files_table->fetch();
+					$files_table->free_result();
 
 					$query_name = 'SELECT file_name FROM Files WHERE id=\''.$id.'\'';
-					$result_name = mysql_query($query_name,$connection) or die('Select failed!');
-					$file_name = mysql_result($result_name,0,'file_name');
+					$files_table = $db->prepare($query_name);
+					$files_table->execute();
+					$files_table->bind_result($file_name);
+					$files_table->fetch();
+					$files_table->free_result();
 					
 					$link_quality;
 					if($quality == '1080p HD'){
@@ -352,10 +348,14 @@
 				</tr>
 		<?php
 			}
+			$movies_table->free_result();
 			$query = 'SELECT count(id) FROM Movies';
-			$result = mysql_query($query,$connection) or die('Select failed!');
-			$count = mysql_result($result,0,'count(id)');
-			mysql_close($connection);
+			$movies_table = $db->prepare($query);
+			$movies_table->execute();
+			$movies_table->bind_result($count);
+			$movies_table->fetch();
+			$movies_table->free_result();
+			$db->close();
 		?>
 	</table>
 	</div>
