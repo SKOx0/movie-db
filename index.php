@@ -276,19 +276,19 @@
 						$link_quality = 'iTunes Movies (1080p HD)';
 					}
 					if($quality == '720p HD'){
-						$link_quality =	'iTunes	Movies (720p HD)';
+						$link_quality =	'iTunes Movies (720p HD)';
 					}
 					if($quality == 'SD'){
-						$link_quality =	'iTunes	Movies (SD)';
+						$link_quality =	'iTunes Movies (SD)';
 					}
 					
 					$link;
 					if ((substr($_SERVER['REMOTE_ADDR'],0,8) == "192.168.") || ($_SERVER['REMOTE_ADDR'] == "127.0.0.1")) {
-						$link = 'http://nas/shares/Media/Movies/'.urlencode($link_quality).'/'.urlencode($file_name);
+						$link = 'http://nas/shares/Media/Movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
 						$mod_link = $link;
 					}
 					else {
-						$link = 'movies/'.urlencode($link_quality).'/'.urlencode($file_name);
+						$link = 'movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
 						$mod_link = $link;
 					}
 				}
