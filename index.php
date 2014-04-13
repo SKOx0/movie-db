@@ -281,8 +281,14 @@
 					if($quality == 'SD'){
 						$link_quality =	'iTunes	Movies (SD)';
 					}
-
-					$link = 'movies/'.urlencode($link_quality).'/'.urlencode($file_name);
+					
+					$link;
+					if ((substr($_SERVER['REMOTE_ADDR'],0,8) == "192.168.") || ($_SERVER['REMOTE_ADDR'] == "127.0.0.1")) {
+						$link = 'http://nas/shares/Media/Movies/'.urlencode($link_quality).'/'.urlencode($file_name);
+					}
+					else {
+						$link = 'movies/'.urlencode($link_quality).'/'.urlencode($file_name);
+					}
 					$mod_link = str_replace("+", "%20", $link);
 				}
 				else {
