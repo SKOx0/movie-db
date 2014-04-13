@@ -282,7 +282,18 @@
 						$link_quality =	'iTunes Movies (SD)';
 					}
 					
-					if ((substr($_SERVER['REMOTE_ADDR'],0,8) == "192.168.") || ($_SERVER['REMOTE_ADDR'] == "127.0.0.1")) {
+					$client_ip;
+					if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+						$client_ip = $_SERVER['HTTP_CLIENT_IP'];
+					}
+					elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+						$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+					}
+					else {
+						$client_ip = $_SERVER['REMOTE_ADDR'];
+					}
+					
+					if ((substr($client_ip,0,8) == "192.168.") || ($client_ip == "127.0.0.1")) {
 						$movie_link = 'http://nas/shares/Media/Movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
 					}
 					else {
