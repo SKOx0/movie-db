@@ -253,7 +253,7 @@
 			
 			while($movies_table->fetch()){
 				$count_play;
-				$mod_link;
+				$movie_link;
 				if (file_exists("movies")) {
 					$db2 = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 					$query_play = 'SELECT count(id) FROM Files WHERE id=\''.$id.'\'';
@@ -282,14 +282,11 @@
 						$link_quality =	'iTunes Movies (SD)';
 					}
 					
-					$link;
 					if ((substr($_SERVER['REMOTE_ADDR'],0,8) == "192.168.") || ($_SERVER['REMOTE_ADDR'] == "127.0.0.1")) {
-						$link = 'http://nas/shares/Media/Movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
-						$mod_link = $link;
+						$movie_link = 'http://nas/shares/Media/Movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
 					}
 					else {
-						$link = 'movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
-						$mod_link = $link;
+						$movie_link = 'movies/'.rawurlencode($link_quality).'/'.rawurlencode($file_name);
 					}
 				}
 				else {
@@ -299,7 +296,7 @@
 				if($count_play > 0){
 		?>
 				<tr>
-					<td class="posters"><a href="<?php echo $mod_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
+					<td class="posters"><a href="<?php echo $movie_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
 		<?php
 				}
 				else{
@@ -318,7 +315,7 @@
 					<?php
 						if($count_play > 0){
 					?>
-							<a href="<?php echo $mod_link ?>" download><button>Download</button></a>
+							<a href="<?php echo $movie_link ?>" download><button>Download</button></a>
 					<?php
 						}
 					?>
