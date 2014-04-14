@@ -109,12 +109,80 @@
 			}
 		?>
 			Order by <select name="order" onchange="submitOrderForm()">
-				<option value="name" selected>Name</option>
-				<option value="year">Year</option>
-				<option value="time">Duration</option>
-				<option value="genre">Genre</option>
-				<option value="rating">Rating</option>
-				<option value="quality">Quality</option>
+				<?php
+					if (isset($_GET['order'])) {
+						if ($order == "name") {
+				?>
+							<option value="name" selected>Name</option>
+				<?php
+						}
+						else {
+				?>
+							<option value="name">Name</option>
+				<?php
+						}
+						if ($order == "year") {
+				?>
+							<option value="year" selected>Year</option>
+				<?php
+						}
+						else {
+				?>
+							<option value="year">Year</option>
+				<?php
+						}
+						if ($order == "time") {
+				?>
+							<option value="time" selected>Duration</option>
+				<?php
+						}
+						else {
+				?>
+							<option value="time">Duration</option>
+				<?php
+						}
+						if ($order == "genre") {
+				?>
+							<option value="genre" selected>Genre</option>
+				<?php
+						}
+						else {
+				?>
+							<option value="genre">Genre</option>
+				<?php
+						}
+						if ($order == "rating") {
+				?>
+							<option value="rating" selected>Rating</option>
+				<?php
+						}
+						else {
+				?>
+							<option value="rating">Rating</option>
+				<?php
+						}
+						if ($order == "quality") {
+				?>
+							<option value="quality" selected>Quality</option>
+				<?php
+						}
+						else {
+				?>
+							<option value="quality">Quality</option>
+				<?php
+						}
+					}
+					else {
+				?>
+						<option value="name" selected>Name</option>
+						<option value="year">Year</option>
+						<option value="time">Duration</option>
+						<option value="genre">Genre</option>
+						<option value="rating">Rating</option>
+						<option value="quality">Quality</option>
+				<?php
+					}
+				?>
 			</select>
 		</form>
 	</div>
