@@ -252,6 +252,7 @@
 			$db->close();
 		?>
 	</div>
+	<p>&nbsp;</p>
 	<div id="footer">
 		<p class="footerInfo"><?php echo $count ?> Movies</p>
 		<?php
