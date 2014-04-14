@@ -15,6 +15,10 @@ body {
 	background-color: rgba(0,0,0,0.5); /*dim the background*/
 }
 #overlay_add {
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	display: none;
     width: 400px;
     position: fixed;
