@@ -20,6 +20,8 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 
 .movie_box {
 	float: left;
+	margin-right: 10px;
+	margin-top: 10px;
 	padding: 5px;
 	border: 2px solid #ccc;
 	-webkit-border-radius: 5px;

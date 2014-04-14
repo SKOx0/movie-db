@@ -119,7 +119,6 @@
 <?php
 	}
 ?>
-	<p>&nbsp;</p>
 	<div>
 		<div class="movie_box">
 			<table>
