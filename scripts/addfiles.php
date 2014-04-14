@@ -1,4 +1,3 @@
-#!/usr/bin/php -q
 <?php
 include '../config/config.php';
 $db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
