@@ -91,8 +91,17 @@
 				<input type="hidden" name="edit" value="<?php echo $edit ?>">
 		<?php
 			}
+			if(isset($_GET["search"])){
 		?>
-			<input type="search" name="search" placeholder="Search..." size="30">
+				<input type="search" name="search" value="<?php echo $search ?>" placeholder="Search..." size="30">
+		<?php
+			}
+			else {
+		?>
+				<input type="search" name="search" placeholder="Search..." size="30">
+		<?php
+			}
+		?>
 		</form>
 	</div>
 <?php
