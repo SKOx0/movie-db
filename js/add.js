@@ -12,6 +12,7 @@ function addMovie () {
 	idText.setAttribute('type', 'text');
 	idText.setAttribute('name', 'id');
 	idText.setAttribute('placeholder', 'IMDB ID');
+	idText.setAttribute('size', '9');
 	
 	var qualitySelect = document.createElement('select');
 	qualitySelect.setAttribute('name', 'quality');
@@ -27,6 +28,7 @@ function addMovie () {
 	filenameText.setAttribute('type', 'text');
 	filenameText.setAttribute('name', 'file_name');
 	filenameText.setAttribute('placeholder', 'File name');
+	filenameText.setAttribute('size', '25');
 	
 	parent.appendChild(breakLine);
 	parent.appendChild(idText);
