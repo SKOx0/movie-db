@@ -32,14 +32,13 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 
 #movie_boxes {
 	width: 100%;
+	margin-top: 10px;
 }
 
 .movie_box {
 	background-color: white;
 	font-size: 10pt;
 	display: inline-block;
-	margin-right: 10px;
-	margin-top: 10px;
 	padding: 5px;
 	border: 2px solid #ccc;
 	-webkit-border-radius: 5px;
