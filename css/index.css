@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+body {
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2O8/Pr1f11RUUZCNCMDEBBSBJInaBLMkFET8QYVAN5VxlMFRTuzAAAAAElFTkSuQmCC) repeat;
+}
+
 .topMenu			{ display:inline; }
 
 .searchData			{ display:inline; }
