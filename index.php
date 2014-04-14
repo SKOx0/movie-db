@@ -108,13 +108,13 @@
 		<?php
 			}
 		?>
-			Order by <select onchange="submitOrderForm()">
-				<option name="order" value="name" selected>Name</option>
-				<option name="order" value="year">Year</option>
-				<option name="order" value="time">Duration</option>
-				<option name="order" value="genre">Genre</option>
-				<option name="order" value="rating">Rating</option>
-				<option name="order" value="quality">Quality</option>
+			Order by <select name="order" onchange="submitOrderForm()">
+				<option value="name" selected>Name</option>
+				<option value="year">Year</option>
+				<option value="time">Duration</option>
+				<option value="genre">Genre</option>
+				<option value="rating">Rating</option>
+				<option value="quality">Quality</option>
 			</select>
 		</form>
 	</div>
