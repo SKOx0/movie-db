@@ -321,16 +321,15 @@
 						<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
 						<p><?php echo $time ?> <span class="rating_span"><?php echo $rating ?></span></p>
 						<p><?php echo $genre ?></p>
-					</td>
-					<td><?php echo $quality ?></td>
-					<td>
+						<p>
 					<?php
 						if($count_play > 0){
 					?>
-							<a href="<?php echo $movie_link ?>"><button>&#9658; Play</button></a>
+							<a href="<?php echo $movie_link ?>"><button>&#9658; <?php echo $quality ?></button></a>
 					<?php
 						}
 					?>
+						</p>
 					</td>
 					<?php
 						if ($edit == "true") {
