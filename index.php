@@ -252,7 +252,7 @@
 			$db->close();
 		?>
 	</div>
-	<div align="center">
+	<div id="footer">
 		<p class="footerInfo"><?php echo $count ?> Movies</p>
 		<?php
         	if (file_exists(".git")) {
