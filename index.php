@@ -95,6 +95,28 @@
 			}
 		?>
 		</form>
+		<form class="topMenu" method="get" action="./">
+		<?php
+			if(isset($_GET["search"])){
+		?>
+				<input type="hidden" name="search" value="<?php echo $search ?>">
+		<?php
+			}
+			if(isset($_GET["edit"])){
+		?>
+				<input type="hidden" name="edit" value="<?php echo $edit ?>">
+		<?php
+			}
+		?>
+			Order by <select>
+				<option value="name" selected>Name</option>
+				<option value="year">Year</option>
+				<option value="time">Duration</option>
+				<option value="genre">Genre</option>
+				<option value="rating">Rating</option>
+				<option value="quality">Quality</option>
+			</select>
+		</form>
 	</div>
 	<div id="search_box">
 		<form id="searchForm" method="get" action="./">
