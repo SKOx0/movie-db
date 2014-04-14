@@ -29,6 +29,7 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 
 #movie_boxes {
 	width: 100%;
+	overflow: auto;
 }
 
 .movie_box {
