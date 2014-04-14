@@ -93,7 +93,7 @@
 				<input type="submit" value="Save">
 			</form>
 			<button style="display:inline" onclick="addMovie()">Add more</button>
-			<button style="display:inline" onclick="openLink('.')">Cancel</button>
+			<button style="display:inline" onclick="hideAddOverlay()">Cancel</button>
 		</div>
 		<p id="json_holder" style="display:none"><?php echo json_encode($qualities); ?></p>
 	</div>
@@ -111,7 +111,7 @@
 					<?php
 						if ($edit == "true") {
 					?>
-							<a class="topMenu" onclick="openLink('add')"><button>Add Movie</button></a>
+							<a class="topMenu" onclick="showAddOverlay()"><button>Add Movie</button></a>
 					<?php
 						}
 					?>
