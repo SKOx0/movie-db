@@ -22,19 +22,35 @@
 			$order = 'name';
 		}
 		
-		if(isset($_GET["search"])){
-			$search = $_GET["search"];
-			$query = 'SELECT * FROM Movies WHERE name LIKE \'%'.$search.'%\' ORDER BY '.$order;
-		}
-		else{
-			$query = 'SELECT * FROM Movies ORDER BY '.$order;
-		}
-		
 		if(isset($_GET["edit"])){
 			$edit = $_GET["edit"];
 		}
 		else{
 			$edit = "false";
+		}
+		
+		if(isset($_GET["search"])){
+			$search = $_GET["search"];
+			
+			if (empty($search)) {
+				$redir_get = "";
+				if ((isset($_GET["order"])) && (isset($_GET["edit"]))) {
+					$redir_get = "?order=".$order."&edit=".$edit;
+				}
+				if (isset($_GET["order"])) {
+					$redir_get = "?order=".$order;
+				}
+				if (isset($_GET["edit"])) {
+					$redir_get = "?edit=".$edit;
+				}
+				
+				header("Location: ./".$redir_get);
+			}
+			
+			$query = 'SELECT * FROM Movies WHERE name LIKE \'%'.$search.'%\' ORDER BY '.$order;
+		}
+		else{
+			$query = 'SELECT * FROM Movies ORDER BY '.$order;
 		}
 	?>
 </head>
