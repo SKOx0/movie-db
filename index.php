@@ -192,7 +192,23 @@
 								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
 							</td>
 							<td>
-									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
+									<p>
+										<span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)
+										<?php
+											if ($edit == "true") {
+										?>
+												<form class="topMenu" method="post" action="edit">
+													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="image" class="formButton" title="Edit" src="images/edit.png">
+												</form>
+												<form class="topMenu" method="post" action="scripts/delete">
+													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="image" class="formButton" title="Delete" src="images/delete.png">
+												</form>
+										<?php
+											}
+										?>
+									</p>
 									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
 									<p><?php echo $genre ?></p>
 									<p>
@@ -204,22 +220,6 @@
 											}
 										?>
 									</p>
-									<?php
-										if ($edit == "true") {
-									?>
-											<p>
-												<form class="topMenu" method="post" action="edit">
-													<input type="hidden" name="id" value="<?php echo $id ?>">
-													<input type="image" class="formButton" title="Edit" src="images/edit.png">
-												</form>
-												<form class="topMenu" method="post" action="scripts/delete">
-													<input type="hidden" name="id" value="<?php echo $id ?>">
-													<input type="image" class="formButton" title="Delete" src="images/delete.png">
-												</form>
-											</p>
-									<?php
-										}
-									?>
 							</td>
 						</tr>
 					</table>
