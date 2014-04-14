@@ -56,135 +56,143 @@
 </head>
 <body>
 	<div>
-		<?php
-			if ($detect->isMobile()) {
-		?>
-				<a id="load_posters" class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
-		<?php
-			}
-		?>
-		<?php
-			if ($edit == "true") {
-		?>
-				<a class="topMenu" onclick="openLink('add')"><button>Add Movie</button></a>
-		<?php
-			}
-		?>
-		<form class="topMenu" method="get" action="./">
-		<?php
-			if(isset($_GET["order"])){
-		?>
-				<input type="hidden" name="order" value="<?php echo $order ?>">
-		<?php
-			}
-			if(isset($_GET["search"])){
-		?>
-				<input type="hidden" name="search" value="<?php echo $search ?>">
-		<?php
-			}
-			if ($edit == "false") {
-		?>
-				<input type="hidden" name="edit" value="true">
-				<input type="submit" value="Edit mode: Off">
-		<?php
-			}
-			else {
-		?>
-				<input type="submit" value="Edit mode: On">
-		<?php
-			}
-		?>
-		</form>
-		<form id="orderForm" class="topMenu" method="get" action="./">
-		<?php
-			if(isset($_GET["search"])){
-		?>
-				<input type="hidden" name="search" value="<?php echo $search ?>">
-		<?php
-			}
-			if(isset($_GET["edit"])){
-		?>
-				<input type="hidden" name="edit" value="<?php echo $edit ?>">
-		<?php
-			}
-		?>
-			Order by <select name="order" onchange="submitOrderForm()">
-				<?php
-					if (isset($_GET['order'])) {
-						if ($order == "name") {
-				?>
-							<option value="name" selected>Name</option>
-				<?php
+		<table>
+			<tr>
+				<td>
+					<?php
+						if ($detect->isMobile()) {
+					?>
+							<a id="load_posters" class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
+					<?php
+						}
+					?>
+					<?php
+						if ($edit == "true") {
+					?>
+							<a class="topMenu" onclick="openLink('add')"><button>Add Movie</button></a>
+					<?php
+						}
+					?>
+					<form class="topMenu" method="get" action="./">
+					<?php
+						if(isset($_GET["order"])){
+					?>
+							<input type="hidden" name="order" value="<?php echo $order ?>">
+					<?php
+						}
+						if(isset($_GET["search"])){
+					?>
+							<input type="hidden" name="search" value="<?php echo $search ?>">
+					<?php
+						}
+						if ($edit == "false") {
+					?>
+							<input type="hidden" name="edit" value="true">
+							<input type="submit" value="Edit mode: Off">
+					<?php
 						}
 						else {
-				?>
-							<option value="name">Name</option>
-				<?php
+					?>
+							<input type="submit" value="Edit mode: On">
+					<?php
 						}
-						if ($order == "year") {
-				?>
-							<option value="year" selected>Year</option>
-				<?php
-						}
-						else {
-				?>
-							<option value="year">Year</option>
-				<?php
-						}
-						if ($order == "time") {
-				?>
-							<option value="time" selected>Duration</option>
-				<?php
-						}
-						else {
-				?>
-							<option value="time">Duration</option>
-				<?php
-						}
-						if ($order == "genre") {
-				?>
-							<option value="genre" selected>Genre</option>
-				<?php
-						}
-						else {
-				?>
-							<option value="genre">Genre</option>
-				<?php
-						}
-						if ($order == "rating") {
-				?>
-							<option value="rating" selected>Rating</option>
-				<?php
-						}
-						else {
-				?>
-							<option value="rating">Rating</option>
-				<?php
-						}
-						if ($order == "quality") {
-				?>
-							<option value="quality" selected>Quality</option>
-				<?php
-						}
-						else {
-				?>
-							<option value="quality">Quality</option>
-				<?php
-						}
-					}
-					else {
-				?>
-						<option value="name" selected>Name</option>
-						<option value="year">Year</option>
-						<option value="time">Duration</option>
-						<option value="genre">Genre</option>
-						<option value="rating">Rating</option>
-						<option value="quality">Quality</option>
-				<?php
-					}
-				?>
-			</select>
-		</form>
+					?>
+					</form>
+				</td>
+				<td>
+					<form id="orderForm" class="topMenu" method="get" action="./">
+						<?php
+							if(isset($_GET["search"])){
+						?>
+								<input type="hidden" name="search" value="<?php echo $search ?>">
+						<?php
+							}
+							if(isset($_GET["edit"])){
+						?>
+								<input type="hidden" name="edit" value="<?php echo $edit ?>">
+						<?php
+							}
+						?>
+							Order by <select name="order" onchange="submitOrderForm()">
+								<?php
+									if (isset($_GET['order'])) {
+										if ($order == "name") {
+								?>
+											<option value="name" selected>Name</option>
+								<?php
+										}
+										else {
+								?>
+											<option value="name">Name</option>
+								<?php
+										}
+										if ($order == "year") {
+								?>
+											<option value="year" selected>Year</option>
+								<?php
+										}
+										else {
+								?>
+											<option value="year">Year</option>
+								<?php
+										}
+										if ($order == "time") {
+								?>
+											<option value="time" selected>Duration</option>
+								<?php
+										}
+										else {
+								?>
+											<option value="time">Duration</option>
+								<?php
+										}
+										if ($order == "genre") {
+								?>
+											<option value="genre" selected>Genre</option>
+								<?php
+										}
+										else {
+								?>
+											<option value="genre">Genre</option>
+								<?php
+										}
+										if ($order == "rating") {
+								?>
+											<option value="rating" selected>Rating</option>
+								<?php
+										}
+										else {
+								?>
+											<option value="rating">Rating</option>
+								<?php
+										}
+										if ($order == "quality") {
+								?>
+											<option value="quality" selected>Quality</option>
+								<?php
+										}
+										else {
+								?>
+											<option value="quality">Quality</option>
+								<?php
+										}
+									}
+									else {
+								?>
+										<option value="name" selected>Name</option>
+										<option value="year">Year</option>
+										<option value="time">Duration</option>
+										<option value="genre">Genre</option>
+										<option value="rating">Rating</option>
+										<option value="quality">Quality</option>
+								<?php
+									}
+								?>
+							</select>
+					</form>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<div id="search_box">
 		<form id="searchForm" method="get" action="./">
