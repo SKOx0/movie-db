@@ -120,173 +120,6 @@
 	}
 ?>
 	<div>
-		<div class="movie_box">
-			<table>
-				<tr>
-					<td>
-						<td class="posters"><img border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></td>
-					</td>
-					<td>
-							<p><a href=".">Test Movie</a> (2014)</p>
-							<p><span class="rating_span">PG-13</span> 120 mins</p>
-							<p>Action, Comedy, Documentary</p>
-							<p><a href="."><button>&#9658; 1080p HD</button></a></p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="movie_box">
-			<table>
-				<tr>
-					<td>
-						<td class="posters"><img border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></td>
-					</td>
-					<td>
-							<p><a href=".">Test Movie</a> (2014)</p>
-							<p><span class="rating_span">PG-13</span> 120 mins</p>
-							<p>Action, Comedy, Documentary</p>
-							<p><a href="."><button>&#9658; 1080p HD</button></a></p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div class="movie_box">
-			<table>
-				<tr>
-					<td>
-						<td class="posters"><img border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></td>
-					</td>
-					<td>
-							<p><a href=".">Test Movie</a> (2014)</p>
-							<p><span class="rating_span">PG-13</span> 120 mins</p>
-							<p>Action, Comedy, Documentary</p>
-							<p><a href="."><button>&#9658; 1080p HD</button></a></p>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div>
-	<table cellpadding="0" cellspacing="0" class="db-table">
-		<!--<tr>
-			<th id="name_header">
-				<form method="get" action="./">
-					<input type="hidden" name="order" value="name">
-			<?php
-				if(isset($_GET["search"])){
-			?>
-					<input type="hidden" name="search" value="<?php echo $search ?>">
-			<?php
-				}
-				if(isset($_GET["edit"])){
-			?>
-					<input type="hidden" name="edit" value="<?php echo $edit ?>">
-			<?php
-				}
-			?>
-					<input id="name_button" type="submit" class="header" value="Name">
-				</form>
-			</th>
-			<th>
-				<form method="get" action="./">
-					<input type="hidden" name="order" value="year">
-			<?php
-				if(isset($_GET["search"])){
-			?>
-					<input type="hidden" name="search" value="<?php echo $search ?>">
-			<?php
-				}
-				if(isset($_GET["edit"])){
-			?>
-					<input type="hidden" name="edit" value="<?php echo $edit ?>">
-			<?php
-				}
-			?>
-					<input type="submit" class="header" value="Year">
-				</form>
-			</th>
-			<th>
-				<form method="get" action="./">
-					<input type="hidden" name="order" value="time">
-			<?php
-				if(isset($_GET["search"])){
-			?>
-					<input type="hidden" name="search" value="<?php echo $search ?>">
-			<?php
-				}
-				if(isset($_GET["edit"])){
-			?>
-					<input type="hidden" name="edit" value="<?php echo $edit ?>">
-			<?php
-				}
-			?>
-					<input type="submit" class="header" value="Duration">
-				</form>
-			</th>
-			<th>
-				<form method="get" action="./">
-					<input type="hidden" name="order" value="genre">
-			<?php
-				if(isset($_GET["search"])){
-			?>
-					<input type="hidden" name="search" value="<?php echo $search ?>">
-			<?php
-				}
-				if(isset($_GET["edit"])){
-			?>
-					<input type="hidden" name="edit" value="<?php echo $edit ?>">
-			<?php
-				}
-			?>
-					<input type="submit" class="header" value="Genre">
-				</form>
-			</th>
-			<th>
-				<form method="get" action="./">
-					<input type="hidden" name="order" value="rating">
-			<?php
-				if(isset($_GET["search"])){
-			?>
-					<input type="hidden" name="search" value="<?php echo $search ?>">
-			<?php
-				}
-				if(isset($_GET["edit"])){
-			?>
-					<input type="hidden" name="edit" value="<?php echo $edit ?>">
-			<?php
-				}
-			?>
-					<input type="submit" class="header" value="Rating">
-				</form>
-			</th>
-			<th>
-				<form method="get" action="./">
-					<input type="hidden" name="order" value="quality">
-			<?php
-				if(isset($_GET["search"])){
-			?>
-					<input type="hidden" name="search" value="<?php echo $search ?>">
-			<?php
-				}
-				if(isset($_GET["edit"])){
-			?>
-					<input type="hidden" name="edit" value="<?php echo $edit ?>">
-			<?php
-				}
-			?>
-					<input type="submit" class="header" value="Quality">
-				</form>
-			</th>
-			<?php
-				if ($edit == "true") {
-			?>
-					<th></th>
-					<th></th>
-			<?php
-				}
-			?>
-			<th></th>
-		</tr>-->
 		<?php
 			include 'config/config.php';
 			$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
@@ -351,32 +184,43 @@
 				else {
 					$count_play = 0;
 				}
+		?>
+				<div class="movie_box">
+					<table>
+						<tr>
+							<td>
+		<?php
 				
 				if($count_play > 0){
 		?>
-				<tr>
-					<td class="posters"><a href="<?php echo $movie_link ?>"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
+								<td class="posters"><a href="<?php echo $movie_link ?>"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a></td>
 		<?php
 				}
 				else{
 		?>
-					<td class="posters"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></td>
+								<td class="posters"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></td>
 		<?php
 				}
 		?>
-					<td>
-						<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
-						<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?> - <?php echo $genre ?></p>
-						<p>
-					<?php
-						if($count_play > 0){
-					?>
-							<a href="<?php echo $movie_link ?>"><button>&#9658; <?php echo $quality ?></button></a>
-					<?php
-						}
-					?>
-						</p>
-					</td>
+							</td>
+							<td>
+									<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
+									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
+									<p><?php echo $genre ?></p>
+									<p>
+										<?php
+											if($count_play > 0){
+										?>
+												<a href="<?php echo $movie_link ?>"><button>&#9658; <?php echo $quality ?></button></a>
+										<?php
+											}
+										?>
+									</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!--<tr>
 					<?php
 						if ($edit == "true") {
 					?>
@@ -395,7 +239,7 @@
 					<?php
 						}
 					?>
-				</tr>
+				</tr>-->
 		<?php
 			}
 			$movies_table->free_result();
@@ -407,7 +251,6 @@
 			$movies_table->free_result();
 			$db->close();
 		?>
-	</table>
 	</div>
 	<div align="center">
 		<p class="footerInfo"><?php echo $count ?> Movies</p>
