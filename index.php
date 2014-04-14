@@ -60,7 +60,7 @@
 	<div id="overlay_add">
 		<div>
 			<form id="movies_list">
-				<input type="text" name="id" placeholder="IMDB ID">
+				<input type="text" name="id" placeholder="IMDB ID" size="9">
 				<select name="quality">
 					<?php
 						include 'config/config.php';
@@ -84,7 +84,7 @@
 						$db->close();
 					?>
 				</select>
-				<input type="text" name="file_name" placeholder="File name">
+				<input type="text" name="file_name" placeholder="File name" size="25">
 			</form>
 		</div>
 		<div>
