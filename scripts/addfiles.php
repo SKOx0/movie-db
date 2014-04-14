@@ -18,8 +18,6 @@ while($movies_table->fetch()){
 	$db_count->bind_result($count_id);
 	$db_count->fetch();
 	$db_count->free_result();
-	
-	echo $id." ".$name." ".$quality."<br>";
 
 	if($count_id == 0){
 		$link_quality;
@@ -33,12 +31,10 @@ while($movies_table->fetch()){
 			$link_quality =	"iTunes Movies (SD)";
 		}
 		
-		echo exec("ls ".escapeshellarg("../movies/".$link_quality."/".$name."m4v"));
 		echo "../movies/".$link_quality."/".$name.".m4v"."<br>";
-		echo $link_quality."<br><br>";
 		
 		if (file_exists("../movies/".$link_quality."/".$name.".m4v")) {
-			echo $name."m4v";
+			echo $name.".m4v"."<br>";
 			/*$db_files = $db2->prepare("INSERT INTO Files VALUES(?, ?);");
 			$db_files->bind_param('ss', $id, $name."m4v");
 			$db_files->execute();
