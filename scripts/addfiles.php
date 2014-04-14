@@ -32,7 +32,7 @@ while($movies_table->fetch()){
 			$link_quality =	'iTunes Movies (SD)';
 		}
 		
-		if (file_exists("movies/".$link_quality."/".$name."m4v")) {
+		if (file_exists("../movies/".$link_quality."/".$name."m4v")) {
 			echo $name."m4v";
 			/*$db_files = $db2->prepare("INSERT INTO Files VALUES(?, ?);");
 			$db_files->bind_param('ss', $id, $name."m4v");
