@@ -38,3 +38,13 @@ function removeLoadPostersButton () {
 function submitOrderForm () {
 	document.getElementById("orderForm").submit();
 }
+
+function showAddOverlay () {
+	document.getElementById('overlay_background').style.display = "block";
+	document.getElementById('overlay_add').style.display = "block";
+}
+
+function hideAddOverlay () {
+	document.getElementById('overlay_add').style.display = "none";
+	document.getElementById('overlay_background').style.display = "none";
+}
