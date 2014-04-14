@@ -23,14 +23,14 @@ while($movies_table->fetch()){
 
 	if($count_id == 0){
 		$link_quality;
-		if($quality == '1080p HD'){
-			$link_quality = 'iTunes Movies (1080p HD)';
+		if($quality == "1080p HD"){
+			$link_quality = "iTunes Movies (1080p HD)";
 		}
-		if($quality == '720p HD'){
-			$link_quality =	'iTunes Movies (720p HD)';
+		if($quality == "720p HD"){
+			$link_quality =	"iTunes Movies (720p HD)";
 		}
-		if($quality == 'SD'){
-			$link_quality =	'iTunes Movies (SD)';
+		if($quality == "SD"){
+			$link_quality =	"iTunes Movies (SD)";
 		}
 		
 		echo $link_quality."<br><br>";
