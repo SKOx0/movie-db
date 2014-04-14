@@ -22,6 +22,6 @@
 	font-weight: bold;
 	font-style: italic;
 }
-p, h1, h2, h3, table, button, input, span {
+p, h1, h2, h3, table, button, input, span, form {
 	font-family:"Courier Custom";
 }
