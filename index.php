@@ -64,6 +64,7 @@
 				<input type="text" name="id" placeholder="IMDB ID" size="9">
 				<select name="quality">
 					<?php
+						$qualities = array();
 						include 'config/config.php';
 						$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 			
