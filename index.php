@@ -121,7 +121,7 @@
 ?>
 	<div>
 	<table cellpadding="0" cellspacing="0" class="db-table">
-		<tr>
+		<!--<tr>
 			<th id="name_header">
 				<form method="get" action="./">
 					<input type="hidden" name="order" value="name">
@@ -239,7 +239,7 @@
 				}
 			?>
 			<th></th>
-		</tr>
+		</tr>-->
 		<?php
 			include 'config/config.php';
 			$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
