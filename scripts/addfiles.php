@@ -34,10 +34,10 @@ while($movies_table->fetch()){
 		}
 		
 		echo exec("ls ".escapeshellarg("../movies/".$link_quality."/".$name."m4v"));
-		echo "../movies/".$link_quality."/".$name."m4v"."<br>";
+		echo "../movies/".$link_quality."/".$name.".m4v"."<br>";
 		echo $link_quality."<br><br>";
 		
-		if (file_exists("../movies/".$link_quality."/".$name."m4v")) {
+		if (file_exists("../movies/".$link_quality."/".$name.".m4v")) {
 			echo $name."m4v";
 			/*$db_files = $db2->prepare("INSERT INTO Files VALUES(?, ?);");
 			$db_files->bind_param('ss', $id, $name."m4v");
