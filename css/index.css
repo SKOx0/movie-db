@@ -18,6 +18,13 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 
 #copyright			{ font-size:8pt; }
 
+.rating_span {
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
 input[type=text], input[type=search] {
 	padding: 5px;
 	border: 2px solid #ccc;

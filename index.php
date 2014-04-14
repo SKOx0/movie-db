@@ -319,10 +319,9 @@
 		?>
 					<td>
 						<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
-						<p><?php echo $time ?></p>
+						<p><?php echo $time ?> <span class="rating_span"><?php echo $rating ?></span></p>
 					</td>
 					<td><?php echo $genre ?></td>
-					<td><?php echo $rating ?></td>
 					<td><?php echo $quality ?></td>
 					<td>
 					<?php
