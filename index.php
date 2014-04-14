@@ -108,7 +108,7 @@
 		<?php
 			}
 		?>
-			Order by <select>
+			Order by <select onchange="this.form.submit()">
 				<option value="name" selected>Name</option>
 				<option value="year">Year</option>
 				<option value="time">Duration</option>
