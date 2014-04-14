@@ -17,3 +17,29 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 .footerInfo			{ font-size:10pt; }
 
 #copyright			{ font-size:8pt; }
+
+input[type=text] {
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+input[type=text]:focus {
+	border-color: #333;
+}
+input[type=submit] {
+	padding: 5px 15px;
+	background: #ccc;
+	border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+button {
+	padding: 5px 15px;
+	background: #ccc;
+	border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
