@@ -307,7 +307,7 @@
 				if($count_play > 0){
 		?>
 				<tr>
-					<td class="posters"><a href="<?php echo $movie_link ?>" download><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
+					<td class="posters"><a href="<?php echo $movie_link ?>"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="40.5" height="60" /></a></td>
 		<?php
 				}
 				else{
@@ -326,7 +326,7 @@
 					<?php
 						if($count_play > 0){
 					?>
-							<a href="<?php echo $movie_link ?>" download><button>Download</button></a>
+							<a href="<?php echo $movie_link ?>"><button>&#9658; Play</button></a>
 					<?php
 						}
 					?>
