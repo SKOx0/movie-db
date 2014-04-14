@@ -34,8 +34,7 @@ while($movies_table->fetch()){
 		}
 		
 		echo exec("ls ".escapeshellarg("../movies/".$link_quality."/".$name."m4v"));
-		echo file_exists("../movies/iTunes Movies (720p HD)/21.m4v")."<br>";
-		echo file_exists("../movies/iTunes Movies (720p HD)/300.m4v")."<br>";
+		echo "../movies/".$link_quality."/".$name."m4v"."<br>";
 		echo $link_quality."<br><br>";
 		
 		if (file_exists("../movies/".$link_quality."/".$name."m4v")) {
