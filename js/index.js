@@ -19,8 +19,8 @@ function loadPosters () {
 		}
 	}
 	
-	document.getElementById('name_header').colSpan = "2";
-	document.getElementById('name_button').value = "Poster & Name";
+	//document.getElementById('name_header').colSpan = "2";
+	//document.getElementById('name_button').value = "Poster & Name";
 	
 	var posters = document.getElementsByClassName('posters');
 	for (var i = 0; i < posters.length; i++) {
