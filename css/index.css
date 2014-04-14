@@ -19,6 +19,7 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 #copyright			{ font-size:8pt; }
 
 .movie_box {
+	float: left;
 	padding: 5px;
 	border: 2px solid #ccc;
 	-webkit-border-radius: 5px;
