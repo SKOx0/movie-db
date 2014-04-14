@@ -33,6 +33,7 @@ while($movies_table->fetch()){
 			$link_quality =	"iTunes Movies (SD)";
 		}
 		
+		echo exec("ls ".escapeshellarg("../movies/".$link_quality."/".$name."m4v"));
 		echo $link_quality."<br><br>";
 		
 		if (file_exists("../movies/".$link_quality."/".$name."m4v")) {
