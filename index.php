@@ -204,6 +204,22 @@
 											}
 										?>
 									</p>
+									<?php
+										if ($edit == "true") {
+									?>
+											<p>
+												<form class="topMenu" method="post" action="edit">
+													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="image" class="formButton" title="Edit" src="images/edit.png">
+												</form>
+												<form class="topMenu" method="post" action="scripts/delete">
+													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="image" class="formButton" title="Delete" src="images/delete.png">
+												</form>
+											</p>
+									<?php
+										}
+									?>
 							</td>
 						</tr>
 					</table>
