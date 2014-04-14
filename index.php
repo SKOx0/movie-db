@@ -56,9 +56,9 @@
 </head>
 <body>
 	<div>
-		<table>
+		<table id="header_layout">
 			<tr>
-				<td>
+				<td id="header_layout_left">
 					<?php
 						if ($detect->isMobile()) {
 					?>
@@ -99,7 +99,7 @@
 					?>
 					</form>
 				</td>
-				<td>
+				<td id="header_layout_right">
 					<form id="orderForm" class="topMenu" method="get" action="./">
 						<?php
 							if(isset($_GET["search"])){

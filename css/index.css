@@ -4,6 +4,16 @@ body {
 	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAJElEQVQYV2O8/Pr1f11RUUZCNCMDEBBSBJInaBLMkFET8QYVAN5VxlMFRTuzAAAAAElFTkSuQmCC) repeat;
 }
 
+#header_layout {
+	width: 100%;
+}
+#header_layout_left {
+	text-align: left;
+}
+#header_layout_right {
+	text-align: right;
+}
+
 .topMenu			{ display:inline; }
 
 #search_box {
