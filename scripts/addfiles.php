@@ -34,10 +34,10 @@ while($movies_table->fetch()){
 		if (file_exists("../movies/".$link_quality."/".$name.".m4v")) {
 			$file_name = $name.".m4v";
 			echo $file_name."<br>";
-			/*$db_files = $db2->prepare("INSERT INTO Files VALUES(?, ?);");
-			$db_files->bind_param('ss', $id, $name.".m4v");
+			$db_files = $db2->prepare("INSERT INTO Files VALUES(?, ?);");
+			$db_files->bind_param('ss', $id, $file_name);
 			$db_files->execute();
-			$db_files->free_result();*/
+			$db_files->free_result();
 		}
 	}
 }
