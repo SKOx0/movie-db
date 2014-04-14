@@ -43,9 +43,9 @@
 			echo "Untar the restore file"."<br>";
 			
 			include('../config/config.php');
-			exec("cd ..; /usr/bin/mysqlimport --local -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." movies.sql");
+			exec("cd ..; /usr/bin/mysql -u ".$USERNAME." -p".$PASSWORD." ".$DATABASE." < movies.sql");
 			
-			/*header("Location: ../");*/
+			header("Location: ../");
 		}
 	}
 	else {
