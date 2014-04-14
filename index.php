@@ -111,7 +111,7 @@
 			}
 			if(isset($_GET["search"])){
 		?>
-				<input type="search" name="search" value="<?php echo $search ?>" placeholder="Search..." size="30">
+				<input id="search_bar" type="search" name="search" value="<?php echo $search ?>" placeholder="Search..." size="30">
 		<?php
 			}
 			else {
