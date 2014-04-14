@@ -135,6 +135,20 @@
 				</tr>
 			</table>
 		</div>
+		<div class="movie_box">
+			<table>
+				<tr>
+					<td>
+						<td class="posters"><img border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></td>
+					</td>
+					<td>
+							<p><a href=".">Test Movie</a> (2014)</p>
+							<p><span class="rating_span">PG-13</span> 120 mins - Action, Comedy, Documentary</p>
+							<p><a href="."><button>&#9658; 1080p HD</button></a></p>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<div>
 	<table cellpadding="0" cellspacing="0" class="db-table">
