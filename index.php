@@ -193,12 +193,12 @@
 				
 				if($count_play > 0){
 		?>
-								<a href="<?php echo $movie_link ?>"><img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
+								<a href="<?php echo $movie_link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
 		<?php
 				}
 				else{
 		?>
-								<img id="<?php echo $id; ?>" border="0" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" />
+								<img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" />
 		<?php
 				}
 		?>
