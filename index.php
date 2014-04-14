@@ -129,7 +129,8 @@
 					</td>
 					<td>
 							<p><a href=".">Test Movie</a> (2014)</p>
-							<p><span class="rating_span">PG-13</span> 120 mins - Action, Comedy, Documentary</p>
+							<p><span class="rating_span">PG-13</span> 120 mins</p>
+							<p>Action, Comedy, Documentary</p>
 							<p><a href="."><button>&#9658; 1080p HD</button></a></p>
 					</td>
 				</tr>
@@ -143,7 +144,8 @@
 					</td>
 					<td>
 							<p><a href=".">Test Movie</a> (2014)</p>
-							<p><span class="rating_span">PG-13</span> 120 mins - Action, Comedy, Documentary</p>
+							<p><span class="rating_span">PG-13</span> 120 mins</p>
+							<p>Action, Comedy, Documentary</p>
 							<p><a href="."><button>&#9658; 1080p HD</button></a></p>
 					</td>
 				</tr>
