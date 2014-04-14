@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
+	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/index.css">
 	<script src="js/openlink.js"></script>
 	<script src="js/index.js"></script>
