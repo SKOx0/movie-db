@@ -192,7 +192,7 @@
 								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
 							</td>
 							<td>
-									<p><span class="name_span"><?php echo $name ?></span> (<?php echo $year ?>)</p>
+									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
 									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
 									<p><?php echo $genre ?></p>
 									<p>
