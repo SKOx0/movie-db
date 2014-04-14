@@ -95,7 +95,7 @@
 			}
 		?>
 		</form>
-		<form class="topMenu" method="get" action="./">
+		<form id="orderForm" class="topMenu" method="get" action="./">
 		<?php
 			if(isset($_GET["search"])){
 		?>
@@ -108,7 +108,7 @@
 		<?php
 			}
 		?>
-			Order by <select onchange="this.form.submit()">
+			Order by <select onchange="submitOrderForm()">
 				<option value="name" selected>Name</option>
 				<option value="year">Year</option>
 				<option value="time">Duration</option>

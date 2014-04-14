@@ -34,3 +34,7 @@ function removeLoadPostersButton () {
 	var loadButton = document.getElementById('load_posters');
 	loadButton.parentNode.removeChild(loadButton);
 }
+
+function submitOrderForm () {
+	document.getElementById("orderForm").submit();
+}
