@@ -317,8 +317,10 @@
 		<?php
 				}
 		?>
-					<td><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</td>
-					<td><?php echo $time ?></td>
+					<td>
+						<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
+						<p><?php echo $time ?></p>
+					</td>
 					<td><?php echo $genre ?></td>
 					<td><?php echo $rating ?></td>
 					<td><?php echo $quality ?></td>
