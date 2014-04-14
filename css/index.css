@@ -27,6 +27,10 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 
 #copyright			{ font-size:8pt; }
 
+#movie_boxes {
+	width: 100%;
+}
+
 .movie_box {
 	background-color: white;
 	font-size: 10pt;

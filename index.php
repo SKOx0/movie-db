@@ -119,7 +119,7 @@
 <?php
 	}
 ?>
-	<div>
+	<div id="movie_boxes">
 		<?php
 			include 'config/config.php';
 			$db = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
