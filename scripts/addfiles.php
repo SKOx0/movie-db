@@ -18,6 +18,8 @@ while($movies_table->fetch()){
 	$db_count->bind_result($count_id);
 	$db_count->fetch();
 	$db_count->free_result();
+	
+	echo $id." ".$name." ".$quality."<br>";
 
 	if($count_id == 0){
 		$link_quality;
@@ -30,6 +32,8 @@ while($movies_table->fetch()){
 		if($quality == 'SD'){
 			$link_quality =	'iTunes Movies (SD)';
 		}
+		
+		echo $link_quality;
 		
 		if (file_exists("../movies/".$link_quality."/".$name."m4v")) {
 			echo $name."m4v";
