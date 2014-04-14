@@ -95,7 +95,9 @@
 			}
 		?>
 		</form>
-		<form class="topMenu" id="searchForm" method="get" action="./">
+	</div>
+	<div id="search_box">
+		<form id="searchForm" method="get" action="./">
 		<?php
 			if(isset($_GET["order"])){
 		?>
@@ -114,7 +116,7 @@
 			}
 			else {
 		?>
-				<input type="search" name="search" placeholder="Search..." size="30">
+				<input id="search_bar" type="search" name="search" placeholder="Search..." size="40">
 		<?php
 			}
 		?>

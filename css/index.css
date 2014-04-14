@@ -6,6 +6,15 @@ body {
 
 .topMenu			{ display:inline; }
 
+#search_box {
+	width: 100%;
+	text-align: center;
+}
+
+#search_bar {
+	font-size: 12pt;
+}
+
 .searchData			{ display:inline; }
 
 .posters {
