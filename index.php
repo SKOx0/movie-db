@@ -192,11 +192,22 @@
 								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
 							</td>
 							<td>
-									<p display="inline"><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
+									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
+									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
+									<p><?php echo $genre ?></p>
+									<p>
+										<?php
+											if($count_play > 0){
+										?>
+												<a href="<?php echo $movie_link ?>"><button>&#9658; <?php echo $quality ?></button></a>
+										<?php
+											}
+										?>
+									</p>
 									<?php
 										if ($edit == "true") {
 									?>
-											<p display="inline">
+											<p>
 												<form class="topMenu" method="post" action="edit">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
 													<input type="image" class="formButton" title="Edit" src="images/edit.png">
@@ -209,17 +220,6 @@
 									<?php
 										}
 									?>
-									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
-									<p><?php echo $genre ?></p>
-									<p>
-										<?php
-											if($count_play > 0){
-										?>
-												<a href="<?php echo $movie_link ?>"><button>&#9658; <?php echo $quality ?></button></a>
-										<?php
-											}
-										?>
-									</p>
 							</td>
 						</tr>
 					</table>
