@@ -8,6 +8,7 @@
 	<script src="js/openlink.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/add.js"></script>
+	<script src="js/types.js"></script>
 	<?php
 		require_once 'mobile_detect/Mobile_Detect.php';
 		$detect = new Mobile_Detect;
