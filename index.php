@@ -220,26 +220,6 @@
 						</tr>
 					</table>
 				</div>
-				<!--<tr>
-					<?php
-						if ($edit == "true") {
-					?>
-							<td>
-								<form method="post" action="edit">
-									<input type="hidden" name="id" value="<?php echo $id ?>">
-									<input type="image" class="formButton" title="Edit" src="images/edit.png">
-								</form>
-							</td>
-							<td>
-								<form method="post" action="scripts/delete">
-									<input type="hidden" name="id" value="<?php echo $id ?>">
-									<input type="image" class="formButton" title="Delete" src="images/delete.png">
-								</form>
-							</td>
-					<?php
-						}
-					?>
-				</tr>-->
 		<?php
 			}
 			$movies_table->free_result();
