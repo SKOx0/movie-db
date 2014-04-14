@@ -47,6 +47,10 @@ table.db-table td	{ padding:5px; border-left:1px solid #ccc; border-top:1px soli
 	border-radius: 5px;
 }
 
+.name_span {
+	font-size: 12pt;
+}
+
 .rating_span {
 	padding: 2px;
 	border: 2px solid #ccc;

@@ -189,22 +189,10 @@
 					<table>
 						<tr>
 							<td>
-		<?php
-				
-				if($count_play > 0){
-		?>
-								<a href="<?php echo $movie_link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
-		<?php
-				}
-				else{
-		?>
-								<img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" />
-		<?php
-				}
-		?>
+								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
 							</td>
 							<td>
-									<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
+									<p><span class="name_span"><?php echo $name ?></span> (<?php echo $year ?>)</p>
 									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
 									<p><?php echo $genre ?></p>
 									<p>
