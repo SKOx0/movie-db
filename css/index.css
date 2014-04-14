@@ -20,12 +20,12 @@ body {
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	display: none;
-    width: 400px;
+    width: 395px;
     position: fixed;
     top: 50%; 
     left: 50%;
-    margin-top: -100px;
-    margin-left: -200px;
+    margin-top: -200px;
+    margin-left: -197.5px;
     background-color: white;
     z-index: 11; /* 1px higher than the overlay layer */
 }
