@@ -92,7 +92,7 @@
 		<?php
 			}
 		?>
-			<input type="search" name="search" placeholder="Search...">
+			<input type="search" name="search" placeholder="Search..." size="30">
 		</form>
 	</div>
 <?php
