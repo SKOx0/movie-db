@@ -319,8 +319,7 @@
 		?>
 					<td>
 						<p><a href="<?php echo $link ?>"><?php echo $name ?></a> (<?php echo $year ?>)</p>
-						<p><?php echo $time ?> <span class="rating_span"><?php echo $rating ?></span></p>
-						<p><?php echo $genre ?></p>
+						<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?> - <?php echo $genre ?></p>
 						<p>
 					<?php
 						if($count_play > 0){
