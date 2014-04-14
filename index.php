@@ -234,7 +234,8 @@
         			$branch = $git_branch;
         		}
         ?>
-				<p class="footerInfo"><?php echo exec("git describe"); ?> (<?php echo $branch; ?>) 
+				<p class="footerInfo"><?php echo exec("git describe"); ?> (<?php echo $branch; ?>)</p>
+				<p>
 				<?php
 					if ($edit == "true") {
 						if (file_exists('movies.sql')) {
