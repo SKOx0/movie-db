@@ -120,30 +120,6 @@
 		?>
 		</form>
 	</div>
-<?php
-	if(isset($_GET["search"])){
-?>
-	<div>
-		<p class="searchData">Displaying results for "<?php echo $search ?>" <form class="searchData" method="get" action="./">
-		<?php
-			if(isset($_GET["order"])){
-		?>
-				<input type="hidden" name="order" value="<?php echo $order ?>">
-		<?php
-			}
-			if(isset($_GET["edit"])){
-		?>
-				<input type="hidden" name="edit" value="<?php echo $edit ?>">
-		<?php
-			}
-		?>
-			<input type="image" src="images/delete.png" width="15" alt="Clear search" />
-		</form>
-		</p>
-	</div>
-<?php
-	}
-?>
 	<div id="movie_boxes">
 		<?php
 			include 'config/config.php';
