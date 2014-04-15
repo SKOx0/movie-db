@@ -8,6 +8,12 @@
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
 	<?php
+		if( $detect->isMobile() && !$detect->isTablet() ){
+	?>
+			<link rel="stylesheet" href="css/fonts-mobile.css">
+			<link rel="stylesheet" href="css/index-mobile.css">
+	<?php
+		}
 		if ($detect->isTablet()) {
 	?>
 			<link rel="stylesheet" href="css/fonts-tablet.css">
