@@ -83,11 +83,7 @@ function hideAddOverlay () {
 	document.body.style.overflow = "auto";
 }
 
-function showEditOverlay () {
-	var id = document.getElementById('edit_button_form').elements[0].value;
-	var quality = document.getElementById('edit_button_form').elements[1].value;
-	var file_name = document.getElementById('edit_button_form').elements[2].value;
-	
+function showEditOverlay (id, quality, file_name) {
 	document.getElementById('edit_form').elements[0].value = id;
 	document.getElementById('edit_form').elements[2].value = file_name;
 	
