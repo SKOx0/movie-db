@@ -75,7 +75,7 @@ body {
 	text-align: center;
 }
 #search_bar {
-	font-size: 14pt;
+	font-size: 18pt;
 }
 .searchData {
 	display: inline;
@@ -117,10 +117,10 @@ table.db-table td {
 	margin-top: 10px;
 }
 .footerInfo	{
-	font-size: 10pt;
+	font-size: 14pt;
 }
 #copyright {
-	font-size: 10pt;
+	font-size: 14pt;
 }
 #movie_boxes {
 	width: 100%;
@@ -131,7 +131,7 @@ table.db-table td {
 	text-align: left;
 	width: 90%;
 	background-color: white;
-	font-size: 12pt;
+	font-size: 16pt;
 	display: inline-block;
 	padding: 5px;
 	border: 2px solid #ccc;
@@ -139,10 +139,10 @@ table.db-table td {
 	border-radius: 5px;
 }
 .name_span {
-	font-size: 14pt;
+	font-size: 16pt;
 }
 .genre_p {
-	font-size: 10pt;
+	font-size: 14pt;
 }
 .rating_span {
 	padding: 2px;
