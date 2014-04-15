@@ -87,6 +87,16 @@ function showEditOverlay (id, quality, file_name) {
 	document.getElementById('edit_form').elements[0].value = id;
 	document.getElementById('edit_form').elements[2].value = file_name;
 	
+	var form_select = document.getElementById('edit_form').elements[1];
+	for (var i = 0; i < form_select.length; i++) {
+		if (form_select.options[i].value == quality) {
+			form_select.options[i].selected = true;
+		}
+		else {
+			form_select.options[i].selected = false;
+		}
+	}
+	
 	document.getElementById('overlay_background').style.display = "block";
 	document.getElementById('overlay_edit').style.display = "block";
 	document.body.style.overflow = "hidden";
