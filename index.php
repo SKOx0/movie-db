@@ -343,7 +343,7 @@
 					<table>
 						<tr>
 							<td>
-								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="100" height="148.148148148" /></a>
+								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="110" height="162.962962963" /></a>
 							</td>
 							<td>
 									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
