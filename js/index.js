@@ -61,11 +61,10 @@ function writeCopyrightYear () {
 function loadVisiblePosters () {
 	var posters = document.getElementsByClassName('posters');
 	for (var i = 0; i < posters.length; i++) {
-		//alert(posters[i].id);
-		//if ($("#" + posters[i].id).isOnScreen()) {
+		if ($("#" + posters[i].id).isOnScreen() == true) {
 			posters[i].src = "posters/" + posters[i].id + ".jpg";
 			posters[i].style.display = "block";
-			//}
+		}
 	}
 }
 
