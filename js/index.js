@@ -65,6 +65,7 @@ function loadVisiblePosters () {
 		
 		for (var j = 0; j < curr_box_elements.length; j++) {
 			if ((curr_box_elements[i].tagName) == "IMG") {
+				alert(curr_box_elements[i].id);
 				if ($("#" + curr_box_elements[i].id).isOnScreen()) {
 					curr_box_elements[i].src = "posters/" + curr_box_elements[i].id + ".jpg";
 					curr_box_elements[i].style.display = "block";
