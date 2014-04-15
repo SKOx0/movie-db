@@ -142,13 +142,6 @@
 			<tr>
 				<td id="header_layout_left">
 					<?php
-						if ($detect->isMobile()) {
-					?>
-							<a id="load_posters" class="topMenu" onclick="loadPosters()"><button>Load Posters</button></a>
-					<?php
-						}
-					?>
-					<?php
 						if ($edit == "true") {
 					?>
 							<a class="topMenu" onclick="showAddOverlay()"><button>Add Movie</button></a>
