@@ -75,7 +75,7 @@ body {
 	text-align: center;
 }
 #search_bar {
-	font-size: 22pt;
+	font-size: 26pt;
 }
 .searchData {
 	display: inline;
@@ -131,7 +131,7 @@ table.db-table td {
 	text-align: left;
 	width: 90%;
 	background-color: white;
-	font-size: 20pt;
+	font-size: 24pt;
 	display: inline-block;
 	padding: 5px;
 	border: 2px solid #ccc;
@@ -139,10 +139,10 @@ table.db-table td {
 	border-radius: 5px;
 }
 .name_span {
-	font-size: 20pt;
+	font-size: 24pt;
 }
 .genre_p {
-	font-size: 18pt;
+	font-size: 22pt;
 }
 .rating_span {
 	padding: 2px;
