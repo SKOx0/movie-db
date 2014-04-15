@@ -59,18 +59,12 @@ function writeCopyrightYear () {
 }
 
 function loadVisiblePosters () {
-	var movie_boxes = document.getElementsByClassName('movie_box');
-	for (var i = 0; i < movie_boxes.length; i++) {
-		var curr_box_elements = movie_boxes[i].getElementsByTagName("*");
-		
-		for (var j = 0; j < curr_box_elements.length; j++) {
-			if ((curr_box_elements[i].tagName) == "IMG") {
-				alert(curr_box_elements[i].id);
-				if ($("#" + curr_box_elements[i].id).isOnScreen()) {
-					curr_box_elements[i].src = "posters/" + curr_box_elements[i].id + ".jpg";
-					curr_box_elements[i].style.display = "block";
-				}
-			}
+	var posters = document.getElementsByClassName('posters');
+	for (var i = 0; i < posters.length; i++) {
+		alert(posters[i].id);
+		if ($("#" + posters[i].id).isOnScreen()) {
+			posters[i].src = "posters/" + posters[i].id + ".jpg";
+			posters[i].style.display = "block";
 		}
 	}
 }
