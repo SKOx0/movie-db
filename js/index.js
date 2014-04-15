@@ -62,6 +62,7 @@ function loadVisiblePosters () {
 	var movie_boxes = document.getElementsByClassName('movie_box');
 	for (var i = 0; i < movie_boxes.length; i++) {
 		var curr_box = movie_boxes[i];
+		alert(curr_box.className);
 		if ($(curr_box.className).isOnScreen()) {
 			for (var j = 0; j < curr_box.length; j++) {
 				if ((curr_box[i].tagName) == "IMG") {
