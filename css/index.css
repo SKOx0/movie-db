@@ -119,8 +119,10 @@ table.db-table td {
 #movie_boxes {
 	width: 100%;
 	margin-top: 10px;
+	text-align: center;
 }
 .movie_box {
+	text-align: left;
 	width: 30%;
 	background-color: white;
 	font-size: 10pt;
