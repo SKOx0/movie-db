@@ -59,7 +59,6 @@
 </head>
 <body>
 	<div id="overlay_background"></div>
-	<div id="overlay_background_bottom"></div>
 	<div id="overlay_add">
 		<div>
 			<form id="movies_list">
