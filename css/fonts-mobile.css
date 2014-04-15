@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'Courier Custom';
+	src: url('../fonts/Courier New.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Courier Custom';
+	src: url('../fonts/Courier New Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Courier Custom';
+	src: url('../fonts/Courier New Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+@font-face {
+	font-family: 'Courier Custom';
+	src: url('../fonts/Courier New Bold Italic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+p, h1, h2, h3, table, button, input, span, form, select, option {
+	font-family:"Courier Custom";
+	font-size: 12pt;
+}
