@@ -126,7 +126,7 @@ input[type=text], input[type=search] {
 input[type=search]:focus, input[type=text]:focus {
 	border-color: #333;
 }
-input[type=submit], input[type=file], button {
+input[type=submit], button {
 	padding: 5px 15px;
 	background: #ccc;
 	border: 0 none;
