@@ -14,7 +14,7 @@
 			<link rel="stylesheet" href="css/index-mobile.css">
 	<?php
 		}
-		if ($detect->isTablet()) {
+		else if ($detect->isTablet()) {
 	?>
 			<link rel="stylesheet" href="css/fonts-tablet.css">
 			<link rel="stylesheet" href="css/index-tablet.css">
