@@ -392,7 +392,10 @@
 										if ($edit == "true") {
 									?>
 											<p>
-												<img class="topMenu" onclick="showEditOverlay()" src="images/edit.png" width="10" height="10" />
+												<form class="topMenu" onsubmit="showEditOverlay()">
+													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="image" class="formButton" title="Edit" src="images/edit.png">
+												</form>
 												<form class="topMenu" method="post" action="scripts/delete">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
 													<input type="image" class="formButton" title="Delete" src="images/delete.png">
