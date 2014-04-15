@@ -48,10 +48,6 @@ function isElementInViewport (el) {
     );
 }
 
-$(window).scroll(function() {
-	loadVisiblePosters();
-});
-
 function writeCopyrightYear () {
 	document.getElementById('copy_year').innerHTML = new Date().getFullYear();
 }
