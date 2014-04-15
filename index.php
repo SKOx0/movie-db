@@ -308,7 +308,7 @@
 			}
 			else {
 		?>
-				<input id="search_bar" type="search" name="search" placeholder="Search..." size="40">
+				<input id="search_bar" type="search" name="search" placeholder="Search...">
 		<?php
 			}
 		?>

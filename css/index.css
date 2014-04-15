@@ -76,6 +76,7 @@ body {
 }
 #search_bar {
 	font-size: 12pt;
+	width: 40%;
 }
 .searchData {
 	display: inline;
