@@ -101,7 +101,7 @@
 		<p id="json_holder" style="display:none"><?php echo json_encode($qualities); ?></p>
 	</div>
 	<div id="overlay_edit">
-		<form style="display: inline" action="scripts/update" method="post" name="movie_form" onsubmit="return validateForm()">
+		<form id="edit_form" style="display: inline" action="scripts/update" method="post" name="movie_form" onsubmit="return validateForm()">
 			<input type="text" name="id" placeholder="IMDB ID" size="9" readonly>
 			<select name="quality">
 				<?php
@@ -392,8 +392,10 @@
 										if ($edit == "true") {
 									?>
 											<p>
-												<form class="topMenu" onsubmit="return showEditOverlay()">
+												<form id="edit_button_form" class="topMenu" onsubmit="return showEditOverlay()">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="hidden" name="quality" value="<?php echo $quality ?>">
+													<input type="hidden" name="file_name" value="<?php echo $file_name ?>">
 													<input type="image" class="formButton" title="Edit" src="images/edit.png">
 												</form>
 												<form class="topMenu" method="post" action="scripts/delete">

@@ -84,6 +84,13 @@ function hideAddOverlay () {
 }
 
 function showEditOverlay () {
+	var id = document.getElementById('edit_button_form').elements[0].value;
+	var quality = document.getElementById('edit_button_form').elements[1].value;
+	var file_name = document.getElementById('edit_button_form').elements[2].value;
+	
+	document.getElementById('edit_form').elements[0].value = id;
+	document.getElementById('edit_form').elements[2].value = file_name;
+	
 	document.getElementById('overlay_background').style.display = "block";
 	document.getElementById('overlay_edit').style.display = "block";
 	document.body.style.overflow = "hidden";
