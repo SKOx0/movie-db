@@ -124,7 +124,7 @@ table.db-table td {
 .movie_box {
 	text-align: left;
 	width: 30%;
-	min-height: 184px;
+	min-height: 180px;
 	background-color: white;
 	font-size: 10pt;
 	display: inline-block;
