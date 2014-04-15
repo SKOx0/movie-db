@@ -28,6 +28,21 @@ body {
     background-color: white;
     z-index: 11; /* 1px higher than the overlay layer */
 }
+#overlay_edit {
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	display: none;
+    width: 390px;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -195px;
+    background-color: white;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
 #overlay_restore {
 	padding: 5px;
 	border: 2px solid #ccc;

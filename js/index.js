@@ -83,6 +83,18 @@ function hideAddOverlay () {
 	document.body.style.overflow = "auto";
 }
 
+function showEditOverlay () {
+	document.getElementById('overlay_background').style.display = "block";
+	document.getElementById('overlay_edit').style.display = "block";
+	document.body.style.overflow = "hidden";
+}
+
+function hideEditOverlay () {
+	document.getElementById('overlay_edit').style.display = "none";
+	document.getElementById('overlay_background').style.display = "none";
+	document.body.style.overflow = "auto";
+}
+
 function showRestoreOverlay () {
 	document.getElementById('overlay_background').style.display = "block";
 	document.getElementById('overlay_restore').style.display = "block";
