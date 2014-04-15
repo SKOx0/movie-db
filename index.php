@@ -392,7 +392,7 @@
 										if ($edit == "true") {
 									?>
 											<p>
-												<form class="topMenu" onsubmit="return showEditOverlay(\"<?php echo $id ?>\", \"<?php echo $quality ?>\", \"<?php echo $file_name ?>\")">
+												<form class="topMenu" onsubmit="return showEditOverlay('<?php echo $id ?>', '<?php echo $quality ?>', '<?php echo $file_name ?>')">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
 													<input type="hidden" name="quality" value="<?php echo $quality ?>">
 													<input type="hidden" name="file_name" value="<?php echo $file_name ?>">
