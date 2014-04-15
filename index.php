@@ -26,7 +26,16 @@
 			<link rel="stylesheet" href="css/index.css">
 	<?php
 		}
+		
+		if($detect->isiOS()){
 	?>
+			<meta name="apple-mobile-web-app-title" content="Movies">
+			<meta name="apple-mobile-web-app-capable" content="yes">
+			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<?php
+		}
+	?>
+	<meta name="mobile-web-app-capable" content="yes">
 	<script src="js/openlink.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/add.js"></script>
