@@ -82,6 +82,8 @@ body {
 }
 .posters {
 	border: 1px solid #ccc;
+	height: 207.407407407px;
+	width: 140px;
 }
 table.db-table {
 	border-right: 1px solid #ccc;
