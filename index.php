@@ -348,7 +348,7 @@
 							<td>
 									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
 									<p><span class="rating_span"><?php echo $rating ?></span> <?php echo $time ?></p>
-									<p><?php echo $genre ?></p>
+									<p class="genre_p"><?php echo $genre ?></p>
 									<p>
 										<?php
 											if($count_play > 0){
