@@ -9,6 +9,7 @@
 	<script src="js/index.js"></script>
 	<script src="js/add.js"></script>
 	<script src="js/types.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<?php
 		require_once 'mobile_detect/Mobile_Detect.php';
 		$detect = new Mobile_Detect;
@@ -433,14 +434,14 @@
 		if ($detect->isMobile()) {
 	?>
 			<script>
-				window.onload = afterPageLoadMobile; 
+				window.onload = afterPageLoad; 
 			</script>
 	<?php
 		}
 		else {
 	?>
 			<script>
-				window.onload = afterPageLoadDesktop;
+				window.onload = afterPageLoad;
 			</script>
 	<?php
 		}

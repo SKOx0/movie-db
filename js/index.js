@@ -7,10 +7,6 @@ function afterPageLoadMobile () {
 	writeCopyrightYear();
 }
 
-function writeCopyrightYear () {
-	document.getElementById('copy_year').innerHTML = new Date().getFullYear();
-}
-
 function loadPosters () {
 	var docElements = document.getElementsByTagName("*");
 	for (var i = 0; i < docElements.length; i++) {
@@ -28,6 +24,52 @@ function loadPosters () {
 	}
 	
 	removeLoadPostersButton();
+}
+
+function afterPageLoad () {
+	writeCopyrightYear();
+	loadVisiblePosters();
+}
+
+$.fn.isOnScreen = function(){
+    
+    var win = $(window);
+    
+    var viewport = {
+        top : win.scrollTop(),
+        left : win.scrollLeft()
+    };
+    viewport.right = viewport.left + win.width();
+    viewport.bottom = viewport.top + win.height();
+    
+    var bounds = this.offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+    
+    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+    
+};
+
+$(window).scroll(function() {
+	loadVisiblePosters();
+});
+
+function writeCopyrightYear () {
+	document.getElementById('copy_year').innerHTML = new Date().getFullYear();
+}
+
+function loadVisiblePosters () {
+	var movie_boxes = document.getElementsByClassName('movie_box');
+	for (var i = 0; i < movie_boxes.length; i++) {
+		var curr_box = movie_boxes[i];
+		if ($(curr_box.className).isOnScreen()) {
+			for (var j = 0; j < curr_box.length; j++) {
+				if ((curr_box[i].tagName) == "IMG") {
+					curr_box[i].src = "posters/" + curr_box[i].id + ".jpg";
+				}
+			}
+		}
+	}
 }
 
 function removeLoadPostersButton () {
