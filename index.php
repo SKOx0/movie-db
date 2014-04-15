@@ -99,6 +99,13 @@
 		</div>
 		<p id="json_holder" style="display:none"><?php echo json_encode($qualities); ?></p>
 	</div>
+	<div id="overlay_restore">
+		<form style="display:inline" action="scripts/restore.php" method="post" enctype="multipart/form-data">
+			<input type="file" name="file">
+			<input type="submit" name="submit" value="Restore">
+		</form>
+		<button style="display:inline" onclick="hideRestoreOverlay()">Cancel</button>
+	</div>
 	<div>
 		<table id="header_layout">
 			<tr>
@@ -411,7 +418,7 @@
 				?>
 						<button onclick="openLink('scripts/gitupdate')">Update</button> 
 						<button onclick="openLink('moviedb.mbk')">Backup</button>
-						<button onclick="openLink('restoredb')">Restore</button>
+						<button onclick="showRestoreOverlay()">Restore</button>
 				<?php
 					}
 				?>
