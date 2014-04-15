@@ -392,7 +392,7 @@
 										if ($edit == "true") {
 									?>
 											<p>
-												<form class="topMenu" onsubmit="showEditOverlay()">
+												<form class="topMenu" onsubmit="return showEditOverlay()">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
 													<input type="image" class="formButton" title="Edit" src="images/edit.png">
 												</form>

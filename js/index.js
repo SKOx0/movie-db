@@ -87,6 +87,7 @@ function showEditOverlay () {
 	document.getElementById('overlay_background').style.display = "block";
 	document.getElementById('overlay_edit').style.display = "block";
 	document.body.style.overflow = "hidden";
+	return false;
 }
 
 function hideEditOverlay () {
