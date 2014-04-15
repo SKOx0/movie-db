@@ -123,6 +123,9 @@ table.db-table td {
 #copyright {
 	font-size: 18pt;
 }
+#copy_year {
+	font-size: 18pt;
+}
 #movie_boxes {
 	width: 100%;
 	margin-top: 10px;
