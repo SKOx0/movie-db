@@ -50,11 +50,11 @@ function hideAddOverlay () {
 }
 
 function showRestoreOverlay () {
-	document.getElementById('overlay_background').style.display = "block";
+	document.getElementById('overlay_background_bottom').style.display = "block";
 	document.getElementById('overlay_restore').style.display = "block";
 }
 
 function hideRestoreOverlay () {
 	document.getElementById('overlay_restore').style.display = "none";
-	document.getElementById('overlay_background').style.display = "none";
+	document.getElementById('overlay_background_bottom').style.display = "none";
 }
