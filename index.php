@@ -7,8 +7,20 @@
 	?>
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/index.css">
+	<?php
+		if ($detect->isTablet()) {
+	?>
+			<link rel="stylesheet" href="css/fonts-tablet.css">
+			<link rel="stylesheet" href="css/index-tablet.css">
+	<?php
+		}
+		else {
+	?>
+			<link rel="stylesheet" href="css/fonts.css">
+			<link rel="stylesheet" href="css/index.css">
+	<?php
+		}
+	?>
 	<script src="js/openlink.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/add.js"></script>
