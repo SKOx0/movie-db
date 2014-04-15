@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+		require_once 'mobile_detect/Mobile_Detect.php';
+		$detect = new Mobile_Detect;
+	?>
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
 	<link rel="stylesheet" href="css/fonts.css">
@@ -10,9 +14,6 @@
 	<script src="js/add.js"></script>
 	<script src="js/types.js"></script>
 	<?php
-		require_once 'mobile_detect/Mobile_Detect.php';
-		$detect = new Mobile_Detect;
-	
 		$order;
 		$search;
 		$query;
