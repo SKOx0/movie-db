@@ -434,14 +434,14 @@
 		if ($detect->isMobile()) {
 	?>
 			<script>
-				window.onload = afterPageLoad; 
+				window.onload = afterPageLoadMobile; 
 			</script>
 	<?php
 		}
 		else {
 	?>
 			<script>
-				window.onload = afterPageLoad;
+				window.onload = afterPageLoadDesktop;
 			</script>
 	<?php
 		}
