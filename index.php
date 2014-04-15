@@ -365,7 +365,7 @@
 					<table>
 						<tr>
 							<td>
-								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="posters/<?php echo $id; ?>.jpg" alt="Poster" width="120" height="177.777777778" /></a>
+								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="posters/<?php echo $id; ?>.jpg" alt="Poster" width="130" height="192.592592593" /></a>
 							</td>
 							<td>
 									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
