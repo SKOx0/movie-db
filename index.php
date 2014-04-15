@@ -56,7 +56,7 @@
 		}
 	?>
 </head>
-<body>
+<body onload="writeCopyrightYear()">
 	<div id="overlay_background"></div>
 	<div id="overlay_add">
 		<div>
@@ -372,7 +372,7 @@
 					<table>
 						<tr>
 							<td>
-								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="images/white.jpg" alt="Poster" width="110" height="162.962962963" /></a>
+								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="posters/<?php echo $id; ?>.jpg" alt="Poster" width="110" height="162.962962963" /></a>
 							</td>
 							<td>
 									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
@@ -461,21 +461,5 @@
 		?>
 		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
-	<?php
-		if ($detect->isMobile()) {
-	?>
-			<script>
-				window.onload = afterPageLoadMobile; 
-			</script>
-	<?php
-		}
-		else {
-	?>
-			<script>
-				window.onload = afterPageLoadDesktop;
-			</script>
-	<?php
-		}
-	?>
 </body>
 </html>
