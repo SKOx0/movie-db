@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<title>Movie Collection</title>
 	<?php
-		if( $detect->isMobile() && !$detect->isTablet() ){
+		if($detect->isMobile() && !$detect->isTablet()){
 	?>
 			<link rel="stylesheet" href="css/fonts-mobile.css">
 			<link rel="stylesheet" href="css/index-mobile.css">
@@ -159,40 +159,46 @@
 	<div>
 		<table id="header_layout">
 			<tr>
-				<td id="header_layout_left">
-					<?php
-						if ($edit == "true") {
-					?>
-							<a class="topMenu" onclick="showAddOverlay()"><button>Add Movie</button></a>
-					<?php
-						}
-					?>
-					<form class="topMenu" method="get" action="./">
-					<?php
-						if(isset($_GET["order"])){
-					?>
-							<input type="hidden" name="order" value="<?php echo $order ?>">
-					<?php
-						}
-						if(isset($_GET["search"])){
-					?>
-							<input type="hidden" name="search" value="<?php echo $search ?>">
-					<?php
-						}
-						if ($edit == "false") {
-					?>
-							<input type="hidden" name="edit" value="true">
-							<input type="submit" value="Edit mode: Off">
-					<?php
-						}
-						else {
-					?>
-							<input type="submit" value="Edit mode: On">
-					<?php
-						}
-					?>
-					</form>
-				</td>
+				<?php
+					if (((!$detect->isMobile()) && $detect->isTablet()) || (!$detect->isMobile())) {
+				?>
+						<td id="header_layout_left">
+							<?php
+								if ($edit == "true") {
+							?>
+									<a class="topMenu" onclick="showAddOverlay()"><button>Add Movie</button></a>
+							<?php
+								}
+							?>
+							<form class="topMenu" method="get" action="./">
+							<?php
+								if(isset($_GET["order"])){
+							?>
+									<input type="hidden" name="order" value="<?php echo $order ?>">
+							<?php
+								}
+								if(isset($_GET["search"])){
+							?>
+									<input type="hidden" name="search" value="<?php echo $search ?>">
+							<?php
+								}
+								if ($edit == "false") {
+							?>
+									<input type="hidden" name="edit" value="true">
+									<input type="submit" value="Edit mode: Off">
+							<?php
+								}
+								else {
+							?>
+									<input type="submit" value="Edit mode: On">
+							<?php
+								}
+							?>
+							</form>
+						</td>
+				<?php
+					}
+				?>
 				<td id="header_layout_right">
 					<form id="orderForm" class="topMenu" method="get" action="./">
 						<?php
