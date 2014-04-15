@@ -160,7 +160,7 @@
 		<table id="header_layout">
 			<tr>
 				<?php
-					if (((!$detect->isMobile()) && $detect->isTablet()) || (!$detect->isMobile())) {
+					if (($detect->isTablet()) || (!$detect->isMobile())) {
 				?>
 						<td id="header_layout_left">
 							<?php
