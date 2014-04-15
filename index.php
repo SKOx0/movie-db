@@ -5,10 +5,10 @@
 	<title>Movie Collection</title>
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/index.css">
-	<script src="js/openlink.js" defer="defer"></script>
-	<script src="js/index.js" defer="defer"></script>
-	<script src="js/add.js" defer="defer"></script>
-	<script src="js/types.js" defer="defer"></script>
+	<script src="js/openlink.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/add.js"></script>
+	<script src="js/types.js"></script>
 	<?php
 		require_once 'mobile_detect/Mobile_Detect.php';
 		$detect = new Mobile_Detect;
