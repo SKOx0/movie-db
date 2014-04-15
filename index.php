@@ -30,11 +30,11 @@
 		if($detect->isiOS()){
 	?>
 			<meta name="apple-mobile-web-app-title" content="Movies">
-			<meta name="viewport" content="user-scalable=no">
 	<?php
 		}
 	?>
 	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="user-scalable=no">
 	<script src="js/openlink.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/add.js"></script>
