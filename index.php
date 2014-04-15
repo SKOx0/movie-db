@@ -392,12 +392,7 @@
 										if ($edit == "true") {
 									?>
 											<p>
-												<form class="topMenu" onsubmit="return showEditOverlay()">
-													<input type="hidden" name="id" value="<?php echo $id ?>">
-													<input type="hidden" name="quality" value="<?php echo $quality ?>">
-													<input type="hidden" name="file_name" value="<?php echo $file_name ?>">
-													<input type="image" class="formButton" title="Edit" src="images/edit.png">
-												</form>
+												<input type="image" class="formButton topMenu" title="Edit" src="images/edit.png" onsubmit="showEditOverlay(<?php echo $id ?>, <?php echo $quality ?>, <?php echo $file_name ?>)">
 												<form class="topMenu" method="post" action="scripts/delete">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
 													<input type="image" class="formButton" title="Delete" src="images/delete.png">
