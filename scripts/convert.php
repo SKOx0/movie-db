@@ -3,19 +3,25 @@
 		$quality = $_POST['quality'];
 		$filename = $_POST['filename'];
 		$email = $_POST['email'];
+		$json_file = "../convert_queue.json";
+		$queue;
 		
-		$queue = array();
 		$curr_movie = array(
 		    "quality" => $quality,
 		    "filename" => $filename,
 			"email" => $email,
 		);
+		
+		if (file_exists($json_file)) {
+			$queue = json_decode(file_get_contents($json_file), true);
+		}
+		else {
+			$queue = array();
+		}
+		
 		array_push($queue, $curr_movie);
+		file_put_contents($json_file, json_encode($queue));
 		
-		echo json_encode($queue)."<br><br>";
-		
-		echo $quality."<br>";
-		echo $filename."<br>";
-		echo $email."<br>";
+		header("Location: ../");
 	}
 ?>
