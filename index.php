@@ -167,7 +167,9 @@
 		<button style="display:inline" onclick="hideRestoreOverlay()">Cancel</button>
 	</div>
 	<div id="overlay_email">
-		<form id="convert_email_form" style="display:inline">
+		<form id="convert_email_form" style="display:inline" method="post" action="scripts/convert" onsubmit="return startConversion()">
+			<input type="hidden" name="quality">
+			<input type="hidden" name="filename">
 			<input type="text" name="email" placeholder="Your email" size="25">
 			<input type="submit" name="submit" value="Start conversion">
 		</form>
@@ -426,7 +428,7 @@
 														else {
 															if (!file_exists("converting")) {
 										?>
-																<button onclick="convertFile()">Convert <?php echo $converter_qualities[$i] ?></button>
+																<button onclick="convertFile('<?php echo $quality ?>', '<?php echo $file_name ?>')">Convert <?php echo $converter_qualities[$i] ?></button>
 										<?php
 															}
 															else {

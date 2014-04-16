@@ -147,7 +147,26 @@ function convertingAlert () {
 	alert("Only one file can be converted at a time, please wait for the conversion to finish.");
 }
 
-function convertFile () {
-	// Display overlay asking for users email ID and then post to php script via AJAX to start conversion.
+function convertFile (quality, filename) {
+	var convert_form = document.getElementById('convert_email_form');
+	convert_form.elements[0].value = quality;
+	convert_form.elements[1].value = filename;
+	
 	showEmailOverlay();
+}
+
+function startConversion () {
+	var convert_form = document.getElementById('convert_email_form');
+	var x = convert_form.elements[2].value;
+	
+	if (x == null || x == ""){
+		alert("Email cannot be blank.");
+		return false;
+	}
+	var atpos = x.indexOf("@");
+	var dotpos = x.lastIndexOf(".");
+	if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length){
+		alert(x + " is not a valid e-mail address.");
+		return false;
+	}
 }
