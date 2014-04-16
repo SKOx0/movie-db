@@ -67,6 +67,15 @@ function removeLoadPostersButton () {
 	loadButton.parentNode.removeChild(loadButton);
 }
 
+function confirmDelete (movie_name) {
+	if (confirm('Are you sure you want to delete ' + movie_name + '?')) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
 function submitOrderForm () {
 	document.getElementById("orderForm").submit();
 }
