@@ -73,6 +73,7 @@ body {
 #search_box {
 	width: 100%;
 	text-align: center;
+	margin-top: 20px;
 }
 #search_bar {
 	font-size: 36pt;
@@ -128,7 +129,7 @@ table.db-table td {
 }
 #movie_boxes {
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 20px;
 	text-align: center;
 }
 .movie_box {
