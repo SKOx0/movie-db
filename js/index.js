@@ -129,3 +129,12 @@ function hideRestoreOverlay () {
 	document.getElementById('overlay_background').style.display = "none";
 	document.body.style.overflow = "auto";
 }
+
+function convertingAlert () {
+	// Change this to an overlay
+	alert("Only one file can be converted at a time, please wait for the conversion to finish.");
+}
+
+function convertFile () {
+	// Display overlay asking for users email ID and then post to php script via AJAX to start conversion.
+}
