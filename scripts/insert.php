@@ -67,7 +67,7 @@
 		
 				// Convert poster to progressive JPEG
 				exec("mv ../posters/".$id.".jpg ../posters/backup/".$id.".jpg");
-				exec("convert -strip -interlace Plane -thumbnail 40.5 ../posters/backup/".$id.".jpg ../posters/".$id.".jpg");
+				exec("convert -strip -interlace Plane -thumbnail 130 ../posters/backup/".$id.".jpg ../posters/".$id.".jpg");
 				
 				$db_movies = $db->prepare("INSERT INTO Movies VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);");
 				$db_movies->bind_param('sssssssss', $id, $poster, $name, $year, $time, $genre, $rating, $quality, $link);
