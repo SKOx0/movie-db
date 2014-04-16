@@ -44,6 +44,8 @@
 		$search;
 		$query;
 		$count;
+		$converter_qualities = array("SD", "720p HD", "1080p HD");
+		
 		if(isset($_GET["order"])){
 			$order = $_GET["order"];
 		}
@@ -407,6 +409,16 @@
 									<p>
 										<?php
 											if($count_play > 0){
+												for ($i = 0; $i < count($converter_qualities); $i++) {
+													if ($quality != $converter_qualities[$i]) {
+										?>
+														<a href="."><button>Convert <?php echo $converter_qualities[$i] ?></button></a>
+										<?php
+													}
+													else {
+														break;
+													}
+												}
 										?>
 												<a href="<?php echo $movie_link ?>"><button>&#9658; <?php echo $quality ?></button></a>
 										<?php
