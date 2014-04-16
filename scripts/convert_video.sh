@@ -31,7 +31,8 @@ fi
 
 if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	touch converting
-	ffmpeg -threads 2 -qscale:v 2 -i movies/"${SRCQUALITY}"/"${FILENAME}" scale=${WIDTH}:-1 -strict -2 converted/"${QUALITY}"/"${FILENAME}"
+	ffmpeg -threads 2 -qscale:v 2 -i movies/"${SRCQUALITY}"/"${FILENAME}" scale=${WIDTH}:-1 -strict -2 converted/"${QUALITY}"/."${FILENAME}"
+	mv converted/"${QUALITY}"/."${FILENAME}" converted/"${QUALITY}"/"${FILENAME}"
 	EMAILMESSAGE="/tmp/movie_db_converter_email.txt"
 	echo "From: \"Movie DB\" <movies@virajchitnis.com>"> ${EMAILMESSAGE}
 	echo "Subject: Conversion complete!" >> ${EMAILMESSAGE}
