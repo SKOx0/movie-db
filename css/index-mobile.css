@@ -137,10 +137,10 @@ table.db-table td {
 	background-color: white;
 	font-size: 32pt;
 	display: inline-block;
-	padding: 5px;
+	padding: 20px;
 	border: 2px solid #ccc;
 	-webkit-border-radius: 5px;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 .name_span {
 	font-size: 32pt;
