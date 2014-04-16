@@ -418,7 +418,7 @@
 											if($count_play > 0){
 												for ($i = 0; $i < count($converter_qualities); $i++) {
 													if ($quality != $converter_qualities[$i]) {
-														if (file_exists("converter/".$converter_qualities[$i]."/".$file_name)) {
+														if (file_exists("converted/".$converter_qualities[$i]."/".$file_name)) {
 										?>
 															<a href="."><button>&#9658; <?php echo $converter_qualities[$i] ?></button></a>
 										<?php
