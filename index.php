@@ -419,12 +419,12 @@
 														else {
 															if (!file_exists("converting")) {
 										?>
-																<button onclick="convertingAlert()">Convert <?php echo $converter_qualities[$i] ?></button>
+																<button onclick="convertFile()">Convert <?php echo $converter_qualities[$i] ?></button>
 										<?php
 															}
 															else {
 										?>
-																<button onclick="convertFile()">Convert <?php echo $converter_qualities[$i] ?></button>
+																<button onclick="convertingAlert()">Convert <?php echo $converter_qualities[$i] ?></button>
 										<?php
 															}
 														}
