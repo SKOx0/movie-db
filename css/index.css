@@ -28,7 +28,7 @@ body {
     background-color: white;
     z-index: 11; /* 1px higher than the overlay layer */
 }
-#overlay_edit {
+#overlay_edit, #overlay_email {
 	padding: 5px;
 	border: 2px solid #ccc;
 	-webkit-border-radius: 5px;

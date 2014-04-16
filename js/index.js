@@ -130,6 +130,18 @@ function hideRestoreOverlay () {
 	document.body.style.overflow = "auto";
 }
 
+function showEmailOverlay () {
+	document.getElementById('overlay_background').style.display = "block";
+	document.getElementById('overlay_email').style.display = "block";
+	document.body.style.overflow = "hidden";
+}
+
+function hideEmailOverlay () {
+	document.getElementById('overlay_email').style.display = "none";
+	document.getElementById('overlay_background').style.display = "none";
+	document.body.style.overflow = "auto";
+}
+
 function convertingAlert () {
 	// Change this to an overlay
 	alert("Only one file can be converted at a time, please wait for the conversion to finish.");
@@ -137,4 +149,5 @@ function convertingAlert () {
 
 function convertFile () {
 	// Display overlay asking for users email ID and then post to php script via AJAX to start conversion.
+	showEmailOverlay();
 }

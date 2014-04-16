@@ -166,6 +166,13 @@
 		</form>
 		<button style="display:inline" onclick="hideRestoreOverlay()">Cancel</button>
 	</div>
+	<div id="overlay_email">
+		<form id="convert_email_form" style="display:inline">
+			<input type="text" name="email" placeholder="Your email" size="25">
+			<input type="submit" name="submit" value="Start conversion">
+		</form>
+		<button style="display:inline" onclick="hideEmailOverlay()">Cancel</button>
+	</div>
 	<div>
 		<table id="header_layout">
 			<tr>
