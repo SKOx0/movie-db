@@ -140,7 +140,7 @@ table.db-table td {
 	padding: 5px;
 	border: 2px solid #ccc;
 	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 .name_span {
 	font-size: 32pt;
