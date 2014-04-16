@@ -8,7 +8,7 @@ if [ -d posters ]; then
 		if [ -f "${f}" ]; then
 			if [ -d backup ]; then
 				rm "${f}"
-				convert -strip -interlace Plane -thumbnail 130 backup/"${f}" "${f}"
+				convert -strip -interlace Plane -thumbnail 200 backup/"${f}" "${f}"
 			fi
 		fi
 	done
