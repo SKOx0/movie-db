@@ -51,7 +51,7 @@
 			$queue = json_decode(file_get_contents($json_file), true);
 		}
 		
-		function is_in_queue($filename) {
+		function is_in_queue($filename, $queue) {
 			if (isset($queue)) {
 				for ($i = 0; $i < count($queue); $i++) {
 					if ($filename == $queue[$i]['filename']) {
@@ -437,7 +437,7 @@
 											if($count_play > 0){
 												for ($i = 0; $i < count($converter_qualities); $i++) {
 													if ($quality != $converter_qualities[$i]) {
-														if (is_in_queue($file_name)) {
+														if (is_in_queue($file_name, $queue)) {
 										?>
 															<button disabled>Converting <?php echo $converter_qualities[$i] ?></button>
 										<?php
