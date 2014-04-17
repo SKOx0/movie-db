@@ -9,6 +9,10 @@
 			$filename = $curr_movie['filename'];
 			$email = $curr_movie['email'];
 			
+			if (!file_exists("../logs")) {
+				exec("mkdir ../logs");
+			}
+			
 			exec("nohup ./convert_video.sh ".escapeshellarg($quality)." ".escapeshellarg($filename)." ".escapeshellarg($email)." >../logs/converter.log 2>&1 &");
 			
 			array_splice($queue, 0, 1);
