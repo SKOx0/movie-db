@@ -31,11 +31,18 @@ fi
 
 if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	touch converting
+	EMAILMESSAGE="/tmp/movie_db_converter_email.txt"
+	echo "From: \"Movie DB\" <movies@virajchitnis.com>" > ${EMAILMESSAGE}
+	echo "Subject: Converting ${FILENAME}" >> ${EMAILMESSAGE}
+	echo "MIME-Version: 1.0" >> ${EMAILMESSAGE}
+	echo "Content-Type: text/plain" >> ${EMAILMESSAGE}
+	echo " " >> ${EMAILMESSAGE}
+	echo "The conversion of ${FILENAME} to ${QUALITY} has started. You will receive another email informing you of its completion." >> ${EMAILMESSAGE}
+	sendmail ${EMAIL} < ${EMAILMESSAGE}
 	ffmpeg -threads 2 -qscale:v 2 -i movies/"${SRCQUALITY}"/"${FILENAME}" scale=${WIDTH}:-1 -strict -2 converted/"${QUALITY}"/."${FILENAME}"
 	mv converted/"${QUALITY}"/."${FILENAME}" converted/"${QUALITY}"/"${FILENAME}"
-	EMAILMESSAGE="/tmp/movie_db_converter_email.txt"
-	echo "From: \"Movie DB\" <movies@virajchitnis.com>"> ${EMAILMESSAGE}
-	echo "Subject: Conversion complete!" >> ${EMAILMESSAGE}
+	echo "From: \"Movie DB\" <movies@virajchitnis.com>" > ${EMAILMESSAGE}
+	echo "Subject: ${FILENAME} converted!" >> ${EMAILMESSAGE}
 	echo "MIME-Version: 1.0" >> ${EMAILMESSAGE}
 	echo "Content-Type: text/plain" >> ${EMAILMESSAGE}
 	echo " " >> ${EMAILMESSAGE}
@@ -43,3 +50,5 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	sendmail ${EMAIL} < ${EMAILMESSAGE}
 	rm converting
 fi
+
+php -f converter.php
