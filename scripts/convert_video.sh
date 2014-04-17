@@ -52,7 +52,7 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo " "
 	echo "Conversion of ${FILENAME} started at $(date)"
 	echo " "
-	ffmpeg -threads 2 -qscale:v 2 -i "movies/${SRCQUALITY}/${FILENAME}" -vf scale=${WIDTH}:-1 -strict -2 "converted/${QUALITY}/.${FILENAME}"
+	nice -n 10 ffmpeg -threads 0 -qscale:v 2 -i "movies/${SRCQUALITY}/${FILENAME}" -vf scale=${WIDTH}:-1 -strict -2 "converted/${QUALITY}/.${FILENAME}"
 	mv converted/"${QUALITY}"/."${FILENAME}" converted/"${QUALITY}"/"${FILENAME}"
 	echo " "
 	echo "Conversion of ${FILENAME} finished at $(date)"
