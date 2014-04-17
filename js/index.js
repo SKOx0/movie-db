@@ -142,9 +142,31 @@ function hideEmailOverlay () {
 	document.body.style.overflow = "auto";
 }
 
-function convertingAlert () {
-	// Change this to an overlay
-	alert("Only one file can be converted at a time, please wait for the conversion to finish.");
+function setCookie(cname,cvalue,exdays) {
+	var d = new Date();
+	d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	var expires = "expires="+d.toGMTString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = ca[i].trim();
+		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	}
+	return "";
+}
+
+function checkCookie(cname) {
+	var name = getCookie(cname);
+	if (name != "") {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 function convertFile (quality, filename, orig) {
@@ -152,6 +174,10 @@ function convertFile (quality, filename, orig) {
 	convert_form.elements[0].value = quality;
 	convert_form.elements[1].value = filename;
 	convert_form.elements[2].value = orig;
+	
+	if (checkCookie("email")) {
+		convert_form.elements[3].value = getCookie("email");
+	}
 	
 	showEmailOverlay();
 }
@@ -170,4 +196,6 @@ function startConversion () {
 		alert(x + " is not a valid e-mail address.");
 		return false;
 	}
+	
+	setCookie("email", x, 30);
 }

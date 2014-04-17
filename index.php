@@ -196,6 +196,7 @@
 		<button style="display:inline" onclick="hideRestoreOverlay()">Cancel</button>
 	</div>
 	<div id="overlay_email">
+		<p>It can take 2-3 hours to convert a movie. Enter your email address below so that you can be notified as to the progress of your conversion.</p>
 		<form id="convert_email_form" style="display:inline" method="post" action="scripts/convert" onsubmit="return startConversion()">
 			<input type="hidden" name="quality">
 			<input type="hidden" name="filename">
