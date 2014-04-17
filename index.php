@@ -45,6 +45,17 @@
 		$query;
 		$count;
 		$converter_qualities = array("SD", "720p HD", "1080p HD");
+		$json_file = "convert_queue.json";
+		$queue = json_decode(file_get_contents($json_file), true);
+		
+		function is_in_queue($filename) {
+			for ($i = 0; $i < count($queue); $i++) {
+				if ($filename == $queue[$i]['filename']) {
+					return true;
+				}
+			}
+			return false;
+		}
 		
 		if(isset($_GET["order"])){
 			$order = $_GET["order"];
@@ -420,9 +431,15 @@
 											if($count_play > 0){
 												for ($i = 0; $i < count($converter_qualities); $i++) {
 													if ($quality != $converter_qualities[$i]) {
-														if (file_exists("converted/".$converter_qualities[$i]."/".$file_name)) {
+														if (is_in_queue($file_name)) {
 										?>
-															<a href="."><button>&#9658; <?php echo $converter_qualities[$i] ?></button></a>
+															<button disabled>Converting <?php echo $converter_qualities[$i] ?></button>
+										<?php
+														}
+														elseif (file_exists("converted/".$converter_qualities[$i]."/".$file_name)) {
+															$converted_movie_link = 'converted/'.rawurlencode($converter_qualities[$i]).'/'.rawurlencode($file_name);
+										?>
+															<a href="<?php echo $converted_movie_link ?>"><button>&#9658; <?php echo $converter_qualities[$i] ?></button></a>
 										<?php
 														}
 														else {
