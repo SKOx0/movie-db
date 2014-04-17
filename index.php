@@ -450,7 +450,7 @@
 														else {
 															if (!file_exists("converting")) {
 										?>
-																<button onclick="convertFile('<?php echo $quality ?>', '<?php echo $file_name ?>')">Convert <?php echo $converter_qualities[$i] ?></button>
+																<button onclick="convertFile('<?php echo $converter_qualities[$i] ?>', '<?php echo $file_name ?>')">Convert <?php echo $converter_qualities[$i] ?></button>
 										<?php
 															}
 															else {
