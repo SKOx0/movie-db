@@ -7,18 +7,20 @@ EMAIL="${4}"
 
 if [ "${QUALITY}" = "1080p HD" ]; then
 	WIDTH=1920
+	BITRATE=2400
+	BUFFSIZE=4800
 fi
 
 if [ "${QUALITY}" = "720p HD" ]; then
 	WIDTH=1280
-	BITRATE=1000
-	BUFFSIZE=2000
+	BITRATE=1200
+	BUFFSIZE=2400
 fi
 
 if [ "${QUALITY}" = "SD" ]; then
 	WIDTH=640
-	BITRATE=500
-	BUFFSIZE=1000
+	BITRATE=600
+	BUFFSIZE=1200
 fi
 
 if [ "${ORIG}" = "1080p HD" ]; then
