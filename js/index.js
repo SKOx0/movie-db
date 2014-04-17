@@ -158,7 +158,7 @@ function convertFile (quality, filename, orig) {
 
 function startConversion () {
 	var convert_form = document.getElementById('convert_email_form');
-	var x = convert_form.elements[2].value;
+	var x = convert_form.elements[3].value;
 	
 	if (x == null || x == ""){
 		alert("Email cannot be blank.");
