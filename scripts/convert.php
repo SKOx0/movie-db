@@ -26,6 +26,6 @@
 		
 		exec("php -f converter.php");
 		
-		header("Location: ../");
+		//header("Location: ../");
 	}
 ?>
