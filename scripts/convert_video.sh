@@ -39,8 +39,14 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo " " >> ${EMAILMESSAGE}
 	echo "The conversion of ${FILENAME} to ${QUALITY} has started. You will receive another email informing you of its completion." >> ${EMAILMESSAGE}
 	sendmail ${EMAIL} < ${EMAILMESSAGE}
+	echo " "
+	echo "Conversion of ${FILENAME} started at $(date)"
+	echo " "
 	ffmpeg -threads 2 -qscale:v 2 -i movies/"${SRCQUALITY}"/"${FILENAME}" scale=${WIDTH}:-1 -strict -2 converted/"${QUALITY}"/."${FILENAME}"
 	mv converted/"${QUALITY}"/."${FILENAME}" converted/"${QUALITY}"/"${FILENAME}"
+	echo " "
+	echo "Conversion of ${FILENAME} finished at $(date)"
+	echo " "
 	echo "From: \"Movie DB\" <movies@virajchitnis.com>" > ${EMAILMESSAGE}
 	echo "Subject: ${FILENAME} converted!" >> ${EMAILMESSAGE}
 	echo "MIME-Version: 1.0" >> ${EMAILMESSAGE}
