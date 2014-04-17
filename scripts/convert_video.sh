@@ -7,14 +7,17 @@ EMAIL="${4}"
 
 if [ "${QUALITY}" = "1080p HD" ]; then
 	WIDTH=1920
+	HEIGHT=1080
 fi
 
 if [ "${QUALITY}" = "720p HD" ]; then
 	WIDTH=1280
+	HEIGHT=720
 fi
 
 if [ "${QUALITY}" = "SD" ]; then
 	WIDTH=640
+	HEIGHT=480
 fi
 
 if [ "${ORIG}" = "1080p HD" ]; then
@@ -52,7 +55,7 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo " "
 	echo "Conversion of ${FILENAME} started at $(date)"
 	echo " "
-	ffmpeg -threads 2 -i movies/"${SRCQUALITY}"/"${FILENAME}" -vf scale=${WIDTH}:-1 converted/"${QUALITY}"/."${FILENAME}"
+	ffmpeg -threads 2 -i movies/"${SRCQUALITY}"/"${FILENAME}" -vf scale=-1:${HEIGHT} converted/"${QUALITY}"/."${FILENAME}"
 	mv converted/"${QUALITY}"/."${FILENAME}" converted/"${QUALITY}"/"${FILENAME}"
 	echo " "
 	echo "Conversion of ${FILENAME} finished at $(date)"
