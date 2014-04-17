@@ -53,7 +53,7 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo "Conversion of ${FILENAME} started at $(date)"
 	echo " "
 	nice -n 10 ffmpeg -threads 0 -i "movies/${SRCQUALITY}/${FILENAME}" -vf scale=${WIDTH}:-1 "converted/${QUALITY}/.${FILENAME}"
-	mv converted/"${QUALITY}"/."${FILENAME}" converted/"${QUALITY}"/"${FILENAME}"
+	mv "converted/${QUALITY}/.${FILENAME}" "converted/${QUALITY}/${FILENAME}"
 	echo " "
 	echo "Conversion of ${FILENAME} finished at $(date)"
 	echo " "
@@ -66,5 +66,3 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	sendmail ${EMAIL} < ${EMAILMESSAGE}
 	rm converting
 fi
-
-php -f converter.php

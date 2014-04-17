@@ -51,7 +51,8 @@
 			$queue = json_decode(file_get_contents($json_file), true);
 		}
 		
-		function is_in_queue($filename, $queue) {
+		function is_in_queue($filename) {
+			global $queue;
 			if (isset($queue)) {
 				for ($i = 0; $i < count($queue); $i++) {
 					if ($filename == $queue[$i]['filename']) {
@@ -62,7 +63,8 @@
 			return false;
 		}
 		
-		function is_converting($filename, $queue) {
+		function is_converting($filename) {
+			global $queue;
 			if (isset($queue)) {
 				if (count($queue) > 0) {
 					if ($filename == $queue[0]['filename']) {
@@ -448,12 +450,12 @@
 											if($count_play > 0){
 												for ($i = 0; $i < count($converter_qualities); $i++) {
 													if ($quality != $converter_qualities[$i]) {
-														if (is_converting($file_name, $queue)) {
+														if (is_converting($file_name)) {
 										?>
 															<button disabled>Converting <?php echo $converter_qualities[$i] ?></button>
 										<?php
 														}
-														elseif (is_in_queue($file_name, $queue)) {
+														elseif (is_in_queue($file_name)) {
 										?>
 															<button disabled>Queued <?php echo $converter_qualities[$i] ?></button>
 										<?php
