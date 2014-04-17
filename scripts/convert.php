@@ -1,7 +1,8 @@
 <?php
-	if ((isset($_POST['quality'])) && (isset($_POST['filename'])) && (isset($_POST['email']))) {
+	if ((isset($_POST['quality'])) && (isset($_POST['filename'])) && (isset($_POST['orig'])) && (isset($_POST['email']))) {
 		$quality = $_POST['quality'];
 		$filename = $_POST['filename'];
+		$orig = $_POST['orig'];
 		$email = $_POST['email'];
 		$json_file = "../convert_queue.json";
 		$queue;
@@ -9,6 +10,7 @@
 		$curr_movie = array(
 		    "quality" => $quality,
 		    "filename" => $filename,
+			"orig" => $orig,
 			"email" => $email,
 		);
 		

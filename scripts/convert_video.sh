@@ -2,21 +2,31 @@
 
 QUALITY="${1}"
 FILENAME="${2}"
-EMAIL="${3}"
+ORIG="${3}"
+EMAIL="${4}"
 
 if [ "${QUALITY}" = "1080p HD" ]; then
-	SRCQUALITY="iTunes Movies (1080p HD)"
 	WIDTH=1920
 fi
 
 if [ "${QUALITY}" = "720p HD" ]; then
-	SRCQUALITY="iTunes Movies (720p HD)"
 	WIDTH=1280
 fi
 
 if [ "${QUALITY}" = "SD" ]; then
-	SRCQUALITY="iTunes Movies (SD)"
 	WIDTH=640
+fi
+
+if [ "${ORIG}" = "1080p HD" ]; then
+	SRCQUALITY="iTunes Movies (1080p HD)"
+fi
+
+if [ "${ORIG}" = "720p HD" ]; then
+	SRCQUALITY="iTunes Movies (720p HD)"
+fi
+
+if [ "${ORIG}" = "SD" ]; then
+	SRCQUALITY="iTunes Movies (SD)"
 fi
 
 cd ..

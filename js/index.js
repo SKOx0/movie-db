@@ -147,10 +147,11 @@ function convertingAlert () {
 	alert("Only one file can be converted at a time, please wait for the conversion to finish.");
 }
 
-function convertFile (quality, filename) {
+function convertFile (quality, filename, orig) {
 	var convert_form = document.getElementById('convert_email_form');
 	convert_form.elements[0].value = quality;
 	convert_form.elements[1].value = filename;
+	convert_form.elements[2].value = orig;
 	
 	showEmailOverlay();
 }
