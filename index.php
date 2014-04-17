@@ -46,6 +46,7 @@
 		$count;
 		$converter_qualities = array("SD", "720p HD", "1080p HD");
 		$json_file = "convert_queue.json";
+		$queue;
 		if (file_exists($json_file)) {
 			$queue = json_decode(file_get_contents($json_file), true);
 		}
