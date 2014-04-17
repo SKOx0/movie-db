@@ -50,14 +50,13 @@
 		if (file_exists($json_file)) {
 			$queue = json_decode(file_get_contents($json_file), true);
 		}
-		else {
-			$queue = array();
-		}
 		
 		function is_in_queue($filename) {
-			for ($i = 0; $i < count($queue); $i++) {
-				if ($filename == $queue[$i]['filename']) {
-					return true;
+			if (isset($queue)) {
+				for ($i = 0; $i < count($queue); $i++) {
+					if ($filename == $queue[$i]['filename']) {
+						return true;
+					}
 				}
 			}
 			return false;
