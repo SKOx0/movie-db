@@ -62,6 +62,17 @@
 			return false;
 		}
 		
+		function is_converting($filename, $queue) {
+			if (isset($queue)) {
+				if (count($queue) > 0) {
+					if ($filename == $queue[0]['filename']) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		
 		if(isset($_GET["order"])){
 			$order = $_GET["order"];
 		}
@@ -437,9 +448,14 @@
 											if($count_play > 0){
 												for ($i = 0; $i < count($converter_qualities); $i++) {
 													if ($quality != $converter_qualities[$i]) {
-														if (is_in_queue($file_name, $queue)) {
+														if (is_converting($file_name, $queue)) {
 										?>
 															<button disabled>Converting <?php echo $converter_qualities[$i] ?></button>
+										<?php
+														}
+														elseif (is_in_queue($file_name, $queue)) {
+										?>
+															<button disabled>Queued <?php echo $converter_qualities[$i] ?></button>
 										<?php
 														}
 														elseif (file_exists("converted/".$converter_qualities[$i]."/".$file_name)) {
@@ -449,16 +465,9 @@
 										<?php
 														}
 														else {
-															if (!file_exists("converting")) {
 										?>
-																<button onclick="convertFile('<?php echo $converter_qualities[$i] ?>', '<?php echo $file_name ?>', '<?php echo $quality ?>')">Convert <?php echo $converter_qualities[$i] ?></button>
+															<button onclick="convertFile('<?php echo $converter_qualities[$i] ?>', '<?php echo $file_name ?>', '<?php echo $quality ?>')">Convert <?php echo $converter_qualities[$i] ?></button>
 										<?php
-															}
-															else {
-										?>
-																<button onclick="convertingAlert()">Convert <?php echo $converter_qualities[$i] ?></button>
-										<?php
-															}
 														}
 													}
 													else {
