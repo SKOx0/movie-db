@@ -19,9 +19,10 @@
 			$queue = array();
 		}
 		
+		array_push($queue, $curr_movie);
+		
 		print_r($queue);
 		
-		array_push($queue, $curr_movie);
 		file_put_contents($json_file, json_encode($queue));
 		
 		exec("php -f converter.php");
