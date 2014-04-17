@@ -1,6 +1,7 @@
 <?php
 	$json_file = "../convert_queue.json";
 	if (file_exists($json_file)) {
+		exec("touch ../converting");
 		$queue = json_decode(file_get_contents($json_file), true);
 		
 		while (count($queue) > 0) {
@@ -26,5 +27,6 @@
 				file_put_contents($json_file, json_encode($queue));
 			}
 		}
+		exec("rm ../converting");
 	}
 ?>

@@ -24,7 +24,9 @@
 		array_push($queue, $curr_movie);
 		file_put_contents($json_file, json_encode($queue));
 		
-		exec("nohup php -f converter.php >../logs/converter.log 2>&1 &");
+		if (!file_exists("../converting")) {
+			exec("nohup php -f converter.php >../logs/converter.log 2>&1 &");
+		}
 		
 		header("Location: ../");
 	}

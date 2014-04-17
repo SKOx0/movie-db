@@ -44,7 +44,6 @@ if [ ! -d converted/"${QUALITY}" ]; then
 fi
 
 if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
-	touch converting
 	EMAILMESSAGE="/tmp/movie_db_converter_email.txt"
 	echo "From: \"Movie DB\" <movies@virajchitnis.com>" > ${EMAILMESSAGE}
 	echo "Subject: Converting ${FILENAME}" >> ${EMAILMESSAGE}
@@ -68,5 +67,4 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo " " >> ${EMAILMESSAGE}
 	echo "The ${QUALITY} version of ${FILENAME} is ready." >> ${EMAILMESSAGE}
 	sendmail ${EMAIL} < ${EMAILMESSAGE}
-	rm converting
 fi
