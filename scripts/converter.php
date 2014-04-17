@@ -3,7 +3,7 @@
 	if (file_exists($json_file)) {
 		$queue = json_decode(file_get_contents($json_file), true);
 		
-		if (count($queue) > 0) {
+		while (count($queue) > 0) {
 			$curr_movie = $queue[0];
 			$quality = $curr_movie['quality'];
 			$filename = $curr_movie['filename'];
@@ -14,8 +14,9 @@
 				exec("mkdir ../logs");
 			}
 			
-			exec("nohup ./convert_video.sh ".escapeshellarg($quality)." ".escapeshellarg($filename)." ".escapeshellarg($orig)." ".escapeshellarg($email)." >../logs/converter.log 2>&1 &");
+			exec("./convert_video.sh ".escapeshellarg($quality)." ".escapeshellarg($filename)." ".escapeshellarg($orig)." ".escapeshellarg($email));
 			
+			$queue = json_decode(file_get_contents($json_file), true);
 			array_splice($queue, 0, 1);
 			
 			if (count($queue) == 0) {
@@ -25,8 +26,5 @@
 				file_put_contents($json_file, json_encode($queue));
 			}
 		}
-	}
-	else {
-		exit;
 	}
 ?>
