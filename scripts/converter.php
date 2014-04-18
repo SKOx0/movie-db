@@ -45,6 +45,10 @@
 				array_push($failed_queue, $curr_movie);
 				file_put_contents($failed_json_file, json_encode($failed_queue));
 				
+				if (file_exists("../converted/".$quality."/".$filename)) {
+					exec("rm ".escapeshellarg("../converted/".$quality."/".$filename));
+				}
+				
 				$subject = "Converting ".$filename." failed!";
 				$message = "<p>The conversion of ".$filename." to ".$quality." has failed. Manual intervention is required.</p><p>&nbsp;</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 				sendmail("\"Viraj Chitnis\" <chitnisviraj@gmail.com>", $subject, $message);
