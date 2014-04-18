@@ -11,10 +11,6 @@
 			$orig = $curr_movie['orig'];
 			$email = $curr_movie['email'];
 			
-			if (!file_exists("../logs")) {
-				exec("mkdir ../logs");
-			}
-			
 			exec("./convert_video.sh ".escapeshellarg($quality)." ".escapeshellarg($filename)." ".escapeshellarg($orig)." ".escapeshellarg($email));
 			
 			$queue = json_decode(file_get_contents($json_file), true);
