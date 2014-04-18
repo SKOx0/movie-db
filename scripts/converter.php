@@ -29,7 +29,7 @@
 			exec("./convert_video.sh ".escapeshellarg($quality)." ".escapeshellarg($filename)." ".escapeshellarg($orig)." ".escapeshellarg($email));
 			
 			$time_end = microtime(true);
-			$time = $time_end - $time_start;
+			$time = intval($time_end) - intval($time_start);
 			
 			if ($time < 300) {
 				$failed_queue;
