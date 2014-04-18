@@ -46,14 +46,6 @@ if [ ! -d converted/"${QUALITY}" ]; then
 fi
 
 if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
-	EMAILMESSAGE="/tmp/movie_db_converter_email.txt"
-	echo "From: \"Movie DB\" <movies@virajchitnis.com>" > ${EMAILMESSAGE}
-	echo "Subject: Converting ${FILENAME}" >> ${EMAILMESSAGE}
-	echo "MIME-Version: 1.0" >> ${EMAILMESSAGE}
-	echo "Content-Type: text/plain" >> ${EMAILMESSAGE}
-	echo " " >> ${EMAILMESSAGE}
-	echo "The conversion of ${FILENAME} to ${QUALITY} has started. You will receive another email informing you of its completion." >> ${EMAILMESSAGE}
-	sendmail ${EMAIL} < ${EMAILMESSAGE}
 	echo " "
 	echo "Conversion of ${FILENAME} started at $(date)"
 	echo " "
@@ -62,11 +54,4 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo " "
 	echo "Conversion of ${FILENAME} finished at $(date)"
 	echo " "
-	echo "From: \"Movie DB\" <movies@virajchitnis.com>" > ${EMAILMESSAGE}
-	echo "Subject: ${FILENAME} converted!" >> ${EMAILMESSAGE}
-	echo "MIME-Version: 1.0" >> ${EMAILMESSAGE}
-	echo "Content-Type: text/plain" >> ${EMAILMESSAGE}
-	echo " " >> ${EMAILMESSAGE}
-	echo "The ${QUALITY} version of ${FILENAME} is ready." >> ${EMAILMESSAGE}
-	sendmail ${EMAIL} < ${EMAILMESSAGE}
 fi
