@@ -48,9 +48,14 @@
 		$count;
 		$converter_qualities = array("SD", "720p HD", "1080p HD");
 		$json_file = "convert_queue.json";
+		$failed_json_file = "failed_queue.json";
 		$queue;
+		$failed_queue;
 		if (file_exists($json_file)) {
 			$queue = json_decode(file_get_contents($json_file), true);
+		}
+		if (file_exists($failed_json_file)) {
+			$failed_queue = json_decode(file_get_contents($failed_json_file), true);
 		}
 		
 		function is_in_queue($filename, $dest_qual) {
@@ -58,6 +63,18 @@
 			if (isset($queue)) {
 				for ($i = 0; $i < count($queue); $i++) {
 					if (($filename == $queue[$i]['filename']) && ($dest_qual == $queue[$i]['quality'])) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		
+		function is_in_failed_queue($filename, $dest_qual) {
+			global $failed_queue;
+			if (isset($failed_queue)) {
+				for ($i = 0; $i < count($failed_queue); $i++) {
+					if (($filename == $failed_queue[$i]['filename']) && ($dest_qual == $failed_queue[$i]['quality'])) {
 						return true;
 					}
 				}
@@ -453,7 +470,12 @@
 											if($count_play > 0){
 												for ($i = 0; $i < count($converter_qualities); $i++) {
 													if ($quality != $converter_qualities[$i]) {
-														if (is_converting($file_name, $converter_qualities[$i])) {
+														if (is_in_failed_queue($file_name, $converter_qualities[$i])) {
+										?>
+															<button disabled>Queued <?php echo $converter_qualities[$i] ?></button>
+										<?php
+														}
+														elseif (is_converting($file_name, $converter_qualities[$i])) {
 										?>
 															<button disabled>Converting <?php echo $converter_qualities[$i] ?></button>
 										<?php
