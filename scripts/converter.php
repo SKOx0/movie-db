@@ -20,9 +20,13 @@
 			$orig = $curr_movie['orig'];
 			$email = $curr_movie['email'];
 			
+			echo "Converting ".$filename."\n";
+			
 			$subject = "Converting ".$filename;
 			$message = "<p>The conversion of ".$filename." to ".$quality." has started. You will receive another email informing you of its completion.</p><p>&nbsp;</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 			sendmail($email, $subject, $message);
+			
+			echo "Email sent\n";
 			
 			$time_start = microtime(true);
 			
@@ -31,9 +35,13 @@
 			$time_end = microtime(true);
 			$time = intval($time_end) - intval($time_start);
 			
+			echo "Conversion finished\n";
+			
 			if ($time < 300) {
 				$failed_queue;
 				$failed_json_file = "../failed_queue.json";
+				
+				echo "Failed logic triggered\n";
 		
 				if (file_exists($failed_json_file)) {
 					$failed_queue = json_decode(file_get_contents($failed_json_file), true);
