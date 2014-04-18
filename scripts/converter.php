@@ -25,7 +25,7 @@
 			echo "Converting ".$filename."\n";
 			
 			$subject = "Converting ".$filename;
-			$message = "<p>The conversion of ".$filename." to ".$quality." has started. You will receive another email informing you of its completion.</p><p>&nbsp;</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
+			$message = "<p>The conversion of ".$filename." to ".$quality." has started. You will receive another email informing you of its completion.</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 			sendmail($email, $subject, $message);
 			
 			echo "Email sent\n";
@@ -60,12 +60,12 @@
 				}
 				
 				$subject = "Converting ".$filename." failed!";
-				$message = "<p>The conversion of ".$filename." to ".$quality." has failed. Manual intervention is required.</p><p>&nbsp;</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
+				$message = "<p>The conversion of ".$filename." to ".$quality." has failed. Manual intervention is required.</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 				sendmail("\"Viraj Chitnis\" <chitnisviraj@gmail.com>", $subject, $message);
 			}
 			else {
 				$subject = $filename." converted!";
-				$message = "<p>The ".$quality." version of ".$filename." is ready.</p><p>&nbsp;</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
+				$message = "<p>The ".$quality." version of ".$filename." is ready.</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 				sendmail($email, $subject, $message);
 			}
 			
