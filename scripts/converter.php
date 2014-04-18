@@ -1,6 +1,8 @@
 <?php
 	$json_file = "../convert_queue.json";
 	
+	echo "Converter.php started\n";
+	
 	function sendmail($to, $subject, $message) {
 		$headers = "From: \"Movie DB\" <movies@virajchitnis.com>"."\r\n".
 			"MIME-Version: 1.0"."\r\n".
