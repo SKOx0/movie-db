@@ -30,6 +30,7 @@
 		if($detect->isiOS()){
 	?>
 			<meta name="apple-mobile-web-app-title" content="Movies">
+			<link rel="apple-touch-icon" href="images/icon.png" />
 	<?php
 		}
 	?>
