@@ -49,7 +49,7 @@ if [ ! -f converted/"${QUALITY}/${FILENAME}" ]; then
 	echo " "
 	echo "Conversion of ${FILENAME} started at $(date)"
 	echo " "
-	nice -n 10 ffmpeg -threads 0 -i "movies/${SRCQUALITY}/${FILENAME}" -b:v ${BITRATE}k -maxrate ${BITRATE}k -bufsize ${BUFFSIZE}k -vf "scale=${WIDTH}:trunc(ow/a/2)*2" "converted/${QUALITY}/.${FILENAME}"
+	nice -n 10 ffmpeg -threads 0 -i "movies/${SRCQUALITY}/${FILENAME}" -b:v ${BITRATE}k -maxrate ${BITRATE}k -bufsize ${BUFFSIZE}k -vf "scale=${WIDTH}:trunc(ow/a/2)*2" -acodec copy "converted/${QUALITY}/.${FILENAME}"
 	mv "converted/${QUALITY}/.${FILENAME}" "converted/${QUALITY}/${FILENAME}"
 	echo " "
 	echo "Conversion of ${FILENAME} finished at $(date)"
