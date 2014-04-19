@@ -57,8 +57,8 @@
 					exec("rm ".escapeshellarg("../converted/".$quality."/".$filename));
 				}
 				
-				$subject = "Converting ".$filename." failed!";
-				$message = "<p>The conversion of ".$filename." to ".$quality." has failed. Manual conversion is required.</p><p>Other movies that require manual conversion:</p>".queue_to_html($failed_queue)."<p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
+				$subject = "Some movies require manual conversion";
+				$message = "<p><b>Manual conversion is required for these movies:</b></p>".queue_to_html($failed_queue)."<p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 				sendmail("\"Viraj Chitnis\" <chitnisviraj@gmail.com>", $subject, $message);
 			}
 			else {
