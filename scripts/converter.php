@@ -9,6 +9,14 @@
 		mail($to, $subject, $message, $headers);
 	}
 	
+	function queue_to_html($queue) {
+		$html_text = "";
+		for ($i = 0; $i < count($queue); $i++) {
+			$html_text .= "<p>".$queue[$i]['filename']."</p>";
+		}
+		return $html_text;
+	}
+	
 	if (file_exists($json_file)) {
 		exec("touch ../converting");
 		$queue = json_decode(file_get_contents($json_file), true);
@@ -50,7 +58,7 @@
 				}
 				
 				$subject = "Converting ".$filename." failed!";
-				$message = "<p>The conversion of ".$filename." to ".$quality." has failed. Manual intervention is required.</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
+				$message = "<p>The conversion of ".$filename." to ".$quality." has failed. Manual conversion is required.</p><p>Other movies that require manual conversion:</p>".queue_to_html($failed_queue)."<p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 				sendmail("\"Viraj Chitnis\" <chitnisviraj@gmail.com>", $subject, $message);
 			}
 			else {
