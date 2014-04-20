@@ -1,5 +1,7 @@
 var progressTimer = null;
 
+$("img.posters").lazyload();
+
 function afterPageLoadDesktop () {
 	writeCopyrightYear();
 	loadPosters();

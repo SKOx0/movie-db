@@ -468,7 +468,7 @@
 					<table>
 						<tr>
 							<td>
-								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" src="posters/<?php echo $id; ?>.jpg" alt="Poster" /></a>
+								<a href="<?php echo $link ?>"><img id="<?php echo $id; ?>" class="posters" data-original="posters/<?php echo $id; ?>.jpg"></a>
 							</td>
 							<td>
 									<p><span class="name_span"><b><?php echo $name ?></b></span> (<?php echo $year ?>)</p>
@@ -591,9 +591,11 @@
 		?>
 		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
-	<script src="js/openlink.js"></script>
-	<script src="js/index.js"></script>
-	<script src="js/add.js"></script>
-	<script src="js/types.js"></script>
+	<script src="js/openlink.js" type="text/javascript"></script>
+	<script src="js/index.js" type="text/javascript"></script>
+	<script src="js/add.js" type="text/javascript"></script>
+	<script src="js/types.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+	<script src="js/jquery.lazyload.js" type="text/javascript"></script>
 </body>
 </html>
