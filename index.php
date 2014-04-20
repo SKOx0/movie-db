@@ -225,6 +225,10 @@
 		</form>
 		<button style="display:inline" onclick="hideEmailOverlay()">Cancel</button>
 	</div>
+	<div id="overlay_progress">
+		<div id="ffmpeg_progress"></div>
+		<button onclick="hideRestoreOverlay()">Close</button>
+	</div>
 	<div>
 		<table id="header_layout">
 			<tr>

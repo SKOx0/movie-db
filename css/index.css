@@ -73,6 +73,26 @@ body {
     background-color: white;
     z-index: 11; /* 1px higher than the overlay layer */
 }
+#overlay_progress {
+	padding: 5px;
+	border: 2px solid #ccc;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	display: none;
+    width: 90%;
+	height: 90%;
+    position: fixed;
+    top: 50%; 
+    left: 50%;
+    margin-top: -45%;
+    margin-left: -45%;
+    background-color: white;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+#ffmpeg_progress {
+	border: 1px solid #ccc;
+	overflow: auto;
+}
 #header_layout {
 	width: 100%;
 }

@@ -142,6 +142,18 @@ function hideEmailOverlay () {
 	document.body.style.overflow = "auto";
 }
 
+function showProgressOverlay () {
+	document.getElementById('overlay_background').style.display = "block";
+	document.getElementById('overlay_progress').style.display = "block";
+	document.body.style.overflow = "hidden";
+}
+
+function hideProgressOverlay () {
+	document.getElementById('overlay_progress').style.display = "none";
+	document.getElementById('overlay_background').style.display = "none";
+	document.body.style.overflow = "auto";
+}
+
 function setCookie(cname,cvalue,exdays) {
 	var d = new Date();
 	d.setTime(d.getTime()+(exdays*24*60*60*1000));
