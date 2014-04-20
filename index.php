@@ -597,5 +597,13 @@
 	<script src="js/types.js" type="text/javascript"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
 	<script src="js/jquery.lazyload.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+    $(function() {
+       $("img.lazy").lazyload({
+           effect : "fadeIn"
+       });
+
+    });
+    </script>
 </body>
 </html>

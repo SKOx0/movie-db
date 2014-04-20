@@ -1,12 +1,5 @@
 var progressTimer = null;
 
-$(function() {
-   $("img.posters").lazyload({
-       effect : "fadeIn"
-   });
-
-});
-
 function afterPageLoadDesktop () {
 	writeCopyrightYear();
 	loadPosters();
