@@ -92,6 +92,10 @@ body {
 #ffmpeg_progress {
 	border: 1px solid #ccc;
 	overflow: auto;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
 }
 #header_layout {
 	width: 100%;

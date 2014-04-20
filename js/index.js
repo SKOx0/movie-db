@@ -1,3 +1,5 @@
+var progressTimer = null;
+
 function afterPageLoadDesktop () {
 	writeCopyrightYear();
 	loadPosters();
@@ -143,15 +145,35 @@ function hideEmailOverlay () {
 }
 
 function showProgressOverlay () {
+	displayConvertProgress();
+	
 	document.getElementById('overlay_background').style.display = "block";
 	document.getElementById('overlay_progress').style.display = "block";
 	document.body.style.overflow = "hidden";
+	
+	progressTimer = setInterval(displayConvertProgress, 1000);
 }
 
 function hideProgressOverlay () {
 	document.getElementById('overlay_progress').style.display = "none";
 	document.getElementById('overlay_background').style.display = "none";
 	document.body.style.overflow = "auto";
+	document.getElementById("ffmpeg_progress").innerHTML = "";
+	clearInterval(progressTimer);
+}
+
+function displayConvertProgress () {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "scripts/getlog", true);
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("ffmpeg_progress").innerHTML = "<pre>" + xmlhttp.responseText + "</pre>";
+		}
+		else {
+			document.getElementById("ffmpeg_progress").innerHTML = "Connection failed, reload page.";
+		}
+	}
+	xmlhttp.send();
 }
 
 function setCookie(cname,cvalue,exdays) {
