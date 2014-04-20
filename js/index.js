@@ -169,6 +169,7 @@ function displayConvertProgress () {
 	xmlhttp.onreadystatechange = function () {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("ffmpeg_progress").innerHTML = "<pre>" + xmlhttp.responseText + "</pre>";
+			// Auto scroll to bottom of ffmpeg_progress div
 			var ffmpeg_div = document.getElementById("ffmpeg_progress");
 			ffmpeg_div.scrollTop = ffmpeg_div.scrollHeight;
 		}
