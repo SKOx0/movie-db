@@ -1,5 +1,7 @@
 var progressTimer = null;
+var movieNameTimer = null;
 
+// Lazy loading posters
 !function(window){
 	var $q = function(q, res){
 		if (document.querySelectorAll) {
@@ -220,11 +222,13 @@ function hideEmailOverlay () {
 
 function showProgressOverlay () {
 	displayConvertProgress();
+	displayConvertMovie();
 	
 	document.getElementById('overlay_background').style.display = "block";
 	document.getElementById('overlay_progress').style.display = "block";
 	document.body.style.overflow = "hidden";
 	
+	movieNameTimer = setInterval(displayConvertMovie, 1000);
 	progressTimer = setInterval(displayConvertProgress, 1000);
 }
 
@@ -234,7 +238,9 @@ function hideProgressOverlay () {
 	document.body.style.overflow = "auto";
 	document.getElementById("ffmpeg_progress").innerHTML = "";
 	clearInterval(progressTimer);
+	clearInterval(movieNameTimer);
 	document.getElementById("ffmpeg_progress").innerHTML = "Connection failed, reload page.";
+	document.getElementById('converting_movie').innerHTML = "&nbsp;";
 }
 
 function displayConvertProgress () {
@@ -246,6 +252,17 @@ function displayConvertProgress () {
 			// Auto scroll to bottom of ffmpeg_progress div
 			var ffmpeg_div = document.getElementById("ffmpeg_progress");
 			ffmpeg_div.scrollTop = ffmpeg_div.scrollHeight;
+		}
+	}
+	xmlhttp.send();
+}
+
+function displayConvertMovie () {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "scripts/getcurrconvert", true);
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById('converting_movie').innerHTML = "Converting " + xmlhttp.responseText;
 		}
 	}
 	xmlhttp.send();
