@@ -227,7 +227,7 @@
 	</div>
 	<div id="overlay_progress">
 		<div id="ffmpeg_progress"></div>
-		<button onclick="hideRestoreOverlay()">Close</button>
+		<button onclick="showProgressOverlay()">Close</button>
 	</div>
 	<div>
 		<table id="header_layout">

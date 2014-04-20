@@ -84,7 +84,7 @@ body {
     position: fixed;
     top: 50%; 
     left: 50%;
-    margin-top: -45%;
+    margin-top: -200%;
     margin-left: -45%;
     background-color: white;
     z-index: 11; /* 1px higher than the overlay layer */
