@@ -532,6 +532,7 @@
 												</form>
 												<form class="topMenu" method="post" action="scripts/delete" onsubmit="return confirmDelete('<?php echo $name ?>')">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
+													<input type="hidden" name="filename" value="<?php echo $file_name ?>">
 													<input type="image" class="formButton" title="Delete" src="images/delete.png">
 												</form>
 											</p>
