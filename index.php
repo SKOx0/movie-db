@@ -226,7 +226,9 @@
 		<button style="display:inline" onclick="hideEmailOverlay()">Cancel</button>
 	</div>
 	<div id="overlay_progress">
-		<div id="ffmpeg_progress"></div>
+		<div id="ffmpeg_progress">
+			<pre>Connection failed, reload page.</pre>
+		</div>
 		<button onclick="hideProgressOverlay()">Close</button>
 	</div>
 	<div>

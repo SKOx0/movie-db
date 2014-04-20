@@ -160,6 +160,7 @@ function hideProgressOverlay () {
 	document.body.style.overflow = "auto";
 	document.getElementById("ffmpeg_progress").innerHTML = "";
 	clearInterval(progressTimer);
+	document.getElementById("ffmpeg_progress").innerHTML = "Connection failed, reload page.";
 }
 
 function displayConvertProgress () {
@@ -170,9 +171,6 @@ function displayConvertProgress () {
 			document.getElementById("ffmpeg_progress").innerHTML = "<pre>" + xmlhttp.responseText + "</pre>";
 			var ffmpeg_div = document.getElementById("ffmpeg_progress");
 			ffmpeg_div.scrollTop = ffmpeg_div.scrollHeight;
-		}
-		else {
-			document.getElementById("ffmpeg_progress").innerHTML = "Connection failed, reload page.";
 		}
 	}
 	xmlhttp.send();
