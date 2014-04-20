@@ -268,6 +268,7 @@
 								}
 							?>
 							</form>
+							<button class="topMenu" onclick="showProgressOverlay()">Conversion Progress</button>
 						</td>
 				<?php
 					}
