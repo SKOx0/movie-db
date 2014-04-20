@@ -37,10 +37,6 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="user-scalable=no">
 	<link rel="icon" type="image/png" href="images/icon.png">
-	<script src="js/openlink.js"></script>
-	<script src="js/index.js"></script>
-	<script src="js/add.js"></script>
-	<script src="js/types.js"></script>
 	<?php
 		$order;
 		$search;
@@ -595,5 +591,9 @@
 		?>
 		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
+	<script src="js/openlink.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/add.js"></script>
+	<script src="js/types.js"></script>
 </body>
 </html>
