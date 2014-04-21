@@ -209,13 +209,13 @@
 	</div>
 	<div id="overlay_email">
 		<p>It can take 2-3 hours to convert a movie. Enter your email address below so that you can be notified as to the progress of your conversion.</p>
-		<form id="convert_email_form" style="display:inline" method="post" action="scripts/convert" onsubmit="return startConversion()">
+		<form id="convert_email_form" style="display:inline">
 			<input type="hidden" name="quality">
 			<input type="hidden" name="filename">
 			<input type="hidden" name="orig">
 			<input type="text" name="email" placeholder="Your email" size="25">
-			<input type="submit" name="submit" value="Start conversion">
 		</form>
+		<button style="display:inline" onclick="startConversion()">Start conversion</button>
 		<button style="display:inline" onclick="hideEmailOverlay()">Cancel</button>
 	</div>
 	<div id="overlay_progress">

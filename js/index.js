@@ -295,6 +295,21 @@ function checkCookie(cname) {
 	}
 }
 
+function postConvert (quality, filename, orig, email) {
+	var params = "quality=" + quality + "&filename=" + filename + "&orig=" + orig + "&email=" + email;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "scripts/convert", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length", params.length);
+	xmlhttp.setRequestHeader("Connection", "close");
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			location.reload();
+		}
+	}
+	xmlhttp.send(params);
+}
+
 function convertFile (quality, filename, orig) {
 	var convert_form = document.getElementById('convert_email_form');
 	convert_form.elements[0].value = quality;
@@ -310,18 +325,24 @@ function convertFile (quality, filename, orig) {
 
 function startConversion () {
 	var convert_form = document.getElementById('convert_email_form');
-	var x = convert_form.elements[3].value;
+	var email = convert_form.elements[3].value;
 	
-	if (x == null || x == ""){
+	if (email == null || email == ""){
 		alert("Email cannot be blank.");
 		return false;
 	}
-	var atpos = x.indexOf("@");
-	var dotpos = x.lastIndexOf(".");
-	if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length){
-		alert(x + " is not a valid e-mail address.");
+	var atpos = email.indexOf("@");
+	var dotpos = email.lastIndexOf(".");
+	if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length){
+		alert(email + " is not a valid e-mail address.");
 		return false;
 	}
 	
-	setCookie("email", x, 30);
+	var convert_form = document.getElementById('convert_email_form');
+	var quality = convert_form.elements[0].value;
+	var filename = convert_form.elements[1].value;
+	var orig = convert_form.elements[2].value;
+	
+	setCookie("email", email, 30);
+	postConvert(quality, filename, orig, email);
 }
