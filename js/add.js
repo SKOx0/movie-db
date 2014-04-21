@@ -73,9 +73,6 @@ function insertMovie (jsonified) {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			location.reload();
 		}
-		else {
-			alert("Error, try again.");
-		}
 	}
 	xmlhttp.send(params);
 }
