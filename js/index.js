@@ -186,6 +186,31 @@ function hideAddOverlay () {
 	document.body.style.overflow = "auto";
 }
 
+function postEdit (id, quality, filename) {
+	var params = "id=" + id + "&quality=" + quality + "&file_name=" + filename;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "scripts/update", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length", params.length);
+	xmlhttp.setRequestHeader("Connection", "close");
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			location.reload();
+		}
+	}
+	xmlhttp.send(params);
+}
+
+function saveEdit () {
+	var edit_form = document.getElementById('edit_form');
+	var id = edit_form.elements[0].value;
+	var filename = edit_form.elements[2].value;
+	var x = edit_form.elements[1].selectedIndex;
+	var quality = edit_form.elements[1].options[x].value;
+	
+	postEdit(id, quality, filename);
+}
+
 function showEditOverlay (id, quality, file_name) {
 	document.getElementById('edit_form').elements[0].value = id;
 	document.getElementById('edit_form').elements[2].value = file_name;

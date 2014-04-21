@@ -170,7 +170,7 @@
 		<p id="json_holder" style="display:none"><?php echo json_encode($qualities); ?></p>
 	</div>
 	<div id="overlay_edit">
-		<form id="edit_form" style="display: inline" action="scripts/update" method="post" name="movie_form" onsubmit="return validateForm()">
+		<form id="edit_form" style="display: inline" name="movie_form">
 			<input type="text" name="id" placeholder="IMDB ID" size="9" readonly>
 			<select name="quality">
 				<?php
@@ -196,8 +196,8 @@
 			</select>
 			<input type="text" name="file_name" placeholder="File name" size="25">
 			<br>
-			<input type="submit" value="Save">
 		</form>
+		<button style="display: inline" onclick="saveEdit()">Save</button>
 		<button style="display: inline" onclick="hideEditOverlay()">Cancel</button>
 	</div>
 	<div id="overlay_restore">
