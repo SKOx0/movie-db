@@ -95,8 +95,6 @@
 			
 			addMovie($id, $quality, $filename);
 		}
-		
-		header('Location: ../');
 	}
 	else{
 		header('Location: ../');

@@ -59,5 +59,23 @@ function createJSON () {
 	}
 	
 	var jsonified = JSON.stringify(movies);
-	document.getElementById('save_button').elements[0].value = jsonified;
+	insertMovie(jsonified);
+}
+
+function insertMovie (jsonified) {
+	var params = "json=" + jsonified;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "scripts/insert", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length", params.length);
+	xmlhttp.setRequestHeader("Connection", "close");
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			location.reload();
+		}
+		else {
+			alert("Error, try again.");
+		}
+	}
+	xmlhttp.send(params);
 }

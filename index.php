@@ -163,10 +163,7 @@
 			</form>
 		</div>
 		<div>
-			<form style="display:inline" id="save_button" method="post" action="scripts/insert" onsubmit="return createJSON()">
-				<input type="hidden" name="json" value="">
-				<input type="submit" value="Save">
-			</form>
+			<button style="display:inline" onclick="createJSON()">Save</button>
 			<button style="display:inline" onclick="addMovie()">Add more</button>
 			<button style="display:inline" onclick="hideAddOverlay()">Cancel</button>
 		</div>
