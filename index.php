@@ -484,12 +484,12 @@
 														}
 														elseif (is_converting($file_name, $converter_qualities[$i])) {
 										?>
-															<button disabled>Converting <?php echo $converter_qualities[$i] ?></button>
+															<button onclick="showProgressOverlay()">Converting <?php echo $converter_qualities[$i] ?></button>
 										<?php
 														}
 														elseif (is_in_queue($file_name, $converter_qualities[$i])) {
 										?>
-															<button disabled>Queued <?php echo $converter_qualities[$i] ?></button>
+															<button onclick="showProgressOverlay()">Queued <?php echo $converter_qualities[$i] ?></button>
 										<?php
 														}
 														elseif (file_exists("converted/".$converter_qualities[$i]."/".$file_name)) {
