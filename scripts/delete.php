@@ -36,8 +36,6 @@
 		$db_files->free_result();
 		
 		$db->close();
-		
-		header('Location: ../');
 	}
 	else {
 		header('Location: ../');

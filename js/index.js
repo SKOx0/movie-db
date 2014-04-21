@@ -145,9 +145,25 @@ function removeLoadPostersButton () {
 	loadButton.parentNode.removeChild(loadButton);
 }
 
-function confirmDelete (movie_name) {
+function postDelete (id, filename) {
+	var params = "id=" + id + "&filename=" + filename;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "scripts/delete", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length", params.length);
+	xmlhttp.setRequestHeader("Connection", "close");
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			location.reload();
+		}
+	}
+	xmlhttp.send(params);
+}
+
+function confirmDelete (movie_name, id, filename) {
 	if (confirm('Are you sure you want to delete ' + movie_name + '?')) {
-		return true;
+		postDelete(id, filename);
+		return false;
 	}
 	else {
 		return false;

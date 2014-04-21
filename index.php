@@ -524,7 +524,7 @@
 													<input type="hidden" name="file_name" value="<?php echo $file_name ?>">
 													<input type="image" class="formButton" title="Edit" src="images/edit.png">
 												</form>
-												<form class="topMenu" method="post" action="scripts/delete" onsubmit="return confirmDelete('<?php echo $name ?>')">
+												<form class="topMenu" onsubmit="return confirmDelete('<?php echo $name ?>','<?php echo $id ?>','<?php echo $file_name ?>')">
 													<input type="hidden" name="id" value="<?php echo $id ?>">
 													<input type="hidden" name="filename" value="<?php echo $file_name ?>">
 													<input type="image" class="formButton" title="Delete" src="images/delete.png">
