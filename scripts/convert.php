@@ -31,7 +31,8 @@
 		if (!file_exists("../converting")) {
 			exec("nohup php -f converter.php >../logs/converter.log 2>&1 &");
 		}
-		
+	}
+	else {
 		header("Location: ../");
 	}
 ?>
