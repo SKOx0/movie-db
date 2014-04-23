@@ -235,7 +235,7 @@
 							<?php
 								if ($edit == "true") {
 							?>
-									<a class="topMenu" onclick="showAddOverlay()"><button>Add Movie</button></a>
+									<a class="topMenu" onclick="showAddOverlay()"><button>Add/Edit Movies</button></a>
 							<?php
 								}
 							?>
