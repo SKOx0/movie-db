@@ -63,7 +63,7 @@
 			}
 			else {
 				$subject = $filename." converted!";
-				$message = "<p>The ".$quality." version of ".$filename." is ready.</p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
+				$message = "<p>The ".$quality." version of ".$filename." is ready.</p><p><a id=\"button\" style=\"text-decoration: none; color: black; padding: 5px; background-color: #ccc; border-radius: 5px;\" href=\"http://movies.virajchitnis.com/converted/".rawurlencode($quality)."/".rawurlencode($filename)."\">&#9658; Play Now</a></p><p><a href=\"http://movies.virajchitnis.com\">Movie DB</a> by <a href=\"http://www.virajchitnis.com\">Viraj Chitnis</a></p><p>&nbsp;</p><p><font size=\"2\" color=\"grey\">Do not reply to this email, this email address does not accept incoming mail. To report bugs or for any queries, email me at <a href=\"mailto:chitnisviraj@gmail.com\">chitnisviraj@gmail.com</a>.</font></p>";
 				sendmail($email, $subject, $message);
 			}
 			
