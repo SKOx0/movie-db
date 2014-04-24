@@ -462,7 +462,7 @@
 					$count_play = 0;
 				}
 		?>
-				<div class="movie_box">
+				<div class="movie_box" id="<?php echo str_replace(" ", "_", $name) ?>">
 					<table>
 						<tr>
 							<td>
