@@ -579,8 +579,13 @@
         		else {
         			$branch = $git_branch;
         		}
+				
+				if ($branch != "stable"){
         ?>
-				<p class="footerInfo"><?php echo exec("git describe"); ?> (<?php echo $branch; ?>)</p>
+					<p class="footerInfo"><?php echo exec("git describe"); ?> (<?php echo $branch; ?>)</p>
+		<?php
+				}
+		?>
 				<p>
 				<?php
 					if ($edit == "true") {
