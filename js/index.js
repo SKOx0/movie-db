@@ -261,6 +261,23 @@ function hideEmailOverlay () {
 	document.body.style.overflow = "auto";
 }
 
+function showRequestOverlay () {
+	document.getElementById('overlay_background').style.display = "block";
+	document.getElementById('overlay_request').style.display = "block";
+	document.body.style.overflow = "hidden";
+}
+
+function hideRequestOverlay () {
+	var request_form = document.getElementById('request_movie_form');
+	if (checkCookie("email")) {
+		request_form.elements[2].value = getCookie("email");
+	}
+	
+	document.getElementById('overlay_request').style.display = "none";
+	document.getElementById('overlay_background').style.display = "none";
+	document.body.style.overflow = "auto";
+}
+
 function showProgressOverlay () {
 	displayConvertProgress();
 	displayConvertMovie();
@@ -351,6 +368,21 @@ function postConvert (quality, filename, orig, email) {
 	xmlhttp.send(params);
 }
 
+function postRequest (id, movie_name, email) {
+	var params = "id=" + id + "&name=" + movie_name + "&email=" + email;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "scripts/request", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length", params.length);
+	xmlhttp.setRequestHeader("Connection", "close");
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			location.reload();
+		}
+	}
+	xmlhttp.send(params);
+}
+
 function convertFile (quality, filename, orig) {
 	var convert_form = document.getElementById('convert_email_form');
 	convert_form.elements[0].value = quality;
@@ -386,4 +418,25 @@ function startConversion () {
 	
 	setCookie("email", email, 30);
 	postConvert(quality, filename, orig, email);
+}
+
+function sendRequest () {
+	var request_form = document.getElementById('request_movie_form');
+	var id = request_form.elements[0].value;
+	var movie_name = request_form.elements[1].value;
+	var email = request_form.elements[2].value;
+	
+	if (email == null || email == ""){
+		alert("Email cannot be blank.");
+		return false;
+	}
+	var atpos = email.indexOf("@");
+	var dotpos = email.lastIndexOf(".");
+	if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length){
+		alert(email + " is not a valid e-mail address.");
+		return false;
+	}
+	
+	setCookie("email", email, 30);
+	postRequest(id, movie_name, email);
 }
