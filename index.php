@@ -42,7 +42,10 @@
 		$search;
 		$query;
 		$count;
-		$user = $_SERVER['PHP_AUTH_USER'];
+		$user = "blank";
+		if (isset($_SERVER['PHP_AUTH_USER'])) {
+			$user = $_SERVER['PHP_AUTH_USER'];
+		}
 		$converter_qualities = array("SD", "720p HD", "1080p HD");
 		$json_file = "convert_queue.json";
 		$failed_json_file = "failed_queue.json";
@@ -239,7 +242,7 @@
 									<a class="topMenu" onclick="showAddOverlay()"><button>Add/Edit Movies</button></a>
 							<?php
 								}
-								if ($user == "viraj") {
+								if (($user == "viraj") || ($user == "blank"))) {
 							?>
 									<form class="topMenu" method="get" action="./">
 									<?php
