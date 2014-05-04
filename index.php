@@ -242,7 +242,7 @@
 									<a class="topMenu" onclick="showAddOverlay()"><button>Add/Edit Movies</button></a>
 							<?php
 								}
-								if (($user == "viraj") || ($user == "blank"))) {
+								if (($user == "viraj") || ($user == "blank")) {
 							?>
 									<form class="topMenu" method="get" action="./">
 									<?php
