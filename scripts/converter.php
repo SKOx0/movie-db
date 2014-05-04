@@ -1,21 +1,7 @@
 <?php
+	require "functions.php";
+	
 	$json_file = "../convert_queue.json";
-	
-	function sendmail($to, $subject, $message) {
-		$headers = "From: \"Movie DB\" <movies@virajchitnis.com>"."\r\n".
-			"MIME-Version: 1.0"."\r\n".
-			"Content-Type: text/html";
-
-		mail($to, $subject, $message, $headers);
-	}
-	
-	function queue_to_html($queue) {
-		$html_text = "";
-		for ($i = 0; $i < count($queue); $i++) {
-			$html_text .= "<p>".$queue[$i]['filename']."</p>";
-		}
-		return $html_text;
-	}
 	
 	if (file_exists($json_file)) {
 		exec("touch ../converting");

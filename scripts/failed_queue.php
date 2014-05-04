@@ -1,13 +1,7 @@
 <?php
-	$failed_json_file = "../failed_queue.json";
-	
-	function sendmail($to, $subject, $message) {
-		$headers = "From: \"Movie DB\" <movies@virajchitnis.com>"."\r\n".
-			"MIME-Version: 1.0"."\r\n".
-			"Content-Type: text/html";
+	require "functions.php";
 
-		mail($to, $subject, $message, $headers);
-	}
+	$failed_json_file = "../failed_queue.json";
 	
 	if (file_exists($failed_json_file)) {
 		$failed_queue = json_decode(file_get_contents($failed_json_file), true);
