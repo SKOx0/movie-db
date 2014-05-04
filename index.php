@@ -230,10 +230,10 @@
 		<button onclick="hideProgressOverlay()">Close</button>
 	</div>
 	<div id="overlay_request">
-		<p>Requesting a movie does not guarantee its addition to the database. There is also no time frame for movie addition, it could take anywhere from a few hours to a few months before the movie you request get added, depending upon many factors regarding the movie. If the movie you request gets added to the database, you will be notified as such.<br>Enter the movie's IMDB ID or name, or both so that the movie can be identified.</p>
+		<p>Requesting a movie does not guarantee its addition to the database. There is also no time frame for movie addition, it could take anywhere from a few hours to a few months before the movie you request gets added, depending upon many factors regarding the movie. If the movie you request gets added to the database, you will be notified as such.<br>Enter the movie's IMDB ID or name, or both so that the movie can be identified.</p>
 		<form id="request_movie_form" style="display:inline">
 			<input type="text" name="id" placeholder="IMDB ID" size="9">
-			<p>or</p>
+			or
 			<input type="text" name="name" placeholder="Movie name" size="25">
 			<input type="text" name="email" placeholder="Your email" size="25">
 		</form>
