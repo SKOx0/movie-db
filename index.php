@@ -42,6 +42,7 @@
 		$search;
 		$query;
 		$count;
+		$user = $_SERVER['PHP_AUTH_USER'];
 		$converter_qualities = array("SD", "720p HD", "1080p HD");
 		$json_file = "convert_queue.json";
 		$failed_json_file = "failed_queue.json";
@@ -238,33 +239,35 @@
 									<a class="topMenu" onclick="showAddOverlay()"><button>Add/Edit Movies</button></a>
 							<?php
 								}
+								if ($user == "viraj") {
 							?>
-							<form class="topMenu" method="get" action="./">
-							<?php
-								if(isset($_GET["order"])){
-							?>
-									<input type="hidden" name="order" value="<?php echo $order ?>">
+									<form class="topMenu" method="get" action="./">
+									<?php
+										if(isset($_GET["order"])){
+									?>
+											<input type="hidden" name="order" value="<?php echo $order ?>">
+									<?php
+										}
+										if(isset($_GET["search"])){
+									?>
+											<input type="hidden" name="search" value="<?php echo $search ?>">
+									<?php
+										}
+										if ($edit == "false") {
+									?>
+											<input type="hidden" name="edit" value="true">
+											<input type="submit" value="Edit mode: Off">
+									<?php
+										}
+										else {
+									?>
+											<input type="submit" value="Edit mode: On">
+									<?php
+										}
+									?>
+									</form>
 							<?php
 								}
-								if(isset($_GET["search"])){
-							?>
-									<input type="hidden" name="search" value="<?php echo $search ?>">
-							<?php
-								}
-								if ($edit == "false") {
-							?>
-									<input type="hidden" name="edit" value="true">
-									<input type="submit" value="Edit mode: Off">
-							<?php
-								}
-								else {
-							?>
-									<input type="submit" value="Edit mode: On">
-							<?php
-								}
-							?>
-							</form>
-							<?php
 								if (isset($queue)) {
 							?>
 									<button class="topMenu" onclick="showProgressOverlay()">Conversion Progress</button>
