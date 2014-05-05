@@ -10,6 +10,9 @@ if($db->connect_errno > 0){
 function compare_movies ($files, $quality) {
 	global $db;
 	for ($i = 0; $i < count($files); $i++) {
+		if ((substr($files[$i], 0, 1) === '.') || (substr($files[$i], 0, 1) === '_')) {
+			continue;
+		}
 		$files_table = $db->prepare("SELECT count(file_name) FROM Files WHERE file_name = ?;");
 		$files_table->bind_param('s', $files[$i]);
 		$files_table->execute();
