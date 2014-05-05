@@ -13,26 +13,36 @@ function compare_movies ($files, $quality) {
 		if ((substr($files[$i], 0, 1) === '.') || (substr($files[$i], 0, 1) === '_')) {
 			continue;
 		}
-		$files_table = $db->prepare("SELECT id FROM Files WHERE file_name = ?;");
-		$files_table->bind_param('s', $files[$i]);
-		$files_table->execute();
-		$files_table->bind_result($id);
-		$files_table->fetch();
-		$files_table->free_result();
 		
-		$movies_table = $db->prepare("SELECT quality FROM Movies WHERE id = ?;");
-		$movies_table->bind_param('s', $id);
-		$movies_table->execute();
-		$movies_table->bind_result($curr_quality);
-		$movies_table->fetch();
-		$movies_table->free_result();
+		$id_table = $db->prepare("SELECT count(id) FROM Files WHERE file_name = ?;");
+		$id_table->bind_param('s', $files[$i]);
+		$id_table->execute();
+		$id_table->bind_result($count_id);
+		$id_table->fetch();
+		$id_table->free_result();
 		
-		if ($quality != $curr_quality) {
-			/*$update_table = $db->prepare("UPDATE Movies SET quality = ? WHERE id = ?;");
-			$update_table->bind_param('ss', $quality, $id);
-			$update_table->execute();
-			$update_table->free_result();*/
-			echo $files[$i]."						Old: (".$curr_quality.")		New: (".$quality.")<br>";
+		if ($count_id > 0) {
+			$files_table = $db->prepare("SELECT id FROM Files WHERE file_name = ?;");
+			$files_table->bind_param('s', $files[$i]);
+			$files_table->execute();
+			$files_table->bind_result($id);
+			$files_table->fetch();
+			$files_table->free_result();
+		
+			$movies_table = $db->prepare("SELECT quality FROM Movies WHERE id = ?;");
+			$movies_table->bind_param('s', $id);
+			$movies_table->execute();
+			$movies_table->bind_result($curr_quality);
+			$movies_table->fetch();
+			$movies_table->free_result();
+		
+			if ($quality != $curr_quality) {
+				/*$update_table = $db->prepare("UPDATE Movies SET quality = ? WHERE id = ?;");
+				$update_table->bind_param('ss', $quality, $id);
+				$update_table->execute();
+				$update_table->free_result();*/
+				echo $files[$i]."						Old: (".$curr_quality.")		New: (".$quality.")<br>";
+			}
 		}
 	}
 }
