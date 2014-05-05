@@ -7,8 +7,11 @@ if($db->connect_errno > 0){
     die('Unable to connect to database [' . $db->connect_error . ']');
 }
 
+$count_fixes = 0;
+
 function compare_movies ($files, $quality) {
 	global $db;
+	global $count_fixes;
 	for ($i = 0; $i < count($files); $i++) {
 		if ((substr($files[$i], 0, 1) === '.') || (substr($files[$i], 0, 1) === '_')) {
 			continue;
@@ -42,6 +45,7 @@ function compare_movies ($files, $quality) {
 				$update_table->bind_param('ss', $quality, $id);
 				$update_table->execute();
 				$update_table->free_result();
+				$count_fixes++;
 				echo " ==> (".$quality.")<br>";
 			}
 		}
@@ -55,6 +59,10 @@ $files_SD = scandir("../movies/iTunes Movies (SD)/");
 compare_movies($files_1080p, "1080p HD");
 compare_movies($files_720p, "720p HD");
 compare_movies($files_SD, "SD");
+
+if ($count_fixes == 0) {
+	echo "Nothing to repair! Your golden!";
+}
 
 $db->close();
 ?>
