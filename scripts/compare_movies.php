@@ -7,6 +7,8 @@ if($db->connect_errno > 0){
     die('Unable to connect to database [' . $db->connect_error . ']');
 }
 
+$count_missing = 0;
+
 function compare_movies ($files, $quality) {
 	global $db;
 	for ($i = 0; $i < count($files); $i++) {
@@ -22,6 +24,7 @@ function compare_movies ($files, $quality) {
 		
 		if ($count_file_name == 0) {
 			echo $files[$i]." (".$quality.")<br>";
+			$count_missing++;
 		}
 	}
 }
@@ -33,6 +36,10 @@ $files_SD = scandir("../movies/iTunes Movies (SD)/");
 compare_movies($files_1080p, "1080p HD");
 compare_movies($files_720p, "720p HD");
 compare_movies($files_SD, "SD");
+
+if ($count_missing == 0) {
+	echo "Nothing to add! Your golden!";
+}
 
 $db->close();
 ?>
