@@ -17,7 +17,7 @@ function compare_movies ($files, $quality) {
 		$files_table->free_result();
 		
 		if ($count_file_name == 0) {
-			echo $files[$i]." (".$quality")<br>";
+			echo $files[$i]." (".$quality.")<br>";
 		}
 	}
 }
