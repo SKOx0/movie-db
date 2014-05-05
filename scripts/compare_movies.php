@@ -8,6 +8,7 @@ if($db->connect_errno > 0){
 }
 
 function compare_movies ($files, $quality) {
+	global $db;
 	for ($i = 0; $i < count($files); $i++) {
 		$files_table = $db->prepare("SELECT count(file_name) FROM Files WHERE file_name = ?;");
 		$files_table->bind_param('s', $files[$i]);
@@ -29,4 +30,6 @@ $files_SD = scandir("../movies/iTunes Movies (SD)/");
 compare_movies($files_1080p, "1080p HD");
 compare_movies($files_720p, "720p HD");
 compare_movies($files_SD, "SD");
+
+$db->close();
 ?>
