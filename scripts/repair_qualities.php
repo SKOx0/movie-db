@@ -37,11 +37,12 @@ function compare_movies ($files, $quality) {
 			$movies_table->free_result();
 		
 			if ($quality != $curr_quality) {
+				echo "<b>".$files[$i]."</b> (".$curr_quality.")";
 				/*$update_table = $db->prepare("UPDATE Movies SET quality = ? WHERE id = ?;");
 				$update_table->bind_param('ss', $quality, $id);
 				$update_table->execute();
 				$update_table->free_result();*/
-				echo $files[$i]."						Old: (".$curr_quality.")		New: (".$quality.")<br>";
+				echo " ==> (".$quality.")<br>";
 			}
 		}
 	}
