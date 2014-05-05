@@ -17,31 +17,23 @@ Installation
 
 1. Clone this repository into your Apache root directory.
 
-	```shell
 	# git clone git@bitbucket.org:virajchitnis/movie-db.git
-	```
 
 2. Create a MySQL database to store your movie info in.
 
-	```shell
 	# mysql -u root -p
 	mysql> create database movies;
-	```
 
 3. Create a MySQL user and password with privileges for this database only.
 
-	```shell
 	mysql> grant all on movies.* to movies@localhost identified by 'some_password';
 	mysql> flush privileges;
 	mysql> exit
-	```
 
 4. Copy the 'config.sample.php' file in the config directory to config.php and edit the variables within it to match the database details you setup in the earlier step.
 
-	```shell
 	# cp config/config.sample.php config/config.php
 	# nano config/config.php
-	```
 
 5. Navigate to http://${your_server_ip}/movie-db to use it.
 6. To install future updates, simply click on the 'Update' button at the bottom of the main page.
