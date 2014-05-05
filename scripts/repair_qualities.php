@@ -38,10 +38,10 @@ function compare_movies ($files, $quality) {
 		
 			if ($quality != $curr_quality) {
 				echo "<b>".$files[$i]."</b> (".$curr_quality.")";
-				/*$update_table = $db->prepare("UPDATE Movies SET quality = ? WHERE id = ?;");
+				$update_table = $db->prepare("UPDATE Movies SET quality = ? WHERE id = ?;");
 				$update_table->bind_param('ss', $quality, $id);
 				$update_table->execute();
-				$update_table->free_result();*/
+				$update_table->free_result();
 				echo " ==> (".$quality.")<br>";
 			}
 		}
