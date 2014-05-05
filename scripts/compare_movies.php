@@ -11,6 +11,7 @@ $count_missing = 0;
 
 function compare_movies ($files, $quality) {
 	global $db;
+	global $count_missing;
 	for ($i = 0; $i < count($files); $i++) {
 		if ((substr($files[$i], 0, 1) === '.') || (substr($files[$i], 0, 1) === '_')) {
 			continue;
