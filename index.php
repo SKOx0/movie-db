@@ -570,8 +570,7 @@
 	<div id="footer">
 		<p class="footerInfo"><?php echo $count ?> Movies</p>
 		<?php
-        	if (file_exists(".git")) {
-        		$git_branch = exec("git branch | grep '*' | awk '{print $2}'");
+        		$git_branch = exec("cd /srv/git/movie-db.git; git branch | grep '*' | awk '{print $2}'");
         		$branch;
         		if ($git_branch == "master") {
         			$branch = "stable";
@@ -582,7 +581,7 @@
 				
 				if ($branch != "stable"){
         ?>
-					<p class="footerInfo"><?php echo exec("git describe"); ?> (<?php echo $branch; ?>)</p>
+					<p class="footerInfo"><?php echo exec("cd /srv/git/movie-db.git; git describe"); ?> (<?php echo $branch; ?>)</p>
 		<?php
 				}
 		?>
@@ -600,16 +599,12 @@
 						exec("tar -cf moviedb posters movies.sql");
 						exec("gzip -S .mbk moviedb");
 				?>
-						<button onclick="openLink('scripts/gitupdate')">Update</button> 
 						<button onclick="openLink('moviedb.mbk')">Backup</button>
 						<button onclick="showRestoreOverlay()">Restore</button>
 				<?php
 					}
 				?>
 				</p>
-		<?php
-			}
-		?>
 		<p id="copyright">&copy; 2013-<span id="copy_year"></span> Viraj Chitnis</p>
 	</div>
 	<script src="js/index.js" type="text/javascript"></script>
