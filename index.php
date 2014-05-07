@@ -572,7 +572,7 @@
 		<?php	
 				if ((file_exists("/srv/git/movie-db.git")) && (file_exists("devel"))){
         ?>
-					<p class="footerInfo"><?php echo exec("cd /srv/git/movie-db.git; git describe"); ?> (devel)</p>
+					<p class="footerInfo"><?php echo exec("cd /srv/git/movie-db.git; git describe"); ?></p>
 		<?php
 				}
 		?>
