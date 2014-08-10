@@ -15,6 +15,7 @@ $all_movies = array();
 
 while ($movies_table->fetch()) {
 	$query_name = 'SELECT file_name FROM Files WHERE id=\''.$id.'\'';
+	$db2 = new mysqli($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
 	$files_table = $db2->prepare($query_name);
 	$files_table->execute();
 	$files_table->bind_result($file_name);
@@ -30,6 +31,9 @@ while ($movies_table->fetch()) {
 	
 	array_push($all_movies, $curr_movie);
 }
+
+$movies_table->free_result();
+$db->close();
 
 echo json_encode($all_movies, JSON_PRETTY_PRINT);
 ?>
