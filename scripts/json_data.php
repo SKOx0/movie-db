@@ -35,5 +35,5 @@ while ($movies_table->fetch()) {
 $movies_table->free_result();
 $db->close();
 
-echo json_encode($all_movies, JSON_PRETTY_PRINT);
+echo '<pre>'.json_encode($all_movies, JSON_PRETTY_PRINT).'</pre>';
 ?>
